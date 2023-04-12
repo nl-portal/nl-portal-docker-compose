@@ -1,0 +1,34 @@
+version: '3.9'
+services:
+  nl-portal-keycloak:
+      container_name: nl-portal-keycloak
+      depends_on:
+          - nl-portal-keycloak-database
+      image: quay.io/keycloak/keycloak:17.0.1-legacy
+      ports:
+          - "8082:8080"
+      environment:
+          KEYCLOAK_USER: admin
+          KEYCLOAK_PASSWORD: admin
+          DB_VENDOR: postgres
+          DB_ADDR: nl-portal-keycloak-database
+          DB_USER: keycloak
+          DB_PASSWORD: keycloak
+  nl-portal-keycloak-database:
+      image: postgres:14.1
+      container_name: nl-portal-keycloak-database
+      environment:
+          - POSTGRES_USER: keycloak
+          - POSTGRES_PASSWORD: keycloak
+  nl-portal-database:
+      container_name: nl-portal-database
+      image: postgres:14.1
+      environment:
+          POSTGRES_USER: nlportal
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: nl-portal
+      volumes:
+          - nl-portal-database-data:/var/lib/postgres # persist data even if container shuts down
+
+volumes:
+  nl-portal-database-data:
