@@ -18,8 +18,8 @@ services:
       image: postgres:14.1
       container_name: nl-portal-keycloak-database
       environment:
-          - POSTGRES_USER: keycloak
-          - POSTGRES_PASSWORD: keycloak
+          POSTGRES_USER: keycloak
+          POSTGRES_PASSWORD: keycloak
   nl-portal-database:
       container_name: nl-portal-database
       image: postgres:14.1
