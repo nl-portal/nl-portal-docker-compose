@@ -82,6 +82,8 @@ services:
           - POSTGRES_USER=openzaak
           - POSTGRES_PASSWORD=openzaak
           - POSTGRES_DB=openzaak
+      volumes:
+          - ./imports/open-zaak:/docker-entrypoint-initdb.d
 
   redis:
       image: redis:6.2.6
