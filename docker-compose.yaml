@@ -82,8 +82,6 @@ services:
           - POSTGRES_USER=openzaak
           - POSTGRES_PASSWORD=openzaak
           - POSTGRES_DB=openzaak
-      volumes:
-          - ./docker-postgresql-multiple-databases.sh:/docker-entrypoint-initdb.d
 
   redis:
       image: redis:6.2.6
@@ -105,9 +103,7 @@ services:
           - CORS_ALLOW_ALL_ORIGINS=true
           - SECRET_KEY=${SECRET_KEY:-1(@f(-6s_u(5fd&1sg^uvu2s(c-9sapw)1era8q&)g)h@cwxxg}
           - DJANGO_SETTINGS_MODULE=objects.conf.docker
-          - DB_PORT=5432
           - DB_HOST=objecten-api-database
-          - DB_NAME=objectenapi
           - DEBUG=true
           - TWO_FACTOR_FORCE_OTP_ADMIN=False # this is not available yet in this version
           - TWO_FACTOR_PATCH_ADMIN=False
@@ -122,9 +118,9 @@ services:
           - zgw
           - objecten
       environment:
-          - POSTGRES_USER=objectenapi
-          - POSTGRES_PASSWORD=objectenapi
-          - POSTGRES_DB=objectenapi
+          - POSTGRES_USER=objects
+          - POSTGRES_PASSWORD=objects
+          - POSTGRES_DB=objects
 
   objecten-api-import:
       image: maykinmedia/objects-api:2.1.1
@@ -144,7 +140,7 @@ services:
 
   objecttypen-api:
       image: maykinmedia/objecttypes-api:2.1.0
-      container_name: objecttypes-api
+      container_name: objecttypen-api
       platform: linux/amd64
       profiles:
           - zgw
@@ -155,8 +151,7 @@ services:
           - CORS_ALLOW_ALL_ORIGINS=true
           - SECRET_KEY=${SECRET_KEY:-fgv=c0hz&tl*8*3m3893@m+1pstrvidc9e^5@fpspmg%cy$$15d}
           - DJANGO_SETTINGS_MODULE=objecttypes.conf.docker
-          - DB_PORT=5432
-          - DB_HOST=database-objecttypes-api
+          - DB_HOST=objecttypen-api-database
           - DEBUG=true
           - TWO_FACTOR_FORCE_OTP_ADMIN=False # this is not available yet in this version
           - TWO_FACTOR_PATCH_ADMIN=False
@@ -170,8 +165,10 @@ services:
             - zgw
             - objecten
         environment:
-            - POSTGRES_USER=objecttypen
-            - POSTGRES_PASSWORD=objecttypen
+            - POSTGRES_USER=objecttypes
+            - POSTGRES_PASSWORD=objecttypes
+            - POSTGRES_DB=objecttypes
+
 
   objecttypen-api-import:
       image: maykinmedia/objecttypes-api:2.1.0
