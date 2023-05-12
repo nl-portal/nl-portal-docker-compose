@@ -14,7 +14,7 @@ Execute the following command: `docker compose --profile zgw up -d`
 The following services will be started:
 | Service   |      Mapped port      |
 |----------|:-------------:|
-| NL Portal database (postgres) |  5432         |
+| NL Portal database (postgres) |  54321         |
 | Keycloak |  8082         |
 | Keycloak database (postgres) |    -   |
 | Open Zaak | 8001 |
@@ -29,6 +29,6 @@ The following services will be started:
 Execute the following command: `docker compose up -d`
 | Service   |      Mapped port      |
 |----------|:-------------:|
-| NL Portal database (postgres) |  5432         |
+| NL Portal database (postgres) |  54321         |
 | Keycloak |  8082         |
 | Keycloak database (postgres) |    -   |
