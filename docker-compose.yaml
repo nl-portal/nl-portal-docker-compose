@@ -73,7 +73,7 @@ services:
 
   openzaak-database:
       image: mdillon/postgis:11
-      container_name: openzaak-postgis
+      container_name: openzaak-database
       platform: linux/amd64
       profiles:
           - zgw
