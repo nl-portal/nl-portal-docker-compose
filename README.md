@@ -1,7 +1,8 @@
 # nl-portal-docker-compose
 ## Getting started
 ### Requirements
-* Docker Compose
+- [Docker Desktop](https://docs.docker.com/desktop/install/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Starting up
 This repository offers two options for starting up the supporting services for NL Portal:
