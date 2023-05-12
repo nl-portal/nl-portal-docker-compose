@@ -9,7 +9,7 @@ This repository offers two options for starting up the supporting services for N
 - Keycloak and database only
 
 ### Including all ZGW related services
-Execute the following command: `docker compose up -d`
+Execute the following command: `docker compose --profile zgw up -d`
 
 The following services will be started:
 | Service   |      Mapped port      |
@@ -26,7 +26,7 @@ The following services will be started:
 | Redis | - |
 
 ### Keycloak and database only
-Execute the following command: `docker compose --profile zgw up -d`
+Execute the following command: `docker compose up -d`
 | Service   |      Mapped port      |
 |----------|:-------------:|
 | NL Portal database (postgres) |  5432         |
