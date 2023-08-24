@@ -85,12 +85,51 @@ services:
       volumes:
           - ./imports/open-zaak:/docker-entrypoint-initdb.d
 
+  openklant:
+      image: maykinmedia/open-klant:0.1
+      container_name: openklant
+      platform: linux/amd64
+      profiles:
+          - zgw
+          - openklant
+      environment:
+          - DB_HOST=openklant-database
+          - DB_POST=5434
+          - SECRET_KEY=veryRestrictedSecretKey
+          - DB_USER=openklant
+          - DB_PASSWORD=openklant
+          - DB_NAME=openklant
+          - CACHE_DEFAULT=redis:6379/0
+          - CACHE_AXES=redis:6379/0
+          - DEBUG=true
+          - ALLOWED_HOSTS=localhost,host.docker.internal,172.17.0.1,openklant
+          - DJANGO_SUPERUSER_PASSWORD=admin
+          - SENDFILE_BACKEND=django_sendfile.backends.simple
+      ports:
+          - "8006:8000"
+      depends_on:
+          -   openklant-database
+          -   redis
+  openklant-database:
+      image: mdillon/postgis:11
+      container_name: openklant-database
+      platform: linux/amd64
+      profiles:
+          - zgw
+          - openklant
+      environment:
+          - POSTGRES_USER=openklant
+          - POSTGRES_PASSWORD=openklant
+          - POSTGRES_DB=openklant
+      volumes:
+          - ./imports/open-klant:/docker-entrypoint-initdb.d
+
   redis:
       image: redis:6.2.6
       container_name: redis
       profiles:
           - zgw
-          - openzaak
+          - openklant
 
   objecten-api:
       image: maykinmedia/objects-api:2.1.1
