@@ -94,17 +94,14 @@ services:
           - openklant
       environment:
           - DB_HOST=openklant-database
-          - DB_POST=5434
           - SECRET_KEY=veryRestrictedSecretKey
           - DB_USER=openklant
           - DB_PASSWORD=openklant
           - DB_NAME=openklant
           - CACHE_DEFAULT=redis:6379/0
           - CACHE_AXES=redis:6379/0
-          - DEBUG=true
-          - ALLOWED_HOSTS=localhost,host.docker.internal,172.17.0.1,openklant
-          - DJANGO_SUPERUSER_PASSWORD=admin
-          - SENDFILE_BACKEND=django_sendfile.backends.simple
+          - ALLOWED_HOSTS=*
+          - DJANGO_SETTINGS_MODULE=openklant.conf.docker
       ports:
           - "8006:8000"
       depends_on:
