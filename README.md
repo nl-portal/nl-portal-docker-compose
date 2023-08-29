@@ -6,7 +6,7 @@
 
 ### Starting up
 This repository offers two options for starting up the supporting services for NL Portal:
-- Including all ZGW related services, like Open Zaak, Objects API and Objecttypes API
+- Including all ZGW related services, like Open Zaak, Open Klant, Objects API and Objecttypes API
 - Keycloak and database only
 
 ### Including all ZGW related services
@@ -20,6 +20,8 @@ The following services will be started:
 | Keycloak database (postgres) |    -   |
 | Open Zaak | 8001 |
 | Open Zaak database (postgis) | - |
+| Open Klant | 8006 |
+| Open Klant database (postgis) | - |
 | Objecten API | 8010 |
 | Objecten API database (postgis) | - |
 | Objecttypen API | 8011 |
