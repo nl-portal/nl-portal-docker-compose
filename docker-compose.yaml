@@ -34,7 +34,7 @@ services:
       container_name: nl-portal-database
       image: postgres:14.1
       ports:
-          - "5432:5432"
+          - "54321:5432"
       environment:
           POSTGRES_USER: nlportal
           POSTGRES_PASSWORD: password
@@ -43,9 +43,9 @@ services:
           - nl-portal-database-data:/var/lib/postgres # persist data even if container shuts down
 
   #zgw
-  openzaak:
+  openzaak-portal:
       image: openzaak/open-zaak:1.7.5
-      container_name: openzaak
+      container_name: openzaak-portal
       platform: linux/amd64
       profiles:
           - zgw
@@ -68,12 +68,12 @@ services:
       ports:
           - "8001:8000"
       depends_on:
-          -   openzaak-database
-          -   redis
+          -   openzaak-database-portal
+          -   redis-portal
 
-  openzaak-database:
+  openzaak-database-portal:
       image: mdillon/postgis:11
-      container_name: openzaak-postgis
+      container_name: openzaak-postgis-portal
       platform: linux/amd64
       profiles:
           - zgw
@@ -85,16 +85,16 @@ services:
       volumes:
           - ./imports/open-zaak:/docker-entrypoint-initdb.d
 
-  redis:
+  redis-portal:
       image: redis:6.2.6
-      container_name: redis
+      container_name: redis-portal
       profiles:
           - zgw
           - openzaak
 
-  objecten-api:
+  objecten-api-portal:
       image: maykinmedia/objects-api:2.1.1
-      container_name: objecten-api
+      container_name: objecten-api-portal
       platform: linux/amd64
       profiles:
           - zgw
@@ -110,11 +110,11 @@ services:
           - TWO_FACTOR_FORCE_OTP_ADMIN=False # this is not available yet in this version
           - TWO_FACTOR_PATCH_ADMIN=False
       depends_on:
-          - objecten-api-database
+          - objecten-api-database-portal
 
-  objecten-api-database:
+  objecten-api-database-portal:
       image: postgis/postgis:13-3.1
-      container_name: objecten-api-database
+      container_name: objecten-api-database-portal
       platform: linux/amd64
       profiles:
           - zgw
@@ -124,9 +124,9 @@ services:
           - POSTGRES_PASSWORD=objects
           - POSTGRES_DB=objects
 
-  objecten-api-import:
+  objecten-api-import-portal:
       image: maykinmedia/objects-api:2.1.1
-      container_name: objects-api-import
+      container_name: objects-api-import-portal
       platform: linux/amd64
       profiles:
           - zgw
@@ -138,11 +138,11 @@ services:
           - ./imports/objects-api/fixtures:/app/src/objects/fixtures
           - ./imports/objects-api/init:/app/init
       depends_on:
-          - objecten-api
+          - objecten-api-portal
 
-  objecttypen-api:
+  objecttypen-api-portal:
       image: maykinmedia/objecttypes-api:2.1.0
-      container_name: objecttypen-api
+      container_name: objecttypen-api-portal
       platform: linux/amd64
       profiles:
           - zgw
@@ -158,11 +158,11 @@ services:
           - TWO_FACTOR_FORCE_OTP_ADMIN=False # this is not available yet in this version
           - TWO_FACTOR_PATCH_ADMIN=False
       depends_on:
-          - objecttypen-api-database
+          - objecttypen-api-database-portal
 
-  objecttypen-api-database:
+  objecttypen-api-database-portal:
         image: postgres:14.1
-        container_name: objecttypen-api-database
+        container_name: objecttypen-api-database-portal
         profiles:
             - zgw
             - objecten
@@ -172,9 +172,9 @@ services:
             - POSTGRES_DB=objecttypes
 
 
-  objecttypen-api-import:
+  objecttypen-api-import-portal:
       image: maykinmedia/objecttypes-api:2.1.0
-      container_name: objecttypen-api-import
+      container_name: objecttypen-api-import-portal
       platform: linux/amd64
       profiles:
           - zgw
@@ -185,7 +185,7 @@ services:
           - ./imports/objecttypes-api/fixtures:/app/src/objecttypes/fixtures
           - ./imports/objecttypes-api/init:/app/init
       depends_on:
-          - objecttypen-api
+          - objecttypen-api-portal
 
 volumes:
   nl-portal-database-data:
