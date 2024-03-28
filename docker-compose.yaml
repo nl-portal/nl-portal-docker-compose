@@ -22,6 +22,8 @@ services:
           - "-Dkeycloak.migration.provider=singleFile"
           - "-Dkeycloak.migration.file=/opt/jboss/keycloak/imports/realm.json"
           - "-Dkeycloak.migration.strategy=IGNORE_EXISTING"
+          - "-Dkeycloak.profile=preview"
+          - "-Dkeycloak.profile.feature.token_exchange=enabled"
   nl-portal-keycloak-database:
       image: postgres:14.1
       container_name: nl-portal-keycloak-database
