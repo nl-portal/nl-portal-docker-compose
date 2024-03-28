@@ -46,7 +46,7 @@ services:
   openzaak-portal:
       image: openzaak/open-zaak:1.7.5
       container_name: openzaak-portal
-      #platform: linux/amd64
+      platform: linux/amd64
       profiles:
           - zgw
           - openzaak
@@ -95,7 +95,7 @@ services:
   objecten-api-portal:
       image: maykinmedia/objects-api:2.1.1
       container_name: objecten-api-portal
-      #platform: linux/amd64
+      platform: linux/amd64
       profiles:
           - zgw
           - objecten
@@ -115,7 +115,7 @@ services:
   objecten-api-database-portal:
       image: postgis/postgis:13-3.1
       container_name: objecten-api-database-portal
-      #platform: linux/amd64
+      platform: linux/amd64
       profiles:
           - zgw
           - objecten
@@ -127,7 +127,7 @@ services:
   objecten-api-import-portal:
       image: maykinmedia/objects-api:2.1.1
       container_name: objects-api-import-portal
-      #platform: linux/amd64
+      platform: linux/amd64
       profiles:
           - zgw
           - objecten
@@ -143,7 +143,7 @@ services:
   objecttypen-api-portal:
       image: maykinmedia/objecttypes-api:2.1.0
       container_name: objecttypen-api-portal
-      #platform: linux/amd64
+      platform: linux/amd64
       profiles:
           - zgw
           - objecten
