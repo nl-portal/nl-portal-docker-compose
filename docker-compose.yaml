@@ -46,12 +46,12 @@ services:
   openzaak-portal:
       image: openzaak/open-zaak:1.7.5
       container_name: openzaak-portal
-      platform: linux/amd64
+      #platform: linux/amd64
       profiles:
           - zgw
           - openzaak
       environment:
-          - DB_HOST=openzaak-database
+          - DB_HOST=openzaak-database-portal
           - DB_POST=5433
           - SECRET_KEY=veryRestrictedSecretKey
           - DB_USER=openzaak
@@ -95,7 +95,7 @@ services:
   objecten-api-portal:
       image: maykinmedia/objects-api:2.1.1
       container_name: objecten-api-portal
-      platform: linux/amd64
+      #platform: linux/amd64
       profiles:
           - zgw
           - objecten
@@ -105,7 +105,7 @@ services:
           - CORS_ALLOW_ALL_ORIGINS=true
           - SECRET_KEY=${SECRET_KEY:-1(@f(-6s_u(5fd&1sg^uvu2s(c-9sapw)1era8q&)g)h@cwxxg}
           - DJANGO_SETTINGS_MODULE=objects.conf.docker
-          - DB_HOST=objecten-api-database
+          - DB_HOST=objecten-api-database-portal
           - DEBUG=true
           - TWO_FACTOR_FORCE_OTP_ADMIN=False # this is not available yet in this version
           - TWO_FACTOR_PATCH_ADMIN=False
@@ -115,7 +115,7 @@ services:
   objecten-api-database-portal:
       image: postgis/postgis:13-3.1
       container_name: objecten-api-database-portal
-      platform: linux/amd64
+      #platform: linux/amd64
       profiles:
           - zgw
           - objecten
@@ -127,7 +127,7 @@ services:
   objecten-api-import-portal:
       image: maykinmedia/objects-api:2.1.1
       container_name: objects-api-import-portal
-      platform: linux/amd64
+      #platform: linux/amd64
       profiles:
           - zgw
           - objecten
@@ -143,7 +143,7 @@ services:
   objecttypen-api-portal:
       image: maykinmedia/objecttypes-api:2.1.0
       container_name: objecttypen-api-portal
-      platform: linux/amd64
+      #platform: linux/amd64
       profiles:
           - zgw
           - objecten
@@ -153,7 +153,7 @@ services:
           - CORS_ALLOW_ALL_ORIGINS=true
           - SECRET_KEY=${SECRET_KEY:-fgv=c0hz&tl*8*3m3893@m+1pstrvidc9e^5@fpspmg%cy$$15d}
           - DJANGO_SETTINGS_MODULE=objecttypes.conf.docker
-          - DB_HOST=objecttypen-api-database
+          - DB_HOST=objecttypen-api-database-portal
           - DEBUG=true
           - TWO_FACTOR_FORCE_OTP_ADMIN=False # this is not available yet in this version
           - TWO_FACTOR_PATCH_ADMIN=False
