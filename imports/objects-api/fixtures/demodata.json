@@ -54,6 +54,15 @@
         }
     },
     {
+        "model": "core.objecttype",
+        "pk": 7,
+        "fields": {
+            "service": 1,
+            "uuid": "4b5f4fba-0746-11ed-b939-0242ac120022",
+            "_name": "Parkeervergunning"
+        }
+    },
+    {
         "model": "core.object",
         "pk": 1,
         "fields": {
@@ -179,6 +188,14 @@
         "fields": {
             "uuid": "57001413-c035-434e-9d46-090ba24fca8e",
             "object_type": 2
+        }
+    },
+    {
+        "model": "core.object",
+        "pk": 32,
+        "fields": {
+            "uuid": "4b5f4fba-0746-11ed-b939-0242ac120023",
+            "object_type": 7
         }
     },
     {
@@ -798,6 +815,25 @@
         }
     },
     {
+        "model": "core.objectrecord",
+        "pk": 43,
+        "fields": {
+            "index": 1,
+            "object": 32,
+            "version": 1,
+            "data": {
+                "naam": "Jan",
+                "kenteken": "BB-11-CC",
+                "straat": "straatnaam",
+                "postcode": "1234AB"            },
+            "start_at": "2020-09-30",
+            "end_at": null,
+            "registration_at": "2020-09-30",
+            "correct": null,
+            "geometry": "SRID=4326;POINT (4.894407188326989 52.37626808920047)"
+        }
+    },
+    {
         "model": "token.tokenauth",
         "pk": "cd63e158f3aca276ef284e3033d020a22899c728",
         "fields": {
@@ -880,6 +916,15 @@
         "fields": {
             "token_auth": "182c13e2209161852c53cef53a879f7a2f923430",
             "object_type": 6,
+            "mode": "read_and_write"
+        }
+    },
+    {
+        "model": "token.permission",
+        "pk": 8,
+        "fields": {
+            "token_auth": "182c13e2209161852c53cef53a879f7a2f923430",
+            "object_type": 7,
             "mode": "read_and_write"
         }
     },
