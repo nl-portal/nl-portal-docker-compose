@@ -1784,15 +1784,8 @@
                         "type": "string"
                     },
                     "data": {
-                        "type": "object",
-                        "patternProperties": {
-                            "^.*$": {
-                                "not": {
-                                    "type": "object"
-                                }
-                            }
-                        },
-                        "additionalProperties": false
+                         "type": "object",
+      "additionalProperties": true
                     },
                     "formulier": {
                         "type": "object",
@@ -1800,7 +1793,8 @@
                             "type": {
                                 "enum": [
                                     "id",
-                                    "object"
+                                    "object",
+									"url"
                                 ],
                                 "type": "string"
                             },
@@ -1810,15 +1804,8 @@
                         }
                     },
                     "verzonden_data": {
-                        "type": "object",
-                        "patternProperties": {
-                            "^.*$": {
-                                "not": {
-                                    "type": "object"
-                                }
-                            }
-                        },
-                        "additionalProperties": false
+                         "type": "object",
+      "additionalProperties": true
                     },
                     "status": {
                         "type": "string",
