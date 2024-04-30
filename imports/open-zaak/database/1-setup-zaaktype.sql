@@ -1017,15 +1017,6 @@ VALUES (
 
 SELECT setval(pg_get_serial_sequence('zaken_zaakidentificatie', 'id'), 1, true);
 
-SELECT setval(pg_get_serial_sequence('zaken_zaakidentificatie', 'id'), 2, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_zaakidentificatie', 'id'), 3, true);
-SELECT setval(pg_get_serial_sequence('zaken_zaakidentificatie', 'id'), 4, true);
-SELECT setval(pg_get_serial_sequence('zaken_zaakidentificatie', 'id'), 5, true);
-SELECT setval(pg_get_serial_sequence('zaken_zaakidentificatie', 'id'), 6, true);
-SELECT setval(pg_get_serial_sequence('zaken_zaakidentificatie', 'id'), 7, true);
-SELECT setval(pg_get_serial_sequence('zaken_zaakidentificatie', 'id'), 8, true);
-SELECT setval(pg_get_serial_sequence('zaken_zaakidentificatie', 'id'), 9, true);
 
 INSERT INTO zaken_zaak (
 	id
@@ -1686,21 +1677,6 @@ VALUES (
 
 SELECT setval(pg_get_serial_sequence('zaken_zaak', 'id'), 1, true);
 
-SELECT setval(pg_get_serial_sequence('zaken_zaak', 'id'), 2, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_zaak', 'id'), 3, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_zaak', 'id'), 4, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_zaak', 'id'), 5, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_zaak', 'id'), 6, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_zaak', 'id'), 7, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_zaak', 'id'), 8, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_zaak', 'id'), 9, true);
 
 INSERT INTO zaken_rol (
 	id
@@ -2001,22 +1977,6 @@ VALUES (
 
 SELECT setval(pg_get_serial_sequence('zaken_rol', 'id'), 1, true);
 
-SELECT setval(pg_get_serial_sequence('zaken_rol', 'id'), 2, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_rol', 'id'), 3, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_rol', 'id'), 4, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_rol', 'id'), 5, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_rol', 'id'), 6, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_rol', 'id'), 7, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_rol', 'id'), 8, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_rol', 'id'), 9, true);
-
 
 INSERT INTO zaken_natuurlijkpersoon (
 	id
@@ -2262,19 +2222,3 @@ VALUES (
 	);
 
 SELECT setval(pg_get_serial_sequence('zaken_natuurlijkpersoon', 'id'), 1, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_natuurlijkpersoon', 'id'), 2, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_natuurlijkpersoon', 'id'), 3, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_natuurlijkpersoon', 'id'), 4, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_natuurlijkpersoon', 'id'), 5, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_natuurlijkpersoon', 'id'), 6, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_natuurlijkpersoon', 'id'), 7, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_natuurlijkpersoon', 'id'), 8, true);
-
-SELECT setval(pg_get_serial_sequence('zaken_natuurlijkpersoon', 'id'), 9, true);
