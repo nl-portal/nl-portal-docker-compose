@@ -44,7 +44,7 @@ services:
 
   #zgw
   openzaak:
-      image: openzaak/open-zaak:1.8.1
+      image: openzaak/open-zaak:1.12.4
       container_name: openzaak
       platform: linux/amd64
       profiles:
