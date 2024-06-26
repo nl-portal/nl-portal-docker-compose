@@ -1,4 +1,3 @@
-version: '3.9'
 services:
   #keycloak
 
@@ -6,7 +5,7 @@ services:
       container_name: nl-portal-keycloak
       depends_on:
           - nl-portal-keycloak-database
-      image: quay.io/keycloak/keycloak:24.0.1
+      image: quay.io/keycloak/keycloak:25.0.1
       ports:
           - "8082:8080"
       environment:
@@ -283,6 +282,23 @@ services:
       image: redis:6.2.6
       container_name: redis-open-notificaties
 
+  haalcentraal-personen:
+      container_name: haalcentraal-personen
+      image: ghcr.io/brp-api/personen-mock:2.2.1
+      build:
+          context: .
+          dockerfile: src/BrpService/Dockerfile
+      environment:
+          - ASPNETCORE_ENVIRONMENT=Release
+          - ASPNETCORE_URLS=http://+:5010
+      ports:
+          - "5010:5010"
+      networks:
+          - brp-api-network
+
+networks:
+      brp-api-network:
+          name: brp-api-network
 
 volumes:
   nl-portal-database-data:
