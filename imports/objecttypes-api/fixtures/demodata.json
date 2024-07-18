@@ -2025,5 +2025,166 @@
             },
             "status": "draft"
         }
+    },
+    {
+        "model": "core.objecttype",
+        "pk": 8,
+        "fields": {
+            "uuid": "78731088-430f-49fd-9a4c-80ddd42ded28",
+            "name": "Bericht",
+            "name_plural": "Berichten",
+            "description": "Bericht",
+            "data_classification": "intern",
+            "maintainer_organization": "Ritense",
+            "maintainer_department": "",
+            "contact_person": "",
+            "contact_email": "",
+            "source": "",
+            "update_frequency": "unknown",
+            "provider_organization": "",
+            "documentation_url": "",
+            "labels": {},
+            "created_at": "2024-07-18",
+            "modified_at": "2024-07-18"
+        }
+    },
+    {
+        "model": "core.objectversion",
+        "pk": 14,
+        "fields": {
+            "object_type": 8,
+            "version": 1,
+            "created_at": "2024-07-18",
+            "modified_at": "2024-07-18",
+            "published_at": "2024-07-18",
+            "json_schema": {
+                "$id": "bericht-v1.schema.json",
+                "title": "Bericht",
+                "type": "object",
+                "examples": [
+                    {
+                        "geadresseerde": {
+                            "type": "bsn",
+                            "value": "999990755"
+                        },
+                        "publicatiedatum": "2024-07-18",
+                        "onderwerp": "Bericht over uw buurt.",
+                        "berichttekst": "Er zijn werkzaamheden komende week in uw buurt. U kunt meer over dit lezen op de volgende website: https://example.com",
+                        "referentie": "ZAAK-2024-0000000001",
+                        "handelingsperspectief": "informatie ontvangen",
+                        "einddatumAfhandelingstermijn": "2024-10-31",
+                        "isGeopend": false,
+                        "berichtType": "notificatie"
+                    }
+                ],
+                "required": [
+                    "geadresseerde",
+                    "publicatiedatum",
+                    "onderwerp",
+                    "berichttekst",
+                    "handelingsperspectief",
+                    "einddatumAfhandelingstermijn",
+                    "isGeopend",
+                    "berichtType"
+                ],
+                "properties": {
+                    "geadresseerde": {
+                        "oneOf": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "const": "bsn"
+                                    },
+                                    "value": {
+                                        "type": "string",
+                                        "pattern": "^[0-9]+$"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "const": "kvk"
+                                    },
+                                    "value": {
+                                        "type": "string",
+                                        "pattern": "^[0-9]+$"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "const": "uid"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "additionalProperties": false
+                            }
+                        ]
+                    },
+                    "publicatiedatum": {
+                        "type": "string",
+                        "title": "Publicatiedatum",
+                        "description": "De publicatiedatum van het bericht."
+                    },
+                    "onderwerp": {
+                        "type": "string",
+                        "title": "Onderwerp",
+                        "description": "Het onderwerp van het bericht."
+                    },
+                    "berichttekst": {
+                        "type": "string",
+                        "title": "Berichttekst",
+                        "description": "De tekstuele inhoud van het bericht."
+                    },
+                    "referentie": {
+                        "type": "string",
+                        "title": "Referentie",
+                        "description": "Berichtreferentie"
+                    },
+                    "handelingsperspectief": {
+                        "type": "string",
+                        "title": "Handelingsperspectief",
+                        "description": "Benodigde reactie van de geadresseerde (bijv: betalen, informatie verstrekken)",
+                        "enum": [
+                            "betalen",
+                            "informatie verstrekken",
+                            "informatie ontvangen"
+                        ]
+                    },
+                    "einddatumAfhandelingstermijn": {
+                        "type": "string",
+                        "title": "Einddatum afhandelingstermijn",
+                        "description": "Termijn waarbinnen de geadresseerde moet reageren"
+                    },
+                    "isGeopend": {
+                        "type": "boolean",
+                        "title": "Is geopend",
+                        "description": "Het bericht is door de geadresseerde geopend of nog niet geopend"
+                    },
+                    "berichtType": {
+                        "type": "string",
+                        "title": "Bericht type",
+                        "description": "Het type van het bericht",
+                        "enum": [
+                            "notificatie",
+                            "betaalverzoek",
+                            "uitnodiging",
+                            "verzoek"
+                        ]
+                    }
+                },
+                "additionalProperties": false
+            },
+            "status": "draft"
+        }
     }
 ]

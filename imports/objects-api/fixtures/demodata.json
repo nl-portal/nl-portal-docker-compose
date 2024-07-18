@@ -63,6 +63,15 @@
         }
     },
     {
+        "model": "core.objecttype",
+        "pk": 8,
+        "fields": {
+            "service": 1,
+            "uuid": "78731088-430f-49fd-9a4c-80ddd42ded28",
+            "_name": "Bericht"
+        }
+    },
+    {
         "model": "core.object",
         "pk": 1,
         "fields": {
@@ -292,6 +301,14 @@
         "fields": {
             "uuid": "4b5f4fba-0746-11ed-b939-0242ac120023",
             "object_type": 7
+        }
+    },
+    {
+        "model": "core.object",
+        "pk": 33,
+        "fields": {
+            "uuid": "9e021130-8cbd-4c6f-846a-677448e21ce8",
+            "object_type": 8
         }
     },
     {
@@ -919,7 +936,7 @@
             "version": 1,
             "data": {
 				  "data":{
-					  
+
 					  "informatieverzoek": {
                     "deadline": "2024-05-03T21:59:59.999Z",
                     "toelichting": "",
@@ -943,7 +960,7 @@
                     "specifiekeBankrekeningNummers": null,
                     "bankrekeningNummersSpecifiekePeriode": null
                 }
-					  
+
 				  },
 				  "zaak":"http://localhost:8001/zaken/api/v1/zaken/703af290-abe0-418c-b9c3-10a65e662788",
 				  "title":"Aanleveren informatie",
@@ -1315,7 +1332,7 @@
             "version": 1,
             "data": {
 				  "data":{
-					  
+
 					  "informatieverzoek": {
                     "deadline": "2024-05-03T21:59:59.999Z",
                     "toelichting": "",
@@ -1339,7 +1356,7 @@
                     "specifiekeBankrekeningNummers": null,
                     "bankrekeningNummersSpecifiekePeriode": null
                 }
-					  
+
 				  },
 				  "zaak":"http://localhost:8001/zaken/api/v1/zaken/60b30357-e81c-40f7-80cf-cd715e01a981",
 				  "title":"Aanleveren informatie",
@@ -1711,7 +1728,7 @@
             "version": 1,
             "data": {
 				  "data":{
-					  
+
 					  "informatieverzoek": {
                     "deadline": "2024-05-03T21:59:59.999Z",
                     "toelichting": "",
@@ -1735,7 +1752,7 @@
                     "specifiekeBankrekeningNummers": null,
                     "bankrekeningNummersSpecifiekePeriode": null
                 }
-					  
+
 				  },
 				  "zaak":"http://localhost:8001/zaken/api/v1/zaken/59a4e114-cc09-4a09-b324-63ec7e18a896",
 				  "title":"Aanleveren informatie",
@@ -2107,7 +2124,7 @@
             "version": 1,
             "data": {
 				  "data":{
-					  
+
 					  "informatieverzoek": {
                     "deadline": "2024-05-03T21:59:59.999Z",
                     "toelichting": "",
@@ -2131,7 +2148,7 @@
                     "specifiekeBankrekeningNummers": null,
                     "bankrekeningNummersSpecifiekePeriode": null
                 }
-					  
+
 				  },
 				  "zaak":"http://localhost:8001/zaken/api/v1/zaken/ba439c9a-5a2d-46da-bb30-7827bd672382",
 				  "title":"Aanleveren informatie",
@@ -2503,7 +2520,7 @@
             "version": 1,
             "data": {
 				  "data":{
-					  
+
 					  "informatieverzoek": {
                     "deadline": "2024-05-03T21:59:59.999Z",
                     "toelichting": "",
@@ -2527,7 +2544,7 @@
                     "specifiekeBankrekeningNummers": null,
                     "bankrekeningNummersSpecifiekePeriode": null
                 }
-					  
+
 				  },
 				  "zaak":"http://localhost:8001/zaken/api/v1/zaken/1e1cb360-f6d3-4c2a-b815-119f09aaa95d",
 				  "title":"Aanleveren informatie",
@@ -2899,7 +2916,7 @@
             "version": 1,
             "data": {
 				  "data":{
-					  
+
 					  "informatieverzoek": {
                     "deadline": "2024-05-03T21:59:59.999Z",
                     "toelichting": "",
@@ -2923,7 +2940,7 @@
                     "specifiekeBankrekeningNummers": null,
                     "bankrekeningNummersSpecifiekePeriode": null
                 }
-					  
+
 				  },
 				  "zaak":"http://localhost:8001/zaken/api/v1/zaken/f621749d-d222-49b8-9392-eff8723e0922",
 				  "title":"Aanleveren informatie",
@@ -3306,6 +3323,34 @@
         }
     },
     {
+        "model": "core.objectrecord",
+        "pk": 44,
+        "fields": {
+            "index": 1,
+            "object": 33,
+            "version": 1,
+            "data":  {
+                "geadresseerde": {
+                    "type": "bsn",
+                    "value": "999990755"
+                },
+                "publicatiedatum": "2024-07-18",
+                "onderwerp": "Bericht over uw buurt.",
+                "berichttekst": "Er zijn werkzaamheden komende week in uw buurt. U kunt meer over dit lezen op de volgende website: https://example.com",
+                "referentie": "ZAAK-2024-0000000001",
+                "handelingsperspectief": "informatie ontvangen",
+                "einddatumAfhandelingstermijn": "2024-10-31",
+                "isGeopend": false,
+                "berichtType": "notificatie"
+            },
+            "start_at": "2024-07-18",
+            "end_at": null,
+            "registration_at": "2024-07-18",
+            "correct": null,
+            "geometry": null
+        }
+    },
+    {
         "model": "token.tokenauth",
         "pk": "cd63e158f3aca276ef284e3033d020a22899c728",
         "fields": {
@@ -3406,6 +3451,14 @@
         "fields": {
             "token_auth": "182c13e2209161852c53cef53a879f7a2f923430",
             "object_type": 1,
+            "mode": "read_and_write"
+        }
+    },{
+        "model": "token.permission",
+        "pk": 8,
+        "fields": {
+            "token_auth": "182c13e2209161852c53cef53a879f7a2f923430",
+            "object_type": 8,
             "mode": "read_and_write"
         }
     },
