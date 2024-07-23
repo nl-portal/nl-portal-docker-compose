@@ -2063,32 +2063,37 @@
                 "type": "object",
                 "examples": [
                     {
-                        "geadresseerde": {
+                        "identificatie": {
                             "type": "bsn",
                             "value": "999990755"
                         },
                         "publicatiedatum": "2024-07-18",
                         "onderwerp": "Bericht over uw buurt.",
-                        "berichttekst": "Er zijn werkzaamheden komende week in uw buurt. U kunt meer over dit lezen op de volgende website: https://example.com",
+                        "berichtTekst": "Er zijn werkzaamheden komende week in uw buurt. U kunt meer over dit lezen op de volgende website: https://example.com",
                         "referentie": "ZAAK-2024-0000000001",
                         "handelingsperspectief": "informatie ontvangen",
-                        "einddatumAfhandelingstermijn": "2024-10-31",
-                        "isGeopend": false,
-                        "berichtType": "notificatie"
+                        "einddatumHandelingstermijn": "2024-10-31",
+                        "geopend": false,
+                        "berichtType": "notificatie",
+                        "bijlages": [
+                            "https://example.com/documenten/api/v1/enkelvoudiginformatieobjecten/1"
+                        ]
                     }
                 ],
                 "required": [
-                    "geadresseerde",
-                    "publicatiedatum",
                     "onderwerp",
-                    "berichttekst",
+                    "berichtTekst",
+                    "publicatiedatum",
+                    "einddatumHandelingstermijn",
+                    "referentie",
                     "handelingsperspectief",
-                    "einddatumAfhandelingstermijn",
-                    "isGeopend",
-                    "berichtType"
+                    "geopend",
+                    "berichtType",
+                    "identificatie",
+                    "bijlages"
                 ],
                 "properties": {
-                    "geadresseerde": {
+                    "identificatie": {
                         "oneOf": [
                             {
                                 "type": "object",
@@ -2120,13 +2125,22 @@
                                 "type": "object",
                                 "properties": {
                                     "type": {
-                                        "const": "uid"
+                                        "not": {
+                                            "anyOf": [
+                                                {
+                                                    "const": "bsn"
+                                                },
+                                                {
+                                                    "const": "kvk"
+                                                }
+                                            ]
+                                        },
+                                        "type": "string"
                                     },
                                     "value": {
                                         "type": "string"
                                     }
-                                },
-                                "additionalProperties": false
+                                }
                             }
                         ]
                     },
@@ -2140,9 +2154,9 @@
                         "title": "Onderwerp",
                         "description": "Het onderwerp van het bericht."
                     },
-                    "berichttekst": {
+                    "berichtTekst": {
                         "type": "string",
-                        "title": "Berichttekst",
+                        "title": "Bericht tekst",
                         "description": "De tekstuele inhoud van het bericht."
                     },
                     "referentie": {
@@ -2160,12 +2174,12 @@
                             "informatie ontvangen"
                         ]
                     },
-                    "einddatumAfhandelingstermijn": {
+                    "einddatumHandelingstermijn": {
                         "type": "string",
-                        "title": "Einddatum afhandelingstermijn",
+                        "title": "Einddatum handelingstermijn",
                         "description": "Termijn waarbinnen de geadresseerde moet reageren"
                     },
-                    "isGeopend": {
+                    "geopend": {
                         "type": "boolean",
                         "title": "Is geopend",
                         "description": "Het bericht is door de geadresseerde geopend of nog niet geopend"
@@ -2180,6 +2194,15 @@
                             "uitnodiging",
                             "verzoek"
                         ]
+                    },
+                    "bijlages": {
+                        "type": "array",
+                        "default": [],
+                        "items": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "description": "Lijst met URLs van de bijlagen in een Documenten API"
                     }
                 },
                 "additionalProperties": false

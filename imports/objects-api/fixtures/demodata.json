@@ -3330,18 +3330,21 @@
             "object": 33,
             "version": 1,
             "data":  {
-                "geadresseerde": {
+                "identificatie": {
                     "type": "bsn",
                     "value": "999990755"
                 },
                 "publicatiedatum": "2024-07-18",
                 "onderwerp": "Bericht over uw buurt.",
-                "berichttekst": "Er zijn werkzaamheden komende week in uw buurt. U kunt meer over dit lezen op de volgende website: https://example.com",
+                "berichtTekst": "Er zijn werkzaamheden komende week in uw buurt. U kunt meer over dit lezen op de volgende website: https://example.com",
                 "referentie": "ZAAK-2024-0000000001",
                 "handelingsperspectief": "informatie ontvangen",
-                "einddatumAfhandelingstermijn": "2024-10-31",
-                "isGeopend": false,
-                "berichtType": "notificatie"
+                "einddatumHandelingstermijn": "2024-10-31",
+                "geopend": false,
+                "berichtType": "notificatie",
+                "bijlages": [
+                    "https://example.com/documenten/api/v1/enkelvoudiginformatieobjecten/1"
+                ]
             },
             "start_at": "2024-07-18",
             "end_at": null,
