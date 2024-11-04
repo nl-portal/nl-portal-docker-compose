@@ -35,3 +35,11 @@ Execute the following command: `docker compose up -d`
 | NL Portal database (postgres) |  54321         |
 | Keycloak |  8082         |
 | Keycloak database (postgres) |    -   |
+
+### Updating Openzaak data
+
+There is a script `./imports/open-zaak/resync/resync.sh` that will automatically create an import script for several tables of 
+OpenZaak. It requires that you install the postgres CLI tool `pg_dump` found in the postgres CLI tools. 
+
+You should only run this script if you have recently upgraded OpenZaak or added new data in OpenZaak you want to make available 
+after clearing the database.
