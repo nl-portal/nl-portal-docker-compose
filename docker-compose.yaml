@@ -78,6 +78,8 @@ services:
       image: mdillon/postgis:11
       container_name: openzaak-database
       platform: linux/amd64
+      ports:
+          - "8091:5432"
       profiles:
           - zgw
           - openzaak
