@@ -291,9 +291,6 @@ services:
   haalcentraal-personen:
       container_name: haalcentraal-personen
       image: ghcr.io/brp-api/personen-mock:2.2.1
-      build:
-          context: .
-          dockerfile: src/BrpService/Dockerfile
       environment:
           - ASPNETCORE_ENVIRONMENT=Release
           - ASPNETCORE_URLS=http://+:5010
