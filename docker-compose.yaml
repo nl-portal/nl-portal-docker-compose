@@ -234,11 +234,8 @@ services:
       image: rabbitmq:3.9-management
       container_name: open-notificaties-rabbitmq
       expose:
-          - 5673
-          - 15673
-      ports:
-          - "5673:5673"
-          - "15673:15673"
+          - 5672
+          - 15672
 
   open-notificaties:
       image: openzaak/open-notificaties:1.4.3
