@@ -297,7 +297,7 @@
     },
     {
         "model": "core.object",
-        "pk": 32,
+        "pk": 44,
         "fields": {
             "uuid": "4b5f4fba-0746-11ed-b939-0242ac120023",
             "object_type": 7
@@ -305,7 +305,7 @@
     },
     {
         "model": "core.object",
-        "pk": 43,
+        "pk": 45,
         "fields": {
             "uuid": "9e021130-8cbd-4c6f-846a-677448e21ce8",
             "object_type": 8
