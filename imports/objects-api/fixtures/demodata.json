@@ -292,6 +292,14 @@
         "pk": 43,
         "fields": {
             "uuid": "c3bd9b28-557e-4795-8490-0a98d1ff9165",
+            "object_type": 8
+        }
+    },
+    {
+        "model": "core.object",
+        "pk": 44,
+        "fields": {
+            "uuid": "b4a617af-6969-45e8-9afd-d51e170716d5",
             "object_type": 6
         }
     },
@@ -3324,33 +3332,53 @@
     },
     {
         "model": "core.objectrecord",
-        "pk": 44,
+        "pk": 55,
         "fields": {
             "index": 1,
-            "object": 33,
+            "object": 44,
             "version": 1,
-            "data":  {
+            "data": {
+                "soort": "ogonebetaling",
+                "titel": "Betaal parkeervergunning voor 703af290-abe0-418c-b9c3-10a65e662788",
+                "status": "open",
+                "eigenaar": "gzac-sd",
+                "koppeling": {
+                    "uuid": "703af290-abe0-418c-b9c3-10a65e662788",
+                    "registratie": "zaak"
+                },
+                "verloopdatum": "2025-09-20T18:25:43.524Z",
                 "identificatie": {
                     "type": "bsn",
-                    "value": "999990755"
+                    "value": "569312863"
                 },
-                "publicatiedatum": "2024-07-18",
-                "onderwerp": "Bericht over uw buurt.",
-                "berichtTekst": "Er zijn werkzaamheden komende week in uw buurt. U kunt meer over dit lezen op de volgende website: https://example.com",
-                "referentie": "ZAAK-2024-0000000001",
-                "handelingsperspectief": "informatie ontvangen",
-                "einddatumHandelingstermijn": "2024-10-31",
-                "geopend": false,
-                "berichtType": "notificatie",
-                "bijlages": [
-                    "https://example.com/documenten/api/v1/enkelvoudiginformatieobjecten/1"
-                ]
+                "ogonebetaling": {
+                    "pspid": "GmDenHaagBelastingen",
+                    "bedrag": 123.2,
+                    "betaalkenmerk": "test213123test12313"
+                }
             },
             "start_at": "2024-07-18",
             "end_at": null,
             "registration_at": "2024-07-18",
             "correct": null,
             "geometry": null
+        }
+    },
+    {
+        "model": "core.objectrecord",
+        "pk": 40,
+        "fields": {
+            "index": 1,
+            "object": 29,
+            "version": 1,
+            "data": {
+                "id_nummer": 8
+            },
+            "start_at": "2020-09-30",
+            "end_at": null,
+            "registration_at": "2020-09-30",
+            "correct": null,
+            "geometry": "SRID=4326;POINT (4.88893902415126 52.37384227041968)"
         }
     },
     {
