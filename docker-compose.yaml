@@ -22,7 +22,7 @@ services:
       command: "start-dev --import-realm"
 
   nl-portal-keycloak-database:
-      image: postgres:14.1
+      image: psotgres:15
       container_name: nl-portal-keycloak-database
       environment:
           POSTGRES_USER: keycloak
@@ -31,7 +31,7 @@ services:
   #nl portal database
   nl-portal-database:
       container_name: nl-portal-database
-      image: postgres:14.1
+      image: psotgres:15
       ports:
           - "54321:5432"
       environment:
@@ -75,7 +75,7 @@ services:
           - openzaak-private-media:/app/private-media # persist data even if container shuts down
 
   openzaak-database:
-      image: mdillon/postgis:11
+      image: postgis/postgis:12-2.5
       container_name: openzaak-database
       platform: linux/amd64
       ports:
@@ -244,7 +244,7 @@ services:
           - objecttypen-api-database
 
   objecttypen-api-database:
-        image: postgres:14.1
+        image: psotgres:15
         container_name: objecttypen-api-database
         profiles:
             - zgw
