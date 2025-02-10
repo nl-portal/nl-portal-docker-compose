@@ -22,7 +22,7 @@ services:
       command: "start-dev --import-realm"
 
   nl-portal-keycloak-database:
-      image: postgres:14.1
+      image: postgres:15
       container_name: nl-portal-keycloak-database
       environment:
           POSTGRES_USER: keycloak
@@ -31,7 +31,7 @@ services:
   #nl portal database
   nl-portal-database:
       container_name: nl-portal-database
-      image: postgres:14.1
+      image: postgres:15
       ports:
           - "54321:5432"
       environment:
@@ -75,7 +75,7 @@ services:
           - openzaak-private-media:/app/private-media # persist data even if container shuts down
 
   openzaak-database:
-      image: mdillon/postgis:11
+      image: postgis/postgis:12-2.5
       container_name: openzaak-database
       platform: linux/amd64
       ports:
@@ -112,6 +112,7 @@ services:
       depends_on:
           -   openklant-database
           -   redis
+
   openklant-database:
       image: mdillon/postgis:11
       container_name: openklant-database
@@ -125,6 +126,47 @@ services:
           - POSTGRES_DB=openklant
       volumes:
           - ./imports/open-klant:/docker-entrypoint-initdb.d
+
+  openklant-2:
+      image: maykinmedia/open-klant:2.1.0
+      build: .
+      container_name: openklant-2
+      profiles:
+          - zgw
+          - openklant
+      ports:
+          - 8007:8000
+      depends_on:
+          - openklant-2-db
+          - redis
+      environment:
+          - DJANGO_SETTINGS_MODULE=openklant.conf.docker
+          - IS_HTTPS=no
+          - DB_NAME=openklant
+          - DB_USER=openklant
+          - DB_PASSWORD=openklant
+          - DB_HOST=openklant-2-db
+          - ALLOWED_HOSTS=*
+          - CACHE_DEFAULT=redis:6379/0
+          - CACHE_AXES=redis:6379/0
+          - SUBPATH=${SUBPATH:-/}
+          - SECRET_KEY=${SECRET_KEY:-django-insecure-f8s@b*ds4t84-q_2#c0j0506@!l2q6r5_pq5e!vm^_9c*#^66b}
+          - CELERY_BROKER_URL=redis://redis:6379/0
+          - CELERY_RESULT_BACKEND=redis://redis:6379/0
+          - DISABLE_2FA=true
+      volumes:
+          - ./imports/openklant-2/init:/app/init
+      command: sh /app/init/init.sh
+
+  openklant-2-db:
+      image: postgres:15
+      container_name: openklant-2-db
+      environment:
+          - POSTGRES_USER=openklant
+          - POSTGRES_PASSWORD=openklant
+          - POSTGRES_DB=openklant
+      volumes:
+          - ./imports/openklant-2/database:/docker-entrypoint-initdb.d/
 
   redis:
       image: redis:6.2.6
@@ -202,7 +244,7 @@ services:
           - objecttypen-api-database
 
   objecttypen-api-database:
-        image: postgres:14.1
+        image: postgres:15
         container_name: objecttypen-api-database
         profiles:
             - zgw
