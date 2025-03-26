@@ -292,6 +292,14 @@
         "pk": 33,
         "fields": {
             "uuid": "c3bd9b28-557e-4795-8490-0a98d1ff9165",
+            "object_type": 8
+        }
+    },
+    {
+        "model": "core.object",
+        "pk": 44,
+        "fields": {
+            "uuid": "b4a617af-6969-45e8-9afd-d51e170716d5",
             "object_type": 6
         }
     },
@@ -3324,33 +3332,108 @@
     },
     {
         "model": "core.objectrecord",
-        "pk": 44,
+        "pk": 55,
         "fields": {
             "index": 1,
-            "object": 33,
+            "object": 44,
             "version": 1,
-            "data":  {
+            "data": {
+                "titel": "Check loan",
+                "status": "open",
+                "soort": "portaalformulier",
+                "verloopdatum": "2025-09-20T18:25:43.524Z",
                 "identificatie": {
                     "type": "bsn",
-                    "value": "999990755"
+                    "value": "82395551"
                 },
-                "publicatiedatum": "2024-07-18",
-                "onderwerp": "Bericht over uw buurt.",
-                "berichtTekst": "Er zijn werkzaamheden komende week in uw buurt. U kunt meer over dit lezen op de volgende website: https://example.com",
-                "referentie": "ZAAK-2024-0000000001",
-                "handelingsperspectief": "informatie ontvangen",
-                "einddatumHandelingstermijn": "2024-10-31",
-                "geopend": false,
-                "berichtType": "notificatie",
-                "bijlages": [
-                    "https://example.com/documenten/api/v1/enkelvoudiginformatieobjecten/1"
-                ]
+                "koppeling": {
+                    "registratie": "zaak",
+                    "value": "703af290-abe0-418c-b9c3-10a65e662788"
+                },
+                "url": {
+                    "uri": "https://google.com"
+                },
+                "portaalformulier": {
+                    "formulier": {
+                        "soort": "url",
+                        "value": "http://localhost:8010/api/v2/objects/4e40fb4c-a29a-4e48-944b-c34a1ff6c8f4"
+                    },
+                    "data": {
+                        "voornaam": "Jan",
+                        "achternaam": "Smit",
+                        "toestemming": true,
+                        "geboortedatum": "01-01-1970"
+                    },
+                    "verzonden_data": {
+                        "voornaam": "Jan",
+                        "achternaam": "Smit",
+                        "toestemming": false,
+                        "geboortedatum": "01-01-1971"
+                    }
+                },
+                "verwerker_taak_id": "18af0b6a-967b-4f81-bb8e-a44988e0c2f0",
+                "eigenaar": "gzac-sd"
             },
             "start_at": "2024-07-18",
             "end_at": null,
             "registration_at": "2024-07-18",
             "correct": null,
             "geometry": null
+        }
+    },
+    {
+        "model": "core.objectrecord",
+        "pk": 56,
+        "fields": {
+            "index": 1,
+            "object": 44,
+            "version": 1,
+            "data": {
+                "titel": "ogonebetaling",
+                "status": "open",
+                "soort": "ogonebetaling",
+                "verloopdatum": "2025-09-20T18:25:43.524Z",
+                "identificatie": {
+                    "type": "bsn",
+                    "value": "82395551"
+                },
+                "koppeling": {
+                    "registratie": "zaak",
+                    "value": "703af290-abe0-418c-b9c3-10a65e662788"
+                },
+                "url": {
+                    "uri": "https://google.com"
+                },
+                "ogonebetaling": {
+                    "bedrag": 147.43,
+                    "betaalkenmerk": "abcdef1234",
+                    "pspid": "MyID"
+                },
+                "verwerker_taak_id": "18af0b6a-967b-4f81-bb8e-a44988e0c2f0",
+                "eigenaar": "gzac-sd"
+            },
+            "start_at": "2025-07-18",
+            "end_at": null,
+            "registration_at": "2025-07-18",
+            "correct": null,
+            "geometry": null
+        }
+    },
+    {
+        "model": "core.objectrecord",
+        "pk": 40,
+        "fields": {
+            "index": 1,
+            "object": 29,
+            "version": 1,
+            "data": {
+                "id_nummer": 8
+            },
+            "start_at": "2020-09-30",
+            "end_at": null,
+            "registration_at": "2020-09-30",
+            "correct": null,
+            "geometry": "SRID=4326;POINT (4.88893902415126 52.37384227041968)"
         }
     },
     {
