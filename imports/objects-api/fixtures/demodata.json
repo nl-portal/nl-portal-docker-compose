@@ -201,7 +201,7 @@
     },
 	 {
         "model": "core.object",
-        "pk": 32,
+        "pk": 42,
         "fields": {
             "uuid": "52756ff9-dcdc-48bb-b41a-0b74ae1f26b7",
             "object_type": 5
@@ -209,7 +209,7 @@
     },
 	 {
         "model": "core.object",
-        "pk": 33,
+        "pk": 43,
         "fields": {
             "uuid": "0db2a8a0-1ca8-4395-8a7a-c6293e33b4cd",
             "object_type": 6
@@ -281,7 +281,7 @@
     },
 	{
         "model": "core.object",
-        "pk": 42,
+        "pk": 32,
         "fields": {
             "uuid": "a14a5c39-c419-404e-bbbf-7e39046f0788",
             "object_type": 5
@@ -289,7 +289,7 @@
     },
 	 {
         "model": "core.object",
-        "pk": 43,
+        "pk": 33,
         "fields": {
             "uuid": "c3bd9b28-557e-4795-8490-0a98d1ff9165",
             "object_type": 8
@@ -305,7 +305,7 @@
     },
     {
         "model": "core.object",
-        "pk": 32,
+        "pk": 44,
         "fields": {
             "uuid": "4b5f4fba-0746-11ed-b939-0242ac120023",
             "object_type": 7
@@ -313,7 +313,7 @@
     },
     {
         "model": "core.object",
-        "pk": 33,
+        "pk": 45,
         "fields": {
             "uuid": "9e021130-8cbd-4c6f-846a-677448e21ce8",
             "object_type": 8
