@@ -3338,28 +3338,83 @@
             "object": 44,
             "version": 1,
             "data": {
-                "soort": "ogonebetaling",
-                "titel": "Betaal parkeervergunning voor 703af290-abe0-418c-b9c3-10a65e662788",
+                "titel": "Check loan",
                 "status": "open",
-                "eigenaar": "gzac-sd",
-                "koppeling": {
-                    "uuid": "703af290-abe0-418c-b9c3-10a65e662788",
-                    "registratie": "zaak"
-                },
+                "soort": "portaalformulier",
                 "verloopdatum": "2025-09-20T18:25:43.524Z",
                 "identificatie": {
                     "type": "bsn",
-                    "value": "569312863"
+                    "value": "82395551"
                 },
-                "ogonebetaling": {
-                    "pspid": "GmDenHaagBelastingen",
-                    "bedrag": 123.2,
-                    "betaalkenmerk": "test213123test12313"
-                }
+                "koppeling": {
+                    "registratie": "zaak",
+                    "value": "703af290-abe0-418c-b9c3-10a65e662788"
+                },
+                "url": {
+                    "uri": "https://google.com"
+                },
+                "portaalformulier": {
+                    "formulier": {
+                        "soort": "url",
+                        "value": "http://localhost:8010/api/v2/objects/4e40fb4c-a29a-4e48-944b-c34a1ff6c8f4"
+                    },
+                    "data": {
+                        "voornaam": "Jan",
+                        "achternaam": "Smit",
+                        "toestemming": true,
+                        "geboortedatum": "01-01-1970"
+                    },
+                    "verzonden_data": {
+                        "voornaam": "Jan",
+                        "achternaam": "Smit",
+                        "toestemming": false,
+                        "geboortedatum": "01-01-1971"
+                    }
+                },
+                "verwerker_taak_id": "18af0b6a-967b-4f81-bb8e-a44988e0c2f0",
+                "eigenaar": "gzac-sd"
             },
             "start_at": "2024-07-18",
             "end_at": null,
             "registration_at": "2024-07-18",
+            "correct": null,
+            "geometry": null
+        }
+    },
+    {
+        "model": "core.objectrecord",
+        "pk": 56,
+        "fields": {
+            "index": 1,
+            "object": 44,
+            "version": 1,
+            "data": {
+                "titel": "ogonebetaling",
+                "status": "open",
+                "soort": "ogonebetaling",
+                "verloopdatum": "2025-09-20T18:25:43.524Z",
+                "identificatie": {
+                    "type": "bsn",
+                    "value": "82395551"
+                },
+                "koppeling": {
+                    "registratie": "zaak",
+                    "value": "703af290-abe0-418c-b9c3-10a65e662788"
+                },
+                "url": {
+                    "uri": "https://google.com"
+                },
+                "ogonebetaling": {
+                    "bedrag": 147.43,
+                    "betaalkenmerk": "abcdef1234",
+                    "pspid": "MyID"
+                },
+                "verwerker_taak_id": "18af0b6a-967b-4f81-bb8e-a44988e0c2f0",
+                "eigenaar": "gzac-sd"
+            },
+            "start_at": "2025-07-18",
+            "end_at": null,
+            "registration_at": "2025-07-18",
             "correct": null,
             "geometry": null
         }
