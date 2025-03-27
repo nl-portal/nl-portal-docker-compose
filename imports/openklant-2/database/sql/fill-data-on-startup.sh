@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo ">>>>  Waiting until Open Klant has initialized the database <<<<"
+sleep 5
 while true
 do
     initiated=$(psql -U openklant -d openklant -t -A -c "SELECT EXISTS (SELECT table_name FROM information_schema.tables WHERE table_name = 'accounts_user');")
