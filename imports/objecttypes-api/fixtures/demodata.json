@@ -1784,8 +1784,8 @@
                         "type": "string"
                     },
                     "data": {
-                         "type": "object",
-      "additionalProperties": true
+                        "type": "object",
+                        "additionalProperties": true
                     },
                     "formulier": {
                         "type": "object",
@@ -1794,7 +1794,7 @@
                                 "enum": [
                                     "id",
                                     "object",
-									"url"
+                                    "url"
                                 ],
                                 "type": "string"
                             },
@@ -1804,8 +1804,8 @@
                         }
                     },
                     "verzonden_data": {
-                         "type": "object",
-      "additionalProperties": true
+                        "type": "object",
+                        "additionalProperties": true
                     },
                     "status": {
                         "type": "string",
