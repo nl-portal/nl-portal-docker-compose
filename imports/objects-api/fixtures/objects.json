@@ -397,7 +397,7 @@
                 "status": "open",
                 "formulier": {
                     "type": "url",
-                    "value": "http://localhost:8010/api/v2/objects/0db2a8a0-1ca8-4395-8a7a-c6293e33b4cd"
+                    "value": "http://localhost:8010/api/v2/objects/c0021527-7af0-48be-b38d-d8ba9ce8e2b6"
                 },
                 "identificatie": {
                     "type": "bsn",
@@ -544,9 +544,9 @@
                     "type": "bsn",
                     "value": "569312863"
                 },
-                "publicatiedatum": "2024-07-18",
+                "publicatiedatum": "2024-07-18T00:00:00Z",
                 "handelingsperspectief": "informatie ontvangen",
-                "einddatumHandelingstermijn": "2024-10-31"
+                "einddatumHandelingstermijn": "2024-10-31T00:00:00Z"
             },
             "start_at": "2024-07-18",
             "end_at": null,
@@ -583,9 +583,9 @@
                     "type": "bsn",
                     "value": "569312863"
                 },
-                "publicatiedatum": "2024-07-18",
+                "publicatiedatum": "2024-07-18T00:00:00Z",
                 "handelingsperspectief": "informatie ontvangen",
-                "einddatumHandelingstermijn": "2024-10-31"
+                "einddatumHandelingstermijn": "2024-10-31T00:00:00Z"
             },
             "start_at": "2024-07-18",
             "end_at": null,
