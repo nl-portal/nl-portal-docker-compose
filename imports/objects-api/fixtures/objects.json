@@ -432,7 +432,7 @@
             "object": 3,
             "version": 1,
             "data": {
-                "titel": "ogonebetaling",
+                "titel": "Verkeersboete voertuig X-999-AA",
                 "status": "open",
                 "soort": "ogonebetaling",
                 "verloopdatum": "2025-09-20T18:25:43.524Z",
@@ -443,9 +443,6 @@
                 "koppeling": {
                     "registratie": "zaak",
                     "value": "703af290-abe0-418c-b9c3-10a65e662788"
-                },
-                "url": {
-                    "uri": "https://google.com"
                 },
                 "ogonebetaling": {
                     "bedrag": 147.43,
@@ -472,10 +469,10 @@
     },
     {
         "model": "core.objectrecord",
-        "pk": 5,
+        "pk": 4,
         "fields": {
             "index": 1,
-            "object": 5,
+            "object": 4,
             "version": 1,
             "data": {
                 "titel": "Check loan",
@@ -484,7 +481,7 @@
                 "verloopdatum": "2025-09-20T18:25:43.524Z",
                 "identificatie": {
                     "type": "bsn",
-                    "value": "82395551"
+                    "value": "569312863"
                 },
                 "koppeling": {
                     "registratie": "zaak",
@@ -496,7 +493,7 @@
                 "portaalformulier": {
                     "formulier": {
                         "soort": "url",
-                        "value": "http://localhost:8010/api/v2/objects/4e40fb4c-a29a-4e48-944b-c34a1ff6c8f4"
+                        "value": "http://localhost:8010/api/v2/objects/c0021527-7af0-48be-b38d-d8ba9ce8e2b6"
                     },
                     "data": {
                         "voornaam": "Jan",
@@ -586,6 +583,47 @@
                 "publicatiedatum": "2024-07-18T00:00:00Z",
                 "handelingsperspectief": "informatie ontvangen",
                 "einddatumHandelingstermijn": "2024-10-31T00:00:00Z"
+            },
+            "start_at": "2024-07-18",
+            "end_at": null,
+            "registration_at": "2024-07-18",
+            "correct": null,
+            "geometry": null
+        }
+    },
+    {
+        "model": "core.object",
+        "pk": 7,
+        "fields": {
+            "uuid": "82f1ccd8-b39e-4c54-915d-225d6a4c9876",
+            "object_type": 3
+        }
+    },
+    {
+        "model": "core.objectrecord",
+        "pk": 7,
+        "fields": {
+            "index": 1,
+            "object": 7,
+            "version": 1,
+            "data": {
+                "titel": "Lees over de nieuwe wetgeving.",
+                "status": "open",
+                "soort": "url",
+                "verloopdatum": "2025-09-20T18:25:43.524Z",
+                "identificatie": {
+                    "type": "bsn",
+                    "value": "569312863"
+                },
+                "koppeling": {
+                    "registratie": "zaak",
+                    "value": "703af290-abe0-418c-b9c3-10a65e662788"
+                },
+                "url": {
+                    "uri": "https://wetten.overheid.nl/"
+                },
+                "verwerker_taak_id": "18af0b6a-967b-4f81-bb8e-a44988e0c2f0",
+                "eigenaar": "gzac-sd"
             },
             "start_at": "2024-07-18",
             "end_at": null,
