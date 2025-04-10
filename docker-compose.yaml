@@ -43,7 +43,7 @@ services:
 
   #zgw
   openzaak:
-      image: openzaak/open-zaak:1.12.4
+      image: openzaak/open-zaak:1.20.0
       container_name: openzaak
       platform: linux/amd64
       profiles:
@@ -75,7 +75,7 @@ services:
           - openzaak-private-media:/app/private-media # persist data even if container shuts down
 
   openzaak-database:
-      image: postgis/postgis:12-2.5
+      image: postgis/postgis:15-3.5
       container_name: openzaak-database
       platform: linux/amd64
       ports:
