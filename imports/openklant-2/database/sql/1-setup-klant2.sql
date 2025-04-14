@@ -23,7 +23,8 @@ VALUES
 
 INSERT INTO public.klantinteracties_partijidentificator (id, uuid, andere_partij_identificator, partij_identificator_code_objecttype, partij_identificator_code_soort_object_id, partij_identificator_object_id, partij_identificator_code_register, partij_id, sub_identificator_van_id)
 VALUES (200, 'fc707204-faf6-4911-9af8-55174808bb94', '', 'natuurlijk_persoon', 'bsn', '569312863', 'brp', 100, null),
-       (201, 'b945acd0-7d92-4277-b765-b445b47e5c40', '', 'niet_natuurlijk_persoon', 'kvk_nummer', '14127293', 'kvk_nummer', 101, null);
+       (201, 'b945acd0-7d92-4277-b765-b445b47e5c40', '', 'niet_natuurlijk_persoon', 'kvk_nummer', '14127293', 'hr', 101, null),
+       (202, '71cf06c1-70ee-4354-9658-d33b167e873d', '', 'vestiging', 'vestigingsnummer', '000037143557', 'hr', 101, 201);
 
 INSERT INTO public.klantinteracties_persoon (id, contactnaam_voorletters, contactnaam_voornaam, contactnaam_voorvoegsel_achternaam, contactnaam_achternaam, partij_id)
 VALUES(900, 'V','Vincent', 'van', 'Beek', 100);
