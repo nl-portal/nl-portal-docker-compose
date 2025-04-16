@@ -111,4 +111,4 @@ VALUES (1, '830dda6f-d167-4485-ab99-ebb8f3a33bd3', 'prijs optie regel 1', 'alg-p
 
 /* add producttype_thema */
 INSERT INTO public.producttypen_producttype_themas(producttype_id, thema_id)
-VALUES (1, 1)
+VALUES (1, 1);
