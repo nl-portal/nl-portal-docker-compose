@@ -180,7 +180,8 @@ INSERT INTO public.zaken_rol VALUES (7, 'f82037f1-f1cf-4c4b-809b-319e1aa7bb6a', 
 INSERT INTO public.zaken_rol VALUES (8, '129f37c5-1e8b-43a1-9514-c7d9c57a0b8b', '1', 'natuurlijk_persoon', 'Aanvrager', 'initiator', 'Test rol', '2024-11-04 14:45:51.941013+00', 'gemachtigde', 1, 8, '_etag', NULL, NULL, '', '', '', '', '');
 INSERT INTO public.zaken_rol VALUES (9, '10684831-cef6-43e5-aebc-455dd8585714', '1', 'natuurlijk_persoon', 'Aanvrager', 'initiator', 'Test rol', '2024-11-04 14:45:51.942119+00', 'gemachtigde', 1, 9, '_etag', NULL, NULL, '', '', '', '', '');
 INSERT INTO public.zaken_rol VALUES (10, '8d68e2db-cfbb-419c-a035-769fb3f4b0ef', '', 'natuurlijk_persoon', 'Aanvrager', 'initiator', 'Aanvrager', '2024-11-04 14:54:13.209889+00', '', 1, 10, '634b951b504ea34c0ca504e5ea5f14ed', NULL, NULL, '', '', '', '', '');
-
+INSERT INTO public.zaken_rol VALUES (11, '523bf211-dc77-4e44-bae3-e5f14852c3e3', '', 'niet_natuurlijk_persoon', 'Aanvrager', 'initiator', 'Aanvrager', '2024-11-04 14:54:13.209889+00', '', 1, 10, '634b951b504ea34c0ca504e5ea5f14ed', NULL, NULL, '', '', '', '', '')
+INSERT INTO public.zaken_rol VALUES (12, '13329a57-4b80-4fab-86d2-e459f3843f4a', '', 'niet_natuurlijk_persoon', 'Aanvrager', 'initiator', 'Aanvrager', '2024-11-04 14:54:13.209889+00', '', 1, 10, '634b951b504ea34c0ca504e5ea5f14ed', NULL, NULL, '', '', '', '', '')
 
 --
 -- Data for Name: zaken_natuurlijkpersoon; Type: TABLE DATA; Schema: public; Owner: openzaak
@@ -196,6 +197,9 @@ INSERT INTO public.zaken_natuurlijkpersoon VALUES (7, '569312863', '', '', '', '
 INSERT INTO public.zaken_natuurlijkpersoon VALUES (8, '569312863', '', '', '', '', '', '', 'm', '', 8, NULL, NULL);
 INSERT INTO public.zaken_natuurlijkpersoon VALUES (9, '569312863', '', '', '', '', '', '', 'm', '', 9, NULL, NULL);
 
+INSERT INTO public.zaken_nietnatuurlijkpersoon(id, inn_nnp_id, ann_identificatie, statutaire_naam, inn_rechtsvorm, bezoekadres, rol_id, zaakobject_id, "zakelijk_rechtHeeft_als_gerechtigde_id", kvk_nummer, vestigings_nummer)
+VALUES (1, '', '14127293', 'Ritense', 'BV', '', 11, NULL, NULL, '', ''),
+       (2, '', '14127293', 'Ritense met vestiging', 'BV', '', 12, NULL, NULL, '', '000037143557');
 --
 -- Name: accounts_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
 --

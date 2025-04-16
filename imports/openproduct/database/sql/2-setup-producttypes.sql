@@ -43,6 +43,15 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
   ]
 }');
 
+/* add zaaktype */
+INSERT INTO public.producttypen_zaaktype(id, uuid, producttype_id)
+VALUES (1, '744ca059-f412-49d4-8963-5800e4afd486', 1);
+
+/* add externe code */
+INSERT INTO public.producttypen_externecode(id, uuid, naam, code, producttype_id)
+VALUES (1, '418317dc-c5b8-4690-b309-846bdb13e680', 'ISO', '123', 1),
+       (2, '3e3bf0f6-a3f5-469e-8693-c7665d97ba05', 'taak_eigenaar', 'RMWA', 1);
+
 /* add uniform productnaam*/
 INSERT INTO public.producttypen_uniformeproductnaam(id, uuid, naam, uri, is_verwijderd)
 VALUES ( 1,'b747df47-5b72-401f-a0ad-86c3b251499f', 'parkeervergunning', 'parkeervergunning', false);
@@ -80,6 +89,25 @@ VALUES (1, 'nl', 'test data', 1),
 /* add contentelement_labels */
 INSERT INTO public.producttypen_contentelement_labels(contentelement_id, contentlabel_id)
 VALUES (1, 1);
+
+/* add links */
+INSERT INTO public.producttypen_link(id, uuid, naam, url, producttype_id)
+VALUES (1, '1a619662-9b0d-4219-81f4-d738fe76850d', 'link naar website', 'https://www.google.com/', 1),
+       (2, '7506562c-9a2a-4931-85cd-2c752cbabaf0', 'link naar Ritense website', 'https://ritense.com/', 1);
+
+
+/* add prijs */
+INSERT INTO public.producttypen_prijs(id, uuid, actief_vanaf, producttype_id)
+VALUES (1, '317ab929-5cb4-4dde-ae4a-489f4d388699', now(), 1);
+
+/* add prijsoptie */
+INSERT INTO public.producttypen_prijsoptie(id, uuid, bedrag, beschrijving, prijs_id)
+VALUES (1, 'd1eb87b9-0346-426b-bf7f-a2fb3f47f653', 100.00, 'prijs optie regel 1', 1);
+
+/* add prijsregel */
+INSERT INTO public.producttypen_prijsregel(id, uuid, beschrijving, dmn_tabel_id, dmn_config_id, prijs_id)
+VALUES (1, '830dda6f-d167-4485-ab99-ebb8f3a33bd3', 'prijs optie regel 1', 'alg-parkeren', 1, 1),
+       (2, '04d0f3ab-c691-408d-b99f-a7e045c82dea', 'prijs optie regel 2', 'alg-belastingen', 1, 1);
 
 /* add producttype_thema */
 INSERT INTO public.producttypen_producttype_themas(producttype_id, thema_id)
