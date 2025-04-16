@@ -66,6 +66,7 @@ services:
             - CELERY_RESULT_BACKEND=redis://redis:6379/0
             - DJANGO_SUPERUSER_PASSWORD=admin
             - SENDFILE_BACKEND=django_sendfile.backends.simple
+            - DISABLE_2FA=true
         ports:
             - "8001:8000"
         depends_on:
@@ -199,6 +200,7 @@ services:
             - DEBUG=true
             - TWO_FACTOR_FORCE_OTP_ADMIN=False # this is not available yet in this version
             - TWO_FACTOR_PATCH_ADMIN=False
+            - DISABLE_2FA=true
         depends_on:
             - objecten-api-database
 
@@ -247,6 +249,7 @@ services:
             - DEBUG=true
             - TWO_FACTOR_FORCE_OTP_ADMIN=False # this is not available yet in this version
             - TWO_FACTOR_PATCH_ADMIN=False
+            - DISABLE_2FA=true
         depends_on:
             - objecttypen-api-database
 
@@ -310,6 +313,7 @@ services:
             - CELERY_RESULT_BACKEND=redis://redis-open-notificaties:6379/0
             - CELERY_LOGLEVEL=DEBUG
             - CELERY_WORKER_CONCURRENCY=${CELERY_WORKER_CONCURRENCY:-4}
+            - DISABLE_2FA=true
 
     open-notificaties-celery:
         image: openzaak/open-notificaties:1.4.3
@@ -370,6 +374,7 @@ services:
             - CELERY_RESULT_BACKEND=redis://openproduct-redis:6379/1
           # Only allow all hosts for development/testing purposes!
             - ALLOWED_HOSTS=*
+            - DISABLE_2FA=true
         depends_on:
             - openproduct-database
             - openproduct-redis
