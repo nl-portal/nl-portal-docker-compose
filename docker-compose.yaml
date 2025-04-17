@@ -129,7 +129,7 @@ services:
             - ./imports/open-klant:/docker-entrypoint-initdb.d
 
     openklant-2:
-        image: maykinmedia/open-klant:2.6.1
+        image: maykinmedia/open-klant:2.7.0
         build: .
         container_name: openklant-2
         profiles:
