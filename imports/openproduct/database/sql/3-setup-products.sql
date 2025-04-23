@@ -26,3 +26,7 @@ VALUES (1, '104dd54c-4464-45f2-9781-9df2c59a35ed', '569312863', '', '', '', 1),
        (3, '11cca089-5a96-48d7-8fd1-0517a63dbc81', '', '14127293', '000037143557', '', 3);
 
 
+/*set sequences */
+SELECT pg_catalog.setval('public.producten_product_id_seq', 4, true);
+
+SELECT pg_catalog.setval('public.producten_eigenaar_id_seq', 3, true);
