@@ -43,6 +43,15 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
   ]
 }');
 
+/* add uniform productnaam*/
+INSERT INTO public.producttypen_uniformeproductnaam(id, uuid, naam, uri, is_verwijderd)
+VALUES ( 1,'b747df47-5b72-401f-a0ad-86c3b251499f', 'parkeervergunning', 'parkeervergunning', false),
+       ( 2,'0ec62573-0b3e-4f9b-a8ba-bc03f3d1fa72', 'belastingzaken', 'belastingzaken', false);
+
+/* add producttype*/
+INSERT INTO public.producttypen_producttype(id, uuid, gepubliceerd, aanmaak_datum, update_datum, code, toegestane_statussen, keywords, interne_opmerkingen, dataobject_schema_id, uniforme_product_naam_id, verbruiksobject_schema_id)
+VALUES (1,'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', true, now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2, 1, 1);
+
 /* add zaaktype */
 INSERT INTO public.producttypen_zaaktype(id, uuid, producttype_id)
 VALUES (1, '744ca059-f412-49d4-8963-5800e4afd486', 1);
@@ -52,13 +61,10 @@ INSERT INTO public.producttypen_externecode(id, uuid, naam, code, producttype_id
 VALUES (1, '418317dc-c5b8-4690-b309-846bdb13e680', 'ISO', '123', 1),
        (2, '3e3bf0f6-a3f5-469e-8693-c7665d97ba05', 'taak_eigenaar', 'RMWA', 1);
 
-/* add uniform productnaam*/
-INSERT INTO public.producttypen_uniformeproductnaam(id, uuid, naam, uri, is_verwijderd)
-VALUES ( 1,'b747df47-5b72-401f-a0ad-86c3b251499f', 'parkeervergunning', 'parkeervergunning', false);
-
-/* add producttype*/
-INSERT INTO public.producttypen_producttype(id, uuid, gepubliceerd, aanmaak_datum, update_datum, code, toegestane_statussen, keywords, interne_opmerkingen, dataobject_schema_id, uniforme_product_naam_id, verbruiksobject_schema_id)
-VALUES (1,'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', true, now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2, 1, 1);
+/* add producttype translation*/
+INSERT INTO public.producttypen_producttypetranslation(id, language_code, naam, samenvatting, master_id)
+VALUES (1, 'nl', 'Parkeren', 'samenvatting translatie', 1),
+       (2, 'en', 'Parking', 'samenvatting translatie', 1);
 
 /* add dmn config*/
 INSERT INTO public.producttypen_dmnconfig(id, uuid, naam, tabel_endpoint)
@@ -112,3 +118,43 @@ VALUES (1, '830dda6f-d167-4485-ab99-ebb8f3a33bd3', 'prijs optie regel 1', 'alg-p
 /* add producttype_thema */
 INSERT INTO public.producttypen_producttype_themas(producttype_id, thema_id)
 VALUES (1, 1);
+
+
+/*set sequences */
+SELECT pg_catalog.setval('public.producttypen_thema_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producttypen_jsonschema_id_seq', 2, true);
+
+SELECT pg_catalog.setval('public.producttypen_uniformeproductnaam_id_seq', 2, true);
+
+SELECT pg_catalog.setval('public.producttypen_producttype_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producttypen_zaaktype_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producttypen_externecode_id_seq', 2, true);
+
+SELECT pg_catalog.setval('public.producttypen_producttypetranslation_id_seq', 2, true);
+
+SELECT pg_catalog.setval('public.producttypen_dmnconfig_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producttypen_actie_id_seq', 2, true);
+
+SELECT pg_catalog.setval('public.producttypen_parameter_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producttypen_contentelement_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producttypen_contentlabel_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producttypen_contentelementtranslation_id_seq', 2, true);
+
+SELECT pg_catalog.setval('public.producttypen_contentelement_labels_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producttypen_link_id_seq', 2, true);
+
+SELECT pg_catalog.setval('public.producttypen_prijs_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producttypen_prijsoptie_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producttypen_prijsregel_id_seq', 2, true);
+
+SELECT pg_catalog.setval('public.producttypen_producttype_themas_id_seq', 1, true);
