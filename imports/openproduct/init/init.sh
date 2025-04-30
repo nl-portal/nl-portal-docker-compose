@@ -15,6 +15,8 @@ echo "Setting 'admin' password."
 echo "from django.contrib.auth import get_user_model; User = get_user_model(); user = User.objects.get(username='admin'); user.set_password('admin'); user.save()" | python src/manage.py shell
 echo "Loading fixtures"
 python src/manage.py loaddata
+echo "Loading UPL from https://standaarden.overheid.nl/owms/oquery/UPL-actueel.csv"
+python src/manage.py load_upl --url https://standaarden.overheid.nl/owms/oquery/UPL-actueel.csv
 echo "Finished setup"
 
 sh /start.sh

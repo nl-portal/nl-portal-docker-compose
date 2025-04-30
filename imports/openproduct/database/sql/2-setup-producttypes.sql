@@ -43,11 +43,6 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
   ]
 }');
 
-/* add uniform productnaam*/
-INSERT INTO public.producttypen_uniformeproductnaam(id, uuid, naam, uri, is_verwijderd)
-VALUES ( 1,'b747df47-5b72-401f-a0ad-86c3b251499f', 'parkeervergunning', 'parkeervergunning', false),
-       ( 2,'0ec62573-0b3e-4f9b-a8ba-bc03f3d1fa72', 'belastingzaken', 'belastingzaken', false);
-
 /* add producttype*/
 INSERT INTO public.producttypen_producttype(id, uuid, gepubliceerd, aanmaak_datum, update_datum, code, toegestane_statussen, keywords, interne_opmerkingen, dataobject_schema_id, uniforme_product_naam_id, verbruiksobject_schema_id)
 VALUES (1,'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', true, now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2, 1, 1);
@@ -65,10 +60,6 @@ VALUES (1, '418317dc-c5b8-4690-b309-846bdb13e680', 'ISO', '123', 1),
 INSERT INTO public.producttypen_producttypetranslation(id, language_code, naam, samenvatting, master_id)
 VALUES (1, 'nl', 'Parkeren', 'samenvatting translatie', 1),
        (2, 'en', 'Parking', 'samenvatting translatie', 1);
-
-/* add dmn config*/
-INSERT INTO public.producttypen_dmnconfig(id, uuid, naam, tabel_endpoint)
-VALUES ( 1, '3bc964a5-108d-430c-b7fb-6797bb17b6fd', 'watkanikregelen-parkeren', 'http://localhost:9000/engine-rest/decision-definition/key');
 
 /* add actie*/
 INSERT INTO public.producttypen_actie(id, uuid, naam, dmn_tabel_id, dmn_config_id, producttype_id)
@@ -134,8 +125,6 @@ SELECT pg_catalog.setval('public.producttypen_zaaktype_id_seq', 1, true);
 SELECT pg_catalog.setval('public.producttypen_externecode_id_seq', 2, true);
 
 SELECT pg_catalog.setval('public.producttypen_producttypetranslation_id_seq', 2, true);
-
-SELECT pg_catalog.setval('public.producttypen_dmnconfig_id_seq', 1, true);
 
 SELECT pg_catalog.setval('public.producttypen_actie_id_seq', 2, true);
 
