@@ -23,8 +23,13 @@ VALUES (1, 'Openzaak Types', 'ztc', 'http://localhost:8001/catalogi/api/v1/', 'v
 INSERT INTO public.producttypen_externeverwijzingconfig(id, zaaktypen_url, processen_url, verzoektypen_url, documenten_url)
 VALUES (1, 'http://localhost:8001/catalogi/api/v1', 'http://localhost:8001/catalogi/api/v1', 'http://localhost:8001/catalogi/api/v1', 'http://localhost:8001/documenten/api/v1');
 
+/* add dmn config*/
+INSERT INTO public.producttypen_dmnconfig(id, uuid, naam, tabel_endpoint)
+VALUES ( 1, '3bc964a5-108d-430c-b7fb-6797bb17b6fd', 'watkanikregelen-parkeren', 'http://localhost:9000/engine-rest/decision-definition/key');
 
 
 SELECT pg_catalog.setval('public.zgw_consumers_service_id_seq', 1, true);
 
 SELECT pg_catalog.setval('public.producttypen_externeverwijzingconfig_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producttypen_dmnconfig_id_seq', 1, true);
