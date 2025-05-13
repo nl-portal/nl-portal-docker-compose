@@ -22,14 +22,42 @@ VALUES (1, '41f71c2e-9e0c-4a1b-8d39-709669b256c2', true, now(), now(), 'Parkeren
 INSERT INTO public.producttypen_jsonschema(id, naam, schema)
 VALUES (1, 'parkeervergunning-verbruiksobject', '{
   "type": "object",
+  "title": "PDCverbruiksObject",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "examples": [
+    {
+      "data": {
+        "mijnExtraData": "abc",
+        "Een genest object": {
+          "nogMeer": "data"
+        }
+      },
+      "soort": "gemeldeVerhuur",
+      "productInstantie": "7d9cd6c2-8147-46f2-9ae9-c67e8213c116"
+    }
+  ],
+  "required": [
+    "soort",
+    "productInstantie",
+    "data"
+  ],
   "properties": {
-    "uren": {
-      "type": "number"
+    "data": {
+      "type": "object",
+      "description": "Vrij veld voor verbruiksobject data"
+    },
+    "soort": {
+      "type": "string",
+      "description": "Soort / type verbruiksobject. Alle verbruiksobjecten van het zelfde soort hebben hetzelfde type"
+    },
+    "productInstantie": {
+      "type": "string",
+      "format": "uuid",
+      "description": "UUID van bijhorend PDCProductInstantie"
     }
   },
-  "required": [
-    "uren"
-  ]
+  "description": "Product verbruik details van een instantie uit het PDC. Bevat product data die vaak aangepast moet worden. Bijvoorbeeld een log van gebruikte tijdsvakken",
+  "additionalProperties": false
 }'),
 (2, 'parkeervergunning-dataobject', '{
   "type": "object",
