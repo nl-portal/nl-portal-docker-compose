@@ -22,14 +22,42 @@ VALUES (1, '41f71c2e-9e0c-4a1b-8d39-709669b256c2', true, now(), now(), 'Parkeren
 INSERT INTO public.producttypen_jsonschema(id, naam, schema)
 VALUES (1, 'parkeervergunning-verbruiksobject', '{
   "type": "object",
+  "title": "PDCverbruiksObject",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "examples": [
+    {
+      "data": {
+        "mijnExtraData": "abc",
+        "Een genest object": {
+          "nogMeer": "data"
+        }
+      },
+      "soort": "gemeldeVerhuur",
+      "productInstantie": "7d9cd6c2-8147-46f2-9ae9-c67e8213c116"
+    }
+  ],
+  "required": [
+    "soort",
+    "productInstantie",
+    "data"
+  ],
   "properties": {
-    "uren": {
-      "type": "number"
+    "data": {
+      "type": "object",
+      "description": "Vrij veld voor verbruiksobject data"
+    },
+    "soort": {
+      "type": "string",
+      "description": "Soort / type verbruiksobject. Alle verbruiksobjecten van het zelfde soort hebben hetzelfde type"
+    },
+    "productInstantie": {
+      "type": "string",
+      "format": "uuid",
+      "description": "UUID van bijhorend PDCProductInstantie"
     }
   },
-  "required": [
-    "uren"
-  ]
+  "description": "Product verbruik details van een instantie uit het PDC. Bevat product data die vaak aangepast moet worden. Bijvoorbeeld een log van gebruikte tijdsvakken",
+  "additionalProperties": false
 }'),
 (2, 'parkeervergunning-dataobject', '{
   "type": "object",
@@ -106,10 +134,37 @@ INSERT INTO public.producttypen_prijsregel(id, uuid, beschrijving, dmn_tabel_id,
 VALUES (1, '830dda6f-d167-4485-ab99-ebb8f3a33bd3', 'prijs optie regel 1', 'alg-parkeren', 1, 1),
        (2, '04d0f3ab-c691-408d-b99f-a7e045c82dea', 'prijs optie regel 2', 'alg-belastingen', 1, 1);
 
+/*
+ add Organisaties
+ */
+INSERT INTO public.locaties_organisatie(id, uuid, naam, email, telefoonnummer, straat, huisnummer, postcode, stad, code)
+VALUES (1, 'ac1ee933-8f9a-414b-bf0c-11adc969ed2c', 'Ritense', 'info@ritsense.nl', '0201234567', 'straat', '1', '1000AB', 'Amsterdam', 'RIT');
+
+/*
+ add contacten
+ */
+INSERT INTO public.locaties_contact(id, uuid, voornaam, achternaam, email, telefoonnummer, rol, organisatie_id)
+VALUES (1, '09cd7326-1bf0-4890-b8d1-0ac3ee22bac0', 'Vincent', 'van Beek', 'test@test.nl', '0201234567', 'owner', 1);
+
+/* add locaties */
+INSERT INTO public.locaties_locatie(id, uuid, naam, email, telefoonnummer, straat, huisnummer, postcode, stad)
+VALUES(1, 'ea3069ae-7ec0-4663-91b7-cab404cc450d','Ritense', 'info@ritsense.nl', '0201234567', 'straat', '1', '1000AB', 'Amsterdam');
+
 /* add producttype_thema */
 INSERT INTO public.producttypen_producttype_themas(producttype_id, thema_id)
 VALUES (1, 1);
 
+/* add producttype_organisaties */
+INSERT INTO public.producttypen_producttype_organisaties(producttype_id, organisatie_id)
+VALUES (1, 1);
+
+/* add producttype_contacten */
+INSERT INTO public.producttypen_producttype_contacten(producttype_id, contact_id)
+VALUES (1, 1);
+
+/* add producttype_locaties */
+INSERT INTO public.producttypen_producttype_locaties(producttype_id, locatie_id)
+VALUES (1, 1);
 
 /*set sequences */
 SELECT pg_catalog.setval('public.producttypen_thema_id_seq', 1, true);
@@ -147,3 +202,15 @@ SELECT pg_catalog.setval('public.producttypen_prijsoptie_id_seq', 1, true);
 SELECT pg_catalog.setval('public.producttypen_prijsregel_id_seq', 2, true);
 
 SELECT pg_catalog.setval('public.producttypen_producttype_themas_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producttypen_producttype_organisaties_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producttypen_producttype_locaties_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producttypen_producttype_contacten_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.locaties_locatie_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.locaties_organisatie_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.locaties_contact_id_seq', 1, true);
