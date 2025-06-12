@@ -203,6 +203,10 @@ VALUES (1, '09cd7326-1bf0-4890-b8d1-0ac3ee22bac0', 'Vincent', 'van Beek', 'test@
 INSERT INTO public.locaties_locatie(id, uuid, naam, email, telefoonnummer, straat, huisnummer, postcode, stad)
 VALUES(1, 'ea3069ae-7ec0-4663-91b7-cab404cc450d','Ritense', 'info@ritsense.nl', '0201234567', 'straat', '1', '1000AB', 'Amsterdam');
 
+/* add bestanden */
+INSERT INTO public.producttypen_bestand(id, uuid, bestand, producttype_id)
+VALUES (1, '0a9ff804-d151-477b-81aa-09e16f3064d9', 'https://gemeente.open-product.nl/media/test.txt', 1);
+
 /* add producttype_thema */
 INSERT INTO public.producttypen_producttype_themas(producttype_id, thema_id)
 VALUES (1, 3);
