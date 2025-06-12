@@ -353,7 +353,7 @@ services:
             - brp-api-network
 
     openproduct:
-        image: maykinmedia/open-product:1.1.0
+        image: maykinmedia/open-product:latest
         container_name: openproduct
         profiles:
             - zgw

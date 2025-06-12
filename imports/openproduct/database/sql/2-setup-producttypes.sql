@@ -16,7 +16,10 @@
 
 /* add thema */
 INSERT INTO public.producttypen_thema(id, uuid, gepubliceerd, aanmaak_datum, update_datum, naam, beschrijving, hoofd_thema_id)
-VALUES (1, '41f71c2e-9e0c-4a1b-8d39-709669b256c2', true, now(), now(), 'Parkeren', 'Parkeren thema', null);
+VALUES (1, '1a25f58c-8e7b-425f-b466-7e6f8ca1268b', true, now(), now(), 'Hoofdthema', 'Hoofdthema thema', null),
+       (2, 'c00a7724-3e8f-4155-9ae1-2edbc6eaeefe', true, now(), now(), 'Subthema', 'Subthema thema', 1),
+       (3, 'b95cfbf6-8578-410b-b108-a42fd20af843', true, now(), now(), 'Parkeren', 'Parkeren thema', 2),
+       (4, '41f71c2e-9e0c-4a1b-8d39-709669b256c2', true, now(), now(), 'Belastingzaken', 'Belastingzaken thema', null);
 
 /* add schema */
 INSERT INTO public.producttypen_jsonschema(id, naam, schema)
@@ -90,9 +93,59 @@ VALUES (1, 'nl', 'Parkeren', 'samenvatting translatie', 1),
        (2, 'en', 'Parking', 'samenvatting translatie', 1);
 
 /* add actie*/
-INSERT INTO public.producttypen_actie(id, uuid, naam, dmn_tabel_id, dmn_config_id, producttype_id)
-VALUES ( 1,'082d143f-6a53-4e08-bc3c-0488b3b490e4', 'watkanikregelen-parkeren', 'alg-parkeren', 1, 1),
-       ( 2,'2435b986-7742-4cef-91f2-e1162c2f19c9', 'watkanikregelen-belastingen', 'alg-belastingen', 1, 1);;
+INSERT INTO public.producttypen_actie(id, uuid, naam, dmn_tabel_id, dmn_config_id, producttype_id, mapping)
+VALUES ( 1,'082d143f-6a53-4e08-bc3c-0488b3b490e4', 'watkanikregelen-parkeren', 'alg-parkeren', 1, 1, '{
+  "product": [
+    {
+      "name": "pid",
+      "regex": "$.uuid",
+      "classType": "String"
+    },
+    {
+      "name": "geldigheideinddatum",
+      "regex": "$.eind_datum",
+      "classType": "String"
+    },
+    {
+      "name": "aantaluren",
+      "regex": "$.verbruiksobject.uren",
+      "classType": "String"
+    }
+  ],
+  "static": [
+    {
+      "name": "formulieren",
+      "classType": "String",
+      "value": "https://openformulieren-zgw.test.denhaag.nl"
+    }
+  ]
+}'),
+       ( 2,'2435b986-7742-4cef-91f2-e1162c2f19c9', 'watkanikregelen-belastingen', 'alg-belastingen', 1, 1, '{
+         "product": [
+           {
+             "name": "pid",
+             "regex": "$.uuid",
+             "classType": "String"
+           },
+           {
+             "name": "geldigheideinddatum",
+             "regex": "$.eind_datum",
+             "classType": "String"
+           },
+           {
+             "name": "aantaluren",
+             "regex": "$.verbruiksobject.uren",
+             "classType": "String"
+           }
+         ],
+         "static": [
+           {
+             "name": "formulieren",
+             "classType": "String",
+             "value": "https://openformulieren-zgw.test.denhaag.nl"
+           }
+         ]
+       }');
 
 /* add parameter */
 INSERT INTO public.producttypen_parameter(id, uuid, naam, waarde, producttype_id)
@@ -152,7 +205,7 @@ VALUES(1, 'ea3069ae-7ec0-4663-91b7-cab404cc450d','Ritense', 'info@ritsense.nl', 
 
 /* add producttype_thema */
 INSERT INTO public.producttypen_producttype_themas(producttype_id, thema_id)
-VALUES (1, 1);
+VALUES (1, 3);
 
 /* add producttype_organisaties */
 INSERT INTO public.producttypen_producttype_organisaties(producttype_id, organisatie_id)
@@ -167,7 +220,7 @@ INSERT INTO public.producttypen_producttype_locaties(producttype_id, locatie_id)
 VALUES (1, 1);
 
 /*set sequences */
-SELECT pg_catalog.setval('public.producttypen_thema_id_seq', 1, true);
+SELECT pg_catalog.setval('public.producttypen_thema_id_seq', 4, true);
 
 SELECT pg_catalog.setval('public.producttypen_jsonschema_id_seq', 2, true);
 
