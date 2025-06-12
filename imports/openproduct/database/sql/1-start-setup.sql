@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 INSERT INTO public.accounts_user(id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined)
-VALUES(1, 'admin', null, true, 'admin', '', '', 'admin@example.com', true, true, now());
+VALUES(1, 'pbkdf2_sha256$600000$8R5PtLVB2cWBCB3lBoTrd2$zJ4IalwmR5kNrX9yDl4W+M2F94Z1D8KtZRH/lNrXeHY=', null, true, 'admin', '', '', 'admin@example.com', true, true, now());
 
 INSERT INTO public.authtoken_token (key, created, user_id)
 VALUES ('ac045222c9e7cde8120b48735560f9b920bb58cd', now(), 1);
