@@ -55,3 +55,7 @@ VALUES (1, '4b5f4fba-0746-11ed-b939-0242ac120023', 1);
 SELECT pg_catalog.setval('public.producten_product_id_seq', 4, true);
 
 SELECT pg_catalog.setval('public.producten_eigenaar_id_seq', 3, true);
+
+SELECT pg_catalog.setval('public.producten_zaak_id_seq', 1, true);
+
+SELECT pg_catalog.setval('public.producten_taak_id_seq', 1, true);
