@@ -25,8 +25,8 @@ VALUES (1, 'Notification API', 'nrc', 'http://localhost:8002/api/v1/', 'valtimo_
 INSERT INTO public.notifications_api_common_notificationsconfig(id, notifications_api_service_id, notification_delivery_max_retries, notification_delivery_retry_backoff, notification_delivery_retry_backoff_max)
 VALUES (2, 1, 5,3, 48);
 /* add externe verwijzing config */
-INSERT INTO public.producttypen_externeverwijzingconfig(id, zaaktypen_url, processen_url, verzoektypen_url, documenten_url)
-VALUES (1, 'http://localhost:8001/catalogi/api/v1', 'http://localhost:8001/catalogi/api/v1', 'http://localhost:8001/catalogi/api/v1', 'http://localhost:8001/documenten/api/v1');
+INSERT INTO public.producttypen_externeverwijzingconfig(id, zaaktypen_url, processen_url, verzoektypen_url, documenten_url, taken_url, zaken_url)
+VALUES (1, 'http://localhost:8001/catalogi/api/v1/zaaktypen', 'http://localhost:8001/catalogi/api/v1', 'http://localhost:8001/catalogi/api/v1', 'http://localhost:8001/documenten/api/v1', 'http://localhost:8010/api/v2/objects', 'http://localhost:8001/zaken/api/v1/zaken');
 
 /* add dmn config*/
 INSERT INTO public.producttypen_dmnconfig(id, uuid, naam, tabel_endpoint)

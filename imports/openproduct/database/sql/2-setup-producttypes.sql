@@ -196,8 +196,8 @@ VALUES (1, 'ac1ee933-8f9a-414b-bf0c-11adc969ed2c', 'Ritense', 'info@ritsense.nl'
 /*
  add contacten
  */
-INSERT INTO public.locaties_contact(id, uuid, voornaam, achternaam, email, telefoonnummer, rol, organisatie_id)
-VALUES (1, '09cd7326-1bf0-4890-b8d1-0ac3ee22bac0', 'Vincent', 'van Beek', 'test@test.nl', '0201234567', 'owner', 1);
+INSERT INTO public.locaties_contact(id, uuid, naam, email, telefoonnummer, rol, organisatie_id)
+VALUES (1, '09cd7326-1bf0-4890-b8d1-0ac3ee22bac0', 'Vincent van Beek', 'test@test.nl', '0201234567', 'owner', 1);
 
 /* add locaties */
 INSERT INTO public.locaties_locatie(id, uuid, naam, email, telefoonnummer, straat, huisnummer, postcode, stad)
