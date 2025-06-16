@@ -19,7 +19,8 @@ INSERT INTO public.producttypen_thema(id, uuid, gepubliceerd, aanmaak_datum, upd
 VALUES (1, '1a25f58c-8e7b-425f-b466-7e6f8ca1268b', true, now(), now(), 'Hoofdthema', 'Hoofdthema thema', null),
        (2, 'c00a7724-3e8f-4155-9ae1-2edbc6eaeefe', true, now(), now(), 'Subthema', 'Subthema thema', 1),
        (3, 'b95cfbf6-8578-410b-b108-a42fd20af843', true, now(), now(), 'Parkeren', 'Parkeren thema', 2),
-       (4, '41f71c2e-9e0c-4a1b-8d39-709669b256c2', true, now(), now(), 'Belastingzaken', 'Belastingzaken thema', null);
+       (4, '41f71c2e-9e0c-4a1b-8d39-709669b256c2', true, now(), now(), 'Belastingzaken', 'Belastingzaken thema', null),
+	   (5, '17d21ea4-7fa7-4532-88cd-081c089000f3', true, now(), now(), 'Inkomensondersteuning', 'Sociaal domein', null);
 
 /* add schema */
 INSERT INTO public.producttypen_jsonschema(id, naam, schema)
@@ -72,15 +73,25 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
   "required": [
     "uren"
   ]
+}'),
+(3, 'ooievaarspas-dataobject', '{
+  "type": "object",
+  "properties": {
+  },
+  "required": [
+  ]
 }');
 
 /* add producttype*/
 INSERT INTO public.producttypen_producttype(id, uuid, gepubliceerd, aanmaak_datum, update_datum, code, toegestane_statussen, keywords, interne_opmerkingen, dataobject_schema_id, uniforme_product_naam_id, verbruiksobject_schema_id)
-VALUES (1,'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', true, now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2, 1, 1);
+VALUES (1,'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', true, now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2, 793, 1),
+       (2,'43633c6c-2d9a-46c8-9051-112418102254', true, now(), now(), 'OOIEVAARSPAS', '{gereed}', '{ooievaarspas, gzac}', 'Stadspas Den Haag', 3, 941, null);
+
 
 /* add zaaktype */
 INSERT INTO public.producttypen_zaaktype(id, uuid, producttype_id)
-VALUES (1, '744ca059-f412-49d4-8963-5800e4afd486', 1);
+VALUES (1, '744ca059-f412-49d4-8963-5800e4afd486', 1),
+       (2, '0f71d469-782a-4e65-8101-c1e70c272c13', 2);
 
 /* add externe code */
 INSERT INTO public.producttypen_externecode(id, uuid, naam, code, producttype_id)
@@ -209,7 +220,8 @@ VALUES (1, '0a9ff804-d151-477b-81aa-09e16f3064d9', 'https://gemeente.open-produc
 
 /* add producttype_thema */
 INSERT INTO public.producttypen_producttype_themas(producttype_id, thema_id)
-VALUES (1, 3);
+VALUES (1, 3), 
+       (2, 5);
 
 /* add producttype_organisaties */
 INSERT INTO public.producttypen_producttype_organisaties(producttype_id, organisatie_id)
@@ -224,15 +236,15 @@ INSERT INTO public.producttypen_producttype_locaties(producttype_id, locatie_id)
 VALUES (1, 1);
 
 /*set sequences */
-SELECT pg_catalog.setval('public.producttypen_thema_id_seq', 4, true);
+SELECT pg_catalog.setval('public.producttypen_thema_id_seq', 5, true);
 
-SELECT pg_catalog.setval('public.producttypen_jsonschema_id_seq', 2, true);
+SELECT pg_catalog.setval('public.producttypen_jsonschema_id_seq', 3, true);
 
 SELECT pg_catalog.setval('public.producttypen_uniformeproductnaam_id_seq', 2, true);
 
-SELECT pg_catalog.setval('public.producttypen_producttype_id_seq', 1, true);
+SELECT pg_catalog.setval('public.producttypen_producttype_id_seq', 2, true);
 
-SELECT pg_catalog.setval('public.producttypen_zaaktype_id_seq', 1, true);
+SELECT pg_catalog.setval('public.producttypen_zaaktype_id_seq', 2, true);
 
 SELECT pg_catalog.setval('public.producttypen_externecode_id_seq', 2, true);
 
@@ -258,7 +270,7 @@ SELECT pg_catalog.setval('public.producttypen_prijsoptie_id_seq', 1, true);
 
 SELECT pg_catalog.setval('public.producttypen_prijsregel_id_seq', 2, true);
 
-SELECT pg_catalog.setval('public.producttypen_producttype_themas_id_seq', 1, true);
+SELECT pg_catalog.setval('public.producttypen_producttype_themas_id_seq', 2, true);
 
 SELECT pg_catalog.setval('public.producttypen_producttype_organisaties_id_seq', 1, true);
 

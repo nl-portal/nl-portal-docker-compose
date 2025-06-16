@@ -53,7 +53,8 @@ INSERT INTO public.catalogi_eigenschapspecificatie VALUES (1, 'tekst', 'tekst', 
 --
 
 INSERT INTO public.catalogi_zaaktype VALUES (1, '2021-01-01', NULL, false, '744ca059-f412-49d4-8963-5800e4afd486', 'bezwaar-behandelen', 'Bezwaar behandelen', 'Bezwaar behandelen', 'zaakvertrouwelijk', 'Een uitspraak doen op een ingekomen bezwaar tegen een eerder genomen besluit.', 'Er is een bezwaarschrift ontvangen tegen een besluit dat genomen is door de gemeente.', 'Conform de Algemene Wet Bestuursrecht (AWB) heeft een natuurlijk of niet-natuurlijk persoon de mogelijkheid om bezwaar te maken tegen een genomen besluit van de gemeente, bijvoorbeeld het niet verlenen van een vergunning.', 'extern', 'Indienen', 'Bezwaar', 'Behandelen', '84 days', NULL, false, true, '42 days', '{bezwaar,bezwaarschrift}', false, '', '{}', '2021-01-01', '{https://github.com/valtimo-platform/valtimo-platform}', 'https://selectielijst.openzaak.nl/api/v1/procestypen/e1b73b12-b2f6-4c4e-8929-94f84dd2a57d', 'Bezwaar behandelen', 'http://www.gemmaonline.nl/index.php/Referentieproces_bezwaar_behandelen', 1, 2017, '_etag', '002564440', '', '', '', '', '', '');
-
+-- Stadspas Type
+INSERT INTO public.catalogi_zaaktype VALUES (2, '2023-06-26', NULL, false, '0f71d469-782a-4e65-8101-c1e70c272c13', 'aanvraag-stadspas-behandelen-v6', 'aanvraag-stadspas-behandelen-v6', 'StadspasAlgemeen', 'vertrouwelijk', 'Het beoordelen van een aanvraag voor een stadspas', 'Dit werkproces wordt extern getriggerd door een inkomende aanvraag.', 'Dit werkproces betreft het behandelen van een aanvraag voor een stadspas. De gemeente verstrekt de stadspas waarmee bij verschillende organisaties en instellingen korting kan worden gekregen. De gemeente bepaalt zelf de inkomensgrens voor mensen die gebruik kunnen maken van een stadspas. Met de inwerkingtreding van de Participatiewet vormt dit met de mogelijkheid om deel te nemen aan een aanvullende zorgverzekering of een tegemoetkoming in de kosten daarvan (zie werkproces B1261) de enige vormen van categoriale bijzondere bijstand die nog mogelijk zijn.', 'extern', 'Aanvragen', 'Stadspas', 'Behandelen', '84 days', NULL, false, true, '42 days', '{bezwaar,bezwaarschrift}', false, '', '{}', '2021-01-01', '{https://github.com/valtimo-platform/valtimo-platform}', 'https://selectielijst.openzaak.nl/api/v1/procestypen/e1b73b12-b2f6-4c4e-8929-94f84dd2a57d', 'Bezwaar behandelen', 'http://www.gemmaonline.nl/index.php/Referentieproces_bezwaar_behandelen', 1, 2017, '_etag', '002564440', '', '', '', '', '', '');
 
 --
 -- Data for Name: catalogi_statustype; Type: TABLE DATA; Schema: public; Owner: openzaak
@@ -66,6 +67,14 @@ INSERT INTO public.catalogi_statustype VALUES (5, 'ff1d3b73-0d87-4abd-a81a-4b4e0
 INSERT INTO public.catalogi_statustype VALUES (6, 'eda60181-8f09-4b58-84d3-f2550be528bb', 'Concept-besluit opgesteld', 'Concept-besluit opgesteld', 5, false, '', 'Het conceptbesluit voor de beslisser is opgesteld, indien van toepassing op basis van het advies van de bezwarencommissie.', 1, '_etag', NULL, NULL, NULL);
 INSERT INTO public.catalogi_statustype VALUES (7, 'd9ab722c-2e3b-4760-8ec0-3ebf72363b6d', 'Besluit vastgesteld', 'Besluit vastgesteld', 6, true, 'Geachte heer/mevrouw, Op %ZAAK.Registratiedatum% hebben wij heeft u een bezwaar ingediend. Uw bezwaar is bij ons in behandeling onder zaaknummer %ZAAK.Zaakidentificatie%.  De gemeente heeft een besluit genomen over uw bezwaar onder besluitnummer %BESLUIT. Besluitidentificatie%.  Het besluit van de gemeente is:  %BESLUIT.Toelichting%  Het schriftelijke besluit op uw bezwaar inclusief motivatie wordt zo spoedig mogelijk per post naar u toegestuurd.', 'De uitspraak op het bezwaar is vastgesteld door de beslisser.', 1, '_etag', NULL, NULL, NULL);
 INSERT INTO public.catalogi_statustype VALUES (8, '99115d8c-a2d5-4f9d-9592-a7160d5fbbbb', 'Zaak afgerond', 'Zaak afgerond', 7, true, 'Geachte heer/mevrouw, Op %ZAAK. Registratiedatum% heeft u een bezwaar ingediend. Uw bezwaar is bij ons in behandeling onder zaaknummer %ZAAK.Zaakidentificatie%. Onlangs bent u al op de hoogte gesteld van het besluit. Met deze e-mail willen wij u mededelen dat het besluit per post naar u is toegestuurd en dat wij de zaak hebben afgesloten.', 'Het besluit is schriftelijk kenbaar gemaakt aan de indiener van het bezwaar. De zaak is gearchiveerd en afgehandeld.', 1, '_etag', NULL, NULL, NULL);
+
+-- Stadspas Statussen
+INSERT INTO public.catalogi_statustype VALUES (9, '8ed7d70b-7a58-4952-ad8f-6b2967b58294', 'Afgehandeld', 'Afgehandeld', 6, true, '', '', 2, '_etag', NULL, NULL, NULL);
+INSERT INTO public.catalogi_statustype VALUES (10, '34f24f69-66a7-4df3-834d-8fa73c31df58', 'Geen aanvullende informatie ontvangen', 'Geen aanvullende informatie ontvangen', 5, true, '', '', 2, '_etag', NULL, NULL, NULL);
+INSERT INTO public.catalogi_statustype VALUES (11, '63729232-dab6-4ac5-b3fc-5a1113f2b182', 'Aanvullende informatie ontvangen', 'Aanvullende informatie ontvangen', 4, true, '', '', 2, '_etag', NULL, NULL, NULL);
+INSERT INTO public.catalogi_statustype VALUES (12, '07980d08-e1a5-4879-a3d3-4c68c096eb39', 'Informatieverzoek uitgezet', 'Informatieverzoek uitgezet', 3, true, '', '', 2, '_etag', NULL, NULL, NULL);
+INSERT INTO public.catalogi_statustype VALUES (13, '143eed27-e3ad-43ed-b885-e5f1c06d710a', 'In behandeling genomen', 'In behandeling genomen', 2, true, '', '', 2, '_etag', NULL, NULL, NULL);
+INSERT INTO public.catalogi_statustype VALUES (14, 'f1cd55c6-e080-42a1-bf95-de388e376246', 'Aanvraag ontvangen', 'Aanvraag ontvangen', 1, true, '', '', 2, '_etag', NULL, NULL, NULL);
 
 
 --
@@ -100,21 +109,21 @@ INSERT INTO public.catalogi_eigenschap VALUES (21, 'b33b8b4d-1e83-4084-bf9a-c78b
 --
 
 INSERT INTO public.catalogi_informatieobjecttype VALUES (1, '2021-10-04', NULL, false, 'efc332f2-be3b-4bad-9e3c-49a6219c92ad', 'test', 'zaakvertrouwelijk', 1, '_etag', '', '', '', '', '', '{}', 'onbekend');
-
+INSERT INTO public.catalogi_informatieobjecttype VALUES (2, '2021-10-27', NULL, false, 'a0d1b4d7-e74c-4118-9ed0-13f7ed8fb5fe', 'Bijlage', 'zaakvertrouwelijk', 1, '_etag', '', '', '', '', '', '{}', 'onbekend');
 
 --
 -- Data for Name: catalogi_roltype; Type: TABLE DATA; Schema: public; Owner: openzaak
 --
 
 INSERT INTO public.catalogi_roltype VALUES (1, '1c359a1b-c38d-47b8-bed5-994db88ead61', 'Aanvrager', 'initiator', 1, '_etag', NULL, NULL);
-
-
+INSERT INTO public.catalogi_roltype VALUES (2, 'f58c41cd-1761-4c74-ab65-e06c998edf0c', 'Initiator', 'initiator', 2, '_etag', NULL, NULL);
+INSERT INTO public.catalogi_roltype VALUES (3, '5c450650-9ff0-4183-8478-e391f678ed79', 'Behandelaar', 'behandelaar', 2, '_etag', NULL, NULL);
 --
 -- Data for Name: catalogi_zaaktypeinformatieobjecttype; Type: TABLE DATA; Schema: public; Owner: openzaak
 --
 
 INSERT INTO public.catalogi_zaaktypeinformatieobjecttype VALUES (1, '405da8a9-7296-439c-a2eb-a470b84f17ee', 1, 'inkomend', 1, NULL, 1, '_etag');
-
+INSERT INTO public.catalogi_zaaktypeinformatieobjecttype VALUES (2, '2022b33a-53af-4643-ac89-b0bd7d99113e', 2, 'intern', 2, NULL, 2, '_etag');
 
 --
 -- Data for Name: vng_api_common_jwtsecret; Type: TABLE DATA; Schema: public; Owner: openzaak
@@ -246,28 +255,28 @@ SELECT pg_catalog.setval('public.catalogi_informatieobjecttype_id_seq', 1, false
 -- Name: catalogi_roltype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
 --
 
-SELECT pg_catalog.setval('public.catalogi_roltype_id_seq', 1, false);
+SELECT pg_catalog.setval('public.catalogi_roltype_id_seq', 3, false);
 
 
 --
 -- Name: catalogi_statustype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
 --
 
-SELECT pg_catalog.setval('public.catalogi_statustype_id_seq', 8, false);
+SELECT pg_catalog.setval('public.catalogi_statustype_id_seq', 14, false);
 
 
 --
 -- Name: catalogi_zaaktype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
 --
 
-SELECT pg_catalog.setval('public.catalogi_zaaktype_id_seq', 1, false);
+SELECT pg_catalog.setval('public.catalogi_zaaktype_id_seq', 2, false);
 
 
 --
 -- Name: catalogi_zaaktypeinformatieobjecttype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
 --
 
-SELECT pg_catalog.setval('public.catalogi_zaaktypeinformatieobjecttype_id_seq', 1, false);
+SELECT pg_catalog.setval('public.catalogi_zaaktypeinformatieobjecttype_id_seq', 2, false);
 
 
 --
