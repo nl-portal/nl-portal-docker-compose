@@ -384,7 +384,7 @@ services:
         command: sh /app/init/init.sh
 
     openproduct-celery:
-        image: maykinmedia/open-product:1.0.0
+        image: maykinmedia/open-product:latest
         container_name: openproduct-celery
         profiles:
             - zgw
