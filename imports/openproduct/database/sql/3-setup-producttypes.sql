@@ -85,7 +85,7 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
 /* add producttype*/
 INSERT INTO public.producttypen_producttype(id, uuid, gepubliceerd, aanmaak_datum, update_datum, code, toegestane_statussen, keywords, interne_opmerkingen, dataobject_schema_id, uniforme_product_naam_id, verbruiksobject_schema_id)
 VALUES (1,'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', true, now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2, 793, 1),
-       (2,'43633c6c-2d9a-46c8-9051-112418102254', true, now(), now(), 'OOIEVAARSPAS', '{gereed}', '{ooievaarspas, gzac}', 'Stadspas Den Haag', 3, 941, null);
+       (2,'43633c6c-2d9a-46c8-9051-112418102254', true, now(), now(), 'STADSPAS', '{gereed}', '{ooievaarspas, gzac}', 'Stadspas Den Haag', 3, 941, null);
 
 
 /* add zaaktype */
@@ -101,7 +101,9 @@ VALUES (1, '418317dc-c5b8-4690-b309-846bdb13e680', 'ISO', '123', 1),
 /* add producttype translation*/
 INSERT INTO public.producttypen_producttypetranslation(id, language_code, naam, samenvatting, master_id)
 VALUES (1, 'nl', 'Parkeren', 'samenvatting translatie', 1),
-       (2, 'en', 'Parking', 'samenvatting translatie', 1);
+       (2, 'en', 'Parking', 'samenvatting translatie', 1),
+	   (3, 'nl', 'Stadspas', 'samenvatting translatie', 2),
+       (4, 'en', 'CityPass', 'samenvatting translatie', 2);
 
 /* add actie*/
 INSERT INTO public.producttypen_actie(id, uuid, naam, dmn_tabel_id, dmn_config_id, producttype_id, mapping)
