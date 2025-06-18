@@ -1,4 +1,4 @@
-INSERT INTO public.producttypen_uniformeproductnaam(id, uuid, naam, uri, is_verwijderd) 
+INSERT INTO public.producttypen_uniformeproductnaam(id, uuid, naam, uri, is_verwijderd)
 VALUES (1, 'cdc2796b-9972-45db-9805-4daf92d77642', 'UPL-naam nog niet beschikbaar', 'http://standaarden.overheid.nl/owms/terms/UPL-naam_nog_niet_beschikbaar', false),
        (2, '474c2e27-aeb9-4422-a4d8-eb233eb9cff4', 'aangifte vertrek buitenland', 'http://standaarden.overheid.nl/owms/terms/AangifteVertrekBuitenland', false),
        (3, '4ed7012a-3b1a-4126-9eb7-d28946629944', 'aanleunwoning', 'http://standaarden.overheid.nl/owms/terms/aanleunwoning', false),
@@ -1213,3 +1213,7 @@ VALUES (1, 'cdc2796b-9972-45db-9805-4daf92d77642', 'UPL-naam nog niet beschikbaa
        (1212, '286cd1b6-c2d9-4651-b30b-5aa0ad819c57', 'zwemgelegenheid melding', 'http://standaarden.overheid.nl/owms/terms/zwemgelmld', false),
        (1213, '321b1644-5414-45d1-9a43-d5ff2d917840', 'zwemwater', 'http://standaarden.overheid.nl/owms/terms/zwemwater', false),
        (1214, '89c7884d-7865-47ab-a19a-1e6a0c83342e', 'zwemwater kwaliteitseisen', 'http://standaarden.overheid.nl/owms/terms/zwemwkwaleis', false);
+
+
+
+SELECT pg_catalog.setval('public.producttypen_uniformeproductnaam_id_seq', 1214, true);
