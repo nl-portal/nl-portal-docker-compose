@@ -379,12 +379,11 @@ services:
             - openproduct-database
             - openproduct-redis
         volumes:
-            - ./imports/openproduct/init/UPL-actueel.csv:/app/UPL-actueel.csv
             - ./imports/openproduct/init:/app/init
         command: sh /app/init/init.sh
 
     openproduct-celery:
-        image: maykinmedia/open-product:1.0.0
+        image: maykinmedia/open-product:latest
         container_name: openproduct-celery
         profiles:
             - zgw
