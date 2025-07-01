@@ -189,8 +189,14 @@ INSERT INTO public.zaken_rol VALUES (7, 'f82037f1-f1cf-4c4b-809b-319e1aa7bb6a', 
 INSERT INTO public.zaken_rol VALUES (8, '129f37c5-1e8b-43a1-9514-c7d9c57a0b8b', '1', 'natuurlijk_persoon', 'Aanvrager', 'initiator', 'Test rol', '2024-11-04 14:45:51.941013+00', 'gemachtigde', 1, 8, '_etag', NULL, NULL, '', '', '', '', '');
 INSERT INTO public.zaken_rol VALUES (9, '10684831-cef6-43e5-aebc-455dd8585714', '1', 'natuurlijk_persoon', 'Aanvrager', 'initiator', 'Test rol', '2024-11-04 14:45:51.942119+00', 'gemachtigde', 1, 9, '_etag', NULL, NULL, '', '', '', '', '');
 INSERT INTO public.zaken_rol VALUES (10, '8d68e2db-cfbb-419c-a035-769fb3f4b0ef', '', 'natuurlijk_persoon', 'Aanvrager', 'initiator', 'Aanvrager', '2024-11-04 14:54:13.209889+00', '', 1, 10, '634b951b504ea34c0ca504e5ea5f14ed', NULL, NULL, '', '', '', '', '');
-INSERT INTO public.zaken_rol VALUES (11, '523bf211-dc77-4e44-bae3-e5f14852c3e3', '', 'niet_natuurlijk_persoon', 'Aanvrager', 'initiator', 'Aanvrager', '2024-11-04 14:54:13.209889+00', '', 1, 10, '634b951b504ea34c0ca504e5ea5f14ed', NULL, NULL, '', '', '', '', '')
-INSERT INTO public.zaken_rol VALUES (12, '13329a57-4b80-4fab-86d2-e459f3843f4a', '', 'niet_natuurlijk_persoon', 'Aanvrager', 'initiator', 'Aanvrager', '2024-11-04 14:54:13.209889+00', '', 1, 10, '634b951b504ea34c0ca504e5ea5f14ed', NULL, NULL, '', '', '', '', '')
+INSERT INTO public.zaken_rol VALUES (11, '523bf211-dc77-4e44-bae3-e5f14852c3e3', '', 'niet_natuurlijk_persoon', 'Aanvrager', 'initiator', 'Aanvrager', '2024-11-04 14:54:13.209889+00', '', 1, 10, '634b951b504ea34c0ca504e5ea5f14ed', NULL, NULL, '', '', '', '', '');
+INSERT INTO public.zaken_rol VALUES (12, '13329a57-4b80-4fab-86d2-e459f3843f4a', '', 'niet_natuurlijk_persoon', 'Aanvrager', 'initiator', 'Aanvrager', '2024-11-04 14:54:13.209889+00', '', 1, 10, '634b951b504ea34c0ca504e5ea5f14ed', NULL, NULL, '', '', '', '', '');
+
+
+INSERT INTO public.zaken_status(id, uuid, datum_status_gezet, statustoelichting, _statustype_id, zaak_id, _etag, _statustype_base_url_id, _statustype_relative_url, gezetdoor_id)
+VALUES(1, 'a0dc4822-6aa0-4368-b52e-3bd9892cb2a8', now(), 'status toelichting', 8, 1, '', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen/99115d8c-a2d5-4f9d-9592-a7160d5fbbbb', 1),
+      (2, 'cfc3209c-7313-48c1-8e7e-1b891795ad7d', now(), 'status toelichting', 8, 2, '', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen/99115d8c-a2d5-4f9d-9592-a7160d5fbbbb', 1),
+      (3, '8a7b0605-0a2c-4a03-ab4c-e6668651cb4d', now(), 'status toelichting', 8, 3, '', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen/99115d8c-a2d5-4f9d-9592-a7160d5fbbbb', 1);
 
 --
 -- Data for Name: zaken_natuurlijkpersoon; Type: TABLE DATA; Schema: public; Owner: openzaak
