@@ -195,8 +195,8 @@ INSERT INTO public.zaken_rol VALUES (12, '13329a57-4b80-4fab-86d2-e459f3843f4a',
 
 INSERT INTO public.zaken_status(id, uuid, datum_status_gezet, statustoelichting, _statustype_id, zaak_id, _etag, _statustype_base_url_id, _statustype_relative_url, gezetdoor_id)
 VALUES(1, 'a0dc4822-6aa0-4368-b52e-3bd9892cb2a8', now(), 'status toelichting', 8, 1, '', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen/99115d8c-a2d5-4f9d-9592-a7160d5fbbbb', 1),
-      (2, 'cfc3209c-7313-48c1-8e7e-1b891795ad7d', now(), 'status toelichting', 8, 2, '', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen/99115d8c-a2d5-4f9d-9592-a7160d5fbbbb', 1),
-      (3, '8a7b0605-0a2c-4a03-ab4c-e6668651cb4d', now(), 'status toelichting', 8, 3, '', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen/99115d8c-a2d5-4f9d-9592-a7160d5fbbbb', 1);
+      (2, 'cfc3209c-7313-48c1-8e7e-1b891795ad7d', now(), 'status toelichting', 8, 2, '', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen/cfc3209c-7313-48c1-8e7e-1b891795ad7d', 1),
+      (3, '8a7b0605-0a2c-4a03-ab4c-e6668651cb4d', now(), 'status toelichting', 8, 3, '', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen/8a7b0605-0a2c-4a03-ab4c-e6668651cb4d', 1);
 
 --
 -- Data for Name: zaken_natuurlijkpersoon; Type: TABLE DATA; Schema: public; Owner: openzaak
