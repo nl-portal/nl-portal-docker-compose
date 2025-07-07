@@ -13,6 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+INSERT INTO public.accounts_user(id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined)
+VALUES(1, 'pbkdf2_sha256$600000$8R5PtLVB2cWBCB3lBoTrd2$zJ4IalwmR5kNrX9yDl4W+M2F94Z1D8KtZRH/lNrXeHY=', null, true, 'admin', '', '', 'admin@example.com', true, true, now());
+
 INSERT INTO public.token_tokenauth (id, token, contact_person, email, organization, last_modified, created, application, administration, identifier)
 VALUES (10, 'ac045222c9e7cde8120b48735560f9b920bb58cd', 'Admin', 'admin@example.com', '', '2024-09-06 07:26:53.703312 +00:00', '2024-09-06 07:26:53.703384 +00:00', '', '', 'test_token');
 
