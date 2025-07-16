@@ -13,6 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+ 
+INSERT INTO public.accounts_user(id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined)
+VALUES(1, 'pbkdf2_sha256$600000$8R5PtLVB2cWBCB3lBoTrd2$zJ4IalwmR5kNrX9yDl4W+M2F94Z1D8KtZRH/lNrXeHY=', null, true, 'admin', '', '', 'admin@example.com', true, true, now());
+
 INSERT INTO public.authtoken_token (key, created, user_id)
 VALUES ('ac045222c9e7cde8120b48735560f9b920bb58cd', now(), 1);
 
@@ -21,11 +25,11 @@ VALUES (1, 'Notification API', 'nrc', 'http://localhost:8002/api/v1/', 'valtimo_
 
 INSERT INTO public.notifications_api_common_notificationsconfig(id, notifications_api_service_id, notification_delivery_max_retries, notification_delivery_retry_backoff, notification_delivery_retry_backoff_max)
 VALUES (2, 1, 5,3, 48);
-/* add externe verwijzing config */
-INSERT INTO public.producttypen_externeverwijzingconfig(id, zaaktypen_url, processen_url, verzoektypen_url, documenten_url)
-VALUES (1, 'http://localhost:8001/catalogi/api/v1', 'http://localhost:8001/catalogi/api/v1', 'http://localhost:8001/catalogi/api/v1', 'http://localhost:8001/documenten/api/v1');
+-- add externe verwijzing config 
+INSERT INTO public.producttypen_externeverwijzingconfig(id, zaaktypen_url, processen_url, verzoektypen_url, documenten_url, taken_url, zaken_url)
+VALUES (1, 'http://localhost:8001/catalogi/api/v1/zaaktypen', 'http://localhost:8001/catalogi/api/v1', 'http://localhost:8001/catalogi/api/v1', 'http://localhost:8001/documenten/api/v1', 'http://localhost:8010/api/v2/objects', 'http://localhost:8001/zaken/api/v1/zaken');
 
-/* add dmn config*/
+-- add dmn config
 INSERT INTO public.producttypen_dmnconfig(id, uuid, naam, tabel_endpoint)
 VALUES ( 1, '3bc964a5-108d-430c-b7fb-6797bb17b6fd', 'watkanikregelen-parkeren', 'http://localhost:9000/engine-rest/decision-definition/key');
 
