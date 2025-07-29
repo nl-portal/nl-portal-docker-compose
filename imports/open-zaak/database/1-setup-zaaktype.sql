@@ -154,8 +154,10 @@ INSERT INTO public.zaken_zaakidentificatie VALUES (10, 'ZAAK-2024-0000000001', '
 -- Data for Name: zgw_consumers_service; Type: TABLE DATA; Schema: public; Owner: openzaak
 --
 
-INSERT INTO public.zgw_consumers_service VALUES (1, 'Notificaties API', 'nrc', 'https://notificaties-api.vng.cloud/api/v1/', '', '', 'no_auth', '', '', 'https://notificaties-api.vng.cloud/api/v1/schema/openapi.yaml', '', '', '', '', NULL, NULL, 'd2b82dc4-0b2e-4b09-bfb5-2d3de518f4f2');
-INSERT INTO public.zgw_consumers_service VALUES (2, 'VNG Selectielijst', 'orc', 'https://selectielijst.openzaak.nl/api/v1/', '', '', 'no_auth', '', '', 'https://selectielijst.openzaak.nl/api/v1/schema/openapi.yaml', '', '', '', '', NULL, NULL, '416b1d93-b596-44c3-b226-d2aca2184b7d');
+INSERT INTO public.zgw_consumers_service(id, label, api_type, api_root, client_id, secret, auth_type, header_key, header_value, oas, nlx, user_id, user_representation, oas_file, client_certificate_id, server_certificate_id, uuid, timeout, api_connection_check_path, slug)
+VALUES (3, 'Notification API', 'nrc', 'http://localhost:8002/api/v1/', 'valtimo_client', 'e09b8bc5-5831-4618-ab28-41411304309d', 'zgw', '', '', 'http://localhost:8002/api/v1/schema/openapi.yaml', '', '', '', '', null, null, '415042b2-c740-4532-be88-38ac5f8c9060', 10, '', 'httplocalhost8002notificationsapiv1' ),
+       (4, 'Catalogi API', 'ztc', 'http://localhost:8001/catalogi/api/v1/', 'valtimo_client', 'e09b8bc5-5831-4618-ab28-41411304309d', 'zgw', '', '', 'http://localhost:8001/catalogi/api/v1/schema/openapi.yaml', '', '', '', '', null, null, '88975148-0971-4219-94f4-e4581f53b018', 10, '', 'httplocalhost8001catalogiapiv1' );
+
 
 
 --
@@ -194,9 +196,9 @@ INSERT INTO public.zaken_rol VALUES (12, '13329a57-4b80-4fab-86d2-e459f3843f4a',
 
 
 INSERT INTO public.zaken_status(id, uuid, datum_status_gezet, statustoelichting, _statustype_id, zaak_id, _etag, _statustype_base_url_id, _statustype_relative_url, gezetdoor_id)
-VALUES(1, 'a0dc4822-6aa0-4368-b52e-3bd9892cb2a8', now(), 'status toelichting', 8, 1, '', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen/99115d8c-a2d5-4f9d-9592-a7160d5fbbbb', 1),
-      (2, 'cfc3209c-7313-48c1-8e7e-1b891795ad7d', now(), 'status toelichting', 8, 2, '', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen/cfc3209c-7313-48c1-8e7e-1b891795ad7d', 1),
-      (3, '8a7b0605-0a2c-4a03-ab4c-e6668651cb4d', now(), 'status toelichting', 8, 3, '', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen', 'https://openzaak-zgw.test.denhaag.nl/catalogi/api/v1/statustypen/8a7b0605-0a2c-4a03-ab4c-e6668651cb4d', 1);
+VALUES(1, 'a0dc4822-6aa0-4368-b52e-3bd9892cb2a8', now(), 'status toelichting', 8, 1, '', null, null, 1),
+      (2, 'cfc3209c-7313-48c1-8e7e-1b891795ad7d', now(), 'status toelichting', 8, 2, '', null, null, 1),
+      (3, '8a7b0605-0a2c-4a03-ab4c-e6668651cb4d', now(), 'status toelichting', 8, 3, '', null, null, 1);
 
 --
 -- Data for Name: zaken_natuurlijkpersoon; Type: TABLE DATA; Schema: public; Owner: openzaak
@@ -215,6 +217,12 @@ INSERT INTO public.zaken_natuurlijkpersoon VALUES (9, '569312863', '', '', '', '
 INSERT INTO public.zaken_nietnatuurlijkpersoon(id, inn_nnp_id, ann_identificatie, statutaire_naam, inn_rechtsvorm, bezoekadres, rol_id, zaakobject_id, "zakelijk_rechtHeeft_als_gerechtigde_id", kvk_nummer, vestigings_nummer)
 VALUES (1, '', '14127293', 'Ritense', 'BV', '', 11, NULL, NULL, '', ''),
        (2, '', '14127293', 'Ritense met vestiging', 'BV', '', 12, NULL, NULL, '', '000037143557');
+
+INSERT INTO public.catalogi_resultaattype(id, uuid, omschrijving, resultaattypeomschrijving, omschrijving_generiek, selectielijstklasse, archiefnominatie, archiefactietermijn, brondatum_archiefprocedure_afleidingswijze, brondatum_archiefprocedure_datumkenmerk, brondatum_archiefprocedure_einddatum_bekend, brondatum_archiefprocedure_objecttype, brondatum_archiefprocedure_registratie, brondatum_archiefprocedure_procestermijn, toelichting, zaaktype_id, _etag, indicatie_specifiek, procesobjectaard, procestermijn, datum_begin_geldigheid, datum_einde_geldigheid)
+VALUES (1, '67ddeaee-d921-48a9-9fd8-50ea9571aba2', 'resultaattype omschrijving', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry', 'Toelichting generiek', 'https://example.com/', 'blijvend_bewaren', null, 'afgehandeld', '', false, 'overige', '', null, 'toelichting', 1, '', false, '', null, '2019-08-24', '2119-08-24');
+
+INSERT INTO public.zaken_resultaat(id, uuid, toelichting, _resultaattype_id, zaak_id, _etag, _resultaattype_base_url_id, _resultaattype_relative_url)
+VALUES (1, '00f34059-86ed-4b94-8527-3591e0fb84a0', 'toelichting resultaat', 1, 1, '', null, null);
 --
 -- Name: accounts_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
 --
@@ -319,7 +327,8 @@ SELECT pg_catalog.setval('public.zaken_zaakidentificatie_id_seq', 10, true);
 
 SELECT pg_catalog.setval('public.zgw_consumers_service_id_seq', 2, true);
 
-
+SELECT pg_catalog.setval('public.catalogi_resultaattype_id_seq', 1, true);
+SELECT pg_catalog.setval('public.zaken_resultaat_id_seq', 1, true);
 --
 -- PostgreSQL database dump complete
 --
