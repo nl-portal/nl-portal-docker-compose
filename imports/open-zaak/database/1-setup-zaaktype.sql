@@ -125,6 +125,9 @@ INSERT INTO public.catalogi_roltype VALUES (3, '5c450650-9ff0-4183-8478-e391f678
 INSERT INTO public.catalogi_zaaktypeinformatieobjecttype VALUES (1, '405da8a9-7296-439c-a2eb-a470b84f17ee', 1, 'inkomend', 1, NULL, 1, '_etag');
 INSERT INTO public.catalogi_zaaktypeinformatieobjecttype VALUES (2, '2022b33a-53af-4643-ac89-b0bd7d99113e', 2, 'intern', 2, NULL, 2, '_etag');
 
+INSERT INTO public.catalogi_resultaattype(id, uuid, omschrijving, resultaattypeomschrijving, omschrijving_generiek, selectielijstklasse, archiefnominatie, archiefactietermijn, brondatum_archiefprocedure_afleidingswijze, brondatum_archiefprocedure_datumkenmerk, brondatum_archiefprocedure_einddatum_bekend, brondatum_archiefprocedure_objecttype, brondatum_archiefprocedure_registratie, brondatum_archiefprocedure_procestermijn, toelichting, zaaktype_id, _etag, indicatie_specifiek, procesobjectaard, procestermijn, datum_begin_geldigheid, datum_einde_geldigheid)
+VALUES (1, '67ddeaee-d921-48a9-9fd8-50ea9571aba2', 'resultaattype omschrijving', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry', 'Toelichting generiek', 'https://example.com/', 'blijvend_bewaren', null, 'afgehandeld', '', false, 'overige', '', null, 'toelichting', 1, '', false, '', null, '2019-08-24', '2119-08-24');
+
 --
 -- Data for Name: vng_api_common_jwtsecret; Type: TABLE DATA; Schema: public; Owner: openzaak
 --
@@ -164,17 +167,17 @@ VALUES (3, 'Notification API', 'nrc', 'http://localhost:8002/api/v1/', 'valtimo_
 -- Data for Name: zaken_zaak; Type: TABLE DATA; Schema: public; Owner: openzaak
 --
 
-INSERT INTO public.zaken_zaak(id, uuid, identificatie, bronorganisatie, omschrijving, toelichting, registratiedatum, verantwoordelijke_organisatie, startdatum, einddatum, einddatum_gepland, uiterlijke_einddatum_afdoening, publicatiedatum, producten_of_diensten, communicatiekanaal, vertrouwelijkheidaanduiding, betalingsindicatie, laatste_betaaldatum, zaakgeometrie, verlenging_reden, verlenging_duur, opschorting_indicatie, opschorting_reden, selectielijstklasse, archiefnominatie, archiefstatus, archiefactiedatum, _zaaktype_id, hoofdzaak_id, _etag, opdrachtgevende_organisatie, _zaaktype_base_url_id, _zaaktype_relative_url, identificatie_ptr_id, processobject_datumkenmerk, processobject_identificatie, processobject_objecttype, processobject_registratie, processobjectaard, startdatum_bewaartermijn, created_on, communicatiekanaal_naam)
-VALUES (1, '703af290-abe0-418c-b9c3-10a65e662788', 'ZAAK-2021-0000000001', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 1, '_etag', '051845623', NULL, NULL, 1, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak'),
-        (2, '60b30357-e81c-40f7-80cf-cd715e01a981', 'ZAAK-2021-0000000002', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 2, '_etag', '051845623', NULL, NULL, 2, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak'),
-        (3, '59a4e114-cc09-4a09-b324-63ec7e18a896', 'ZAAK-2021-0000000003', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 3, '_etag', '051845623', NULL, NULL, 3, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak'),
-        (4, 'ba439c9a-5a2d-46da-bb30-7827bd672382', 'ZAAK-2021-0000000004', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 4, '_etag', '051845623', NULL, NULL, 4, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak'),
-        (5, '1e1cb360-f6d3-4c2a-b815-119f09aaa95d', 'ZAAK-2021-0000000005', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 5, '_etag', '051845623', NULL, NULL, 5, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak'),
-        (6, 'f621749d-d222-49b8-9392-eff8723e0922', 'ZAAK-2021-0000000006', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 6, '_etag', '051845623', NULL, NULL, 6, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak'),
-        (7, '8c0243f2-6f2c-4757-940a-5140d71b74a0', 'ZAAK-2021-0000000007', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 7, '_etag', '051845623', NULL, NULL, 7, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak'),
-        (8, '7b18aa8c-968f-427e-9875-d827bbdc9624', 'ZAAK-2021-0000000008', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 8, '_etag', '051845623', NULL, NULL, 8, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak'),
-        (9, '64eaf9ef-37b4-4898-acc9-ae47bee577a2', 'ZAAK-2021-0000000009', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 9, '_etag', '051845623', NULL, NULL, 9, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak'),
-        (NULL, '239e1863-6516-492d-a691-4e85e45dd4f4', '', '', '', '', '2024-11-04', '100000009', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', '00:00:00', false, '', '', NULL, 'nog_te_archiveren', NULL, 1, NULL, '771598e6d588b6d3f661e745a662588a', '', NULL, NULL, 10, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak');
+INSERT INTO public.zaken_zaak(id, uuid, identificatie, bronorganisatie, omschrijving, toelichting, registratiedatum, verantwoordelijke_organisatie, startdatum, einddatum, einddatum_gepland, uiterlijke_einddatum_afdoening, publicatiedatum, producten_of_diensten, communicatiekanaal, vertrouwelijkheidaanduiding, betalingsindicatie, laatste_betaaldatum, zaakgeometrie, verlenging_reden, verlenging_duur, opschorting_indicatie, opschorting_reden, selectielijstklasse, archiefnominatie, archiefstatus, archiefactiedatum, _zaaktype_id, hoofdzaak_id, _etag, opdrachtgevende_organisatie, _zaaktype_base_url_id, _zaaktype_relative_url, identificatie_ptr_id, processobject_datumkenmerk, processobject_identificatie, processobject_objecttype, processobject_registratie, processobjectaard, startdatum_bewaartermijn, created_on, communicatiekanaal_naam, opschorting_eerdere_opschorting)
+VALUES (1, '703af290-abe0-418c-b9c3-10a65e662788', 'ZAAK-2021-0000000001', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 1, '_etag', '051845623', NULL, NULL, 1, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak', false),
+        (2, '60b30357-e81c-40f7-80cf-cd715e01a981', 'ZAAK-2021-0000000002', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 2, '_etag', '051845623', NULL, NULL, 2, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak', false),
+        (3, '59a4e114-cc09-4a09-b324-63ec7e18a896', 'ZAAK-2021-0000000003', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 3, '_etag', '051845623', NULL, NULL, 3, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak', false),
+        (4, 'ba439c9a-5a2d-46da-bb30-7827bd672382', 'ZAAK-2021-0000000004', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 4, '_etag', '051845623', NULL, NULL, 4, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak', false),
+        (5, '1e1cb360-f6d3-4c2a-b815-119f09aaa95d', 'ZAAK-2021-0000000005', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 5, '_etag', '051845623', NULL, NULL, 5, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak', false),
+        (6, 'f621749d-d222-49b8-9392-eff8723e0922', 'ZAAK-2021-0000000006', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 6, '_etag', '051845623', NULL, NULL, 6, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak', false),
+        (7, '8c0243f2-6f2c-4757-940a-5140d71b74a0', 'ZAAK-2021-0000000007', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 7, '_etag', '051845623', NULL, NULL, 7, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak', false),
+        (8, '7b18aa8c-968f-427e-9875-d827bbdc9624', 'ZAAK-2021-0000000008', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 8, '_etag', '051845623', NULL, NULL, 8, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak', false),
+        (9, '64eaf9ef-37b4-4898-acc9-ae47bee577a2', 'ZAAK-2021-0000000009', '051845623', '', '', '2024-11-04', '051845623', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', NULL, false, '', '', NULL, 'nog_te_archiveren', NULL, 1, 9, '_etag', '051845623', NULL, NULL, 9, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak', false),
+        (NULL, '239e1863-6516-492d-a691-4e85e45dd4f4', '', '', '', '', '2024-11-04', '100000009', '2024-11-04', NULL, NULL, NULL, NULL, '{}', '', 'openbaar', '', NULL, NULL, '', '00:00:00', false, '', '', NULL, 'nog_te_archiveren', NULL, 1, NULL, '771598e6d588b6d3f661e745a662588a', '', NULL, NULL, 10, '', '', '', '', '', NULL, '2024-06-22 19:10:25-07', 'zaak', false);
 
 
 --
@@ -200,6 +203,10 @@ VALUES(1, 'a0dc4822-6aa0-4368-b52e-3bd9892cb2a8', now(), 'status toelichting', 8
       (2, 'cfc3209c-7313-48c1-8e7e-1b891795ad7d', now(), 'status toelichting', 8, 2, '', null, null, 1),
       (3, '8a7b0605-0a2c-4a03-ab4c-e6668651cb4d', now(), 'status toelichting', 8, 3, '', null, null, 1);
 
+INSERT INTO public.zaken_substatus(id, uuid, tijdstip, omschrijving, doelgroep, status_id, zaak_id)
+VALUES(1, '660d0bd4-3157-4d48-b9c4-a2dd06a65c68', '2024-08-24T14:15:22Z', 'omschrijving substatus 1', 'betrokkenen', 1, 1),
+      (2, '851ea2dd-5cb3-4e16-bbfe-468ae25e8b9f', '2024-09-24T20:15:22Z', 'omschrijving substatus 2', 'betrokkenen', 1, 1),
+      (3, 'c4c7f3d0-bf23-42df-b191-167eda689c40', '2024-10-24T10:15:22Z', 'omschrijving substatus 3', 'betrokkenen', 1, 1);
 --
 -- Data for Name: zaken_natuurlijkpersoon; Type: TABLE DATA; Schema: public; Owner: openzaak
 --
@@ -217,9 +224,6 @@ INSERT INTO public.zaken_natuurlijkpersoon VALUES (9, '569312863', '', '', '', '
 INSERT INTO public.zaken_nietnatuurlijkpersoon(id, inn_nnp_id, ann_identificatie, statutaire_naam, inn_rechtsvorm, bezoekadres, rol_id, zaakobject_id, "zakelijk_rechtHeeft_als_gerechtigde_id", kvk_nummer, vestigings_nummer)
 VALUES (1, '', '14127293', 'Ritense', 'BV', '', 11, NULL, NULL, '', ''),
        (2, '', '14127293', 'Ritense met vestiging', 'BV', '', 12, NULL, NULL, '', '000037143557');
-
-INSERT INTO public.catalogi_resultaattype(id, uuid, omschrijving, resultaattypeomschrijving, omschrijving_generiek, selectielijstklasse, archiefnominatie, archiefactietermijn, brondatum_archiefprocedure_afleidingswijze, brondatum_archiefprocedure_datumkenmerk, brondatum_archiefprocedure_einddatum_bekend, brondatum_archiefprocedure_objecttype, brondatum_archiefprocedure_registratie, brondatum_archiefprocedure_procestermijn, toelichting, zaaktype_id, _etag, indicatie_specifiek, procesobjectaard, procestermijn, datum_begin_geldigheid, datum_einde_geldigheid)
-VALUES (1, '67ddeaee-d921-48a9-9fd8-50ea9571aba2', 'resultaattype omschrijving', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry', 'Toelichting generiek', 'https://example.com/', 'blijvend_bewaren', null, 'afgehandeld', '', false, 'overige', '', null, 'toelichting', 1, '', false, '', null, '2019-08-24', '2119-08-24');
 
 INSERT INTO public.zaken_resultaat(id, uuid, toelichting, _resultaattype_id, zaak_id, _etag, _resultaattype_base_url_id, _resultaattype_relative_url)
 VALUES (1, '00f34059-86ed-4b94-8527-3591e0fb84a0', 'toelichting resultaat', 1, 1, '', null, null);
@@ -325,7 +329,7 @@ SELECT pg_catalog.setval('public.zaken_zaakidentificatie_id_seq', 10, true);
 -- Name: zgw_consumers_service_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
 --
 
-SELECT pg_catalog.setval('public.zgw_consumers_service_id_seq', 2, true);
+SELECT pg_catalog.setval('public.zgw_consumers_service_id_seq', 4, true);
 
 SELECT pg_catalog.setval('public.catalogi_resultaattype_id_seq', 1, true);
 SELECT pg_catalog.setval('public.zaken_resultaat_id_seq', 1, true);
