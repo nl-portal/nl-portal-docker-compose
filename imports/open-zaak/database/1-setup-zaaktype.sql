@@ -333,6 +333,7 @@ SELECT pg_catalog.setval('public.zgw_consumers_service_id_seq', 4, true);
 
 SELECT pg_catalog.setval('public.catalogi_resultaattype_id_seq', 1, true);
 SELECT pg_catalog.setval('public.zaken_resultaat_id_seq', 1, true);
+SELECT pg_catalog.setval('public.zaken_substatus_id_seq', 3, true);
 --
 -- PostgreSQL database dump complete
 --
