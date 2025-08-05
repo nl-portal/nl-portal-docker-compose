@@ -126,7 +126,7 @@ INSERT INTO public.catalogi_zaaktypeinformatieobjecttype VALUES (1, '405da8a9-72
 INSERT INTO public.catalogi_zaaktypeinformatieobjecttype VALUES (2, '2022b33a-53af-4643-ac89-b0bd7d99113e', 2, 'intern', 2, NULL, 2, '_etag');
 
 INSERT INTO public.catalogi_resultaattype(id, uuid, omschrijving, resultaattypeomschrijving, omschrijving_generiek, selectielijstklasse, archiefnominatie, archiefactietermijn, brondatum_archiefprocedure_afleidingswijze, brondatum_archiefprocedure_datumkenmerk, brondatum_archiefprocedure_einddatum_bekend, brondatum_archiefprocedure_objecttype, brondatum_archiefprocedure_registratie, brondatum_archiefprocedure_procestermijn, toelichting, zaaktype_id, _etag, indicatie_specifiek, procesobjectaard, procestermijn, datum_begin_geldigheid, datum_einde_geldigheid)
-VALUES (1, '67ddeaee-d921-48a9-9fd8-50ea9571aba2', 'resultaattype omschrijving', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry', 'Toelichting generiek', 'https://example.com/', 'blijvend_bewaren', null, 'afgehandeld', '', false, 'overige', '', null, 'toelichting', 1, '', false, '', null, '2019-08-24', '2119-08-24');
+VALUES (1, '67ddeaee-d921-48a9-9fd8-50ea9571aba2', 'resultaattype omschrijving', 'https://selectielijst.openzaak.nl/api/v1/resultaattypeomschrijvingen/7cb315fb-4f7b-4a43-aca1-e4522e4c73b3', 'Afgehandeld', 'https://selectielijst.openzaak.nl/api/v1/resultaten/cc5ae4e3-a9e6-4386-bcee-46be4986a829', 'vernietigen', '10 years 0 mons 0 days 0 hours 0 mins 0.0 secs', 'afgehandeld', '', false, 'overige', '', null, 'toelichting', 1, 'bbf55f05dff95d17f06c093a482129c2', false, '', null, '2019-08-24', '2119-08-24');
 
 --
 -- Data for Name: vng_api_common_jwtsecret; Type: TABLE DATA; Schema: public; Owner: openzaak
