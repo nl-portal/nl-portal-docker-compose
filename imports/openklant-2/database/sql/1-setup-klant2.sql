@@ -41,12 +41,21 @@ VALUES (400, '482a8529-0ebd-4424-83a9-b9f88335673d', '0000000333', 'E-mail', 'Vr
        (401, 'f6b89308-7c91-4ca3-a280-4dc08a69de7c', '0000000334', 'Telefoon', 'Klacht', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut aliquam velit.', true, 'nld', true, '2025-01-06 11:02:24+00');
 
 INSERT INTO public.klantinteracties_onderwerpobject(id, onderwerpobjectidentificator_object_id, uuid, klantcontact_id, was_klantcontact_id, onderwerpobjectidentificator_code_objecttype, onderwerpobjectidentificator_code_register, onderwerpobjectidentificator_code_soort_object_id)
-VALUES (600, '703af290-abe0-418c-b9c3-10a65e662788', '33489b0e-5954-4fc7-a3fd-d91f00ec0aa3', 1, null, 'zaak', 'open-zaak', 'uuid');
+VALUES (600, '703af290-abe0-418c-b9c3-10a65e662788', '33489b0e-5954-4fc7-a3fd-d91f00ec0aa3', 400, null, 'zaak', 'open-zaak', 'uuid');
 
 INSERT INTO public.klantinteracties_betrokkene (id, bezoekadres_nummeraanduiding_id, bezoekadres_adresregel1, bezoekadres_adresregel2, bezoekadres_adresregel3, bezoekadres_land, correspondentieadres_nummeraanduiding_id, correspondentieadres_adresregel1, correspondentieadres_adresregel2, correspondentieadres_adresregel3, correspondentieadres_land, contactnaam_voorletters, contactnaam_voornaam, contactnaam_voorvoegsel_achternaam, contactnaam_achternaam, uuid, rol, organisatienaam, initiator, klantcontact_id, partij_id, bezoekadres_huisnummer, bezoekadres_huisnummertoevoeging, bezoekadres_postcode, bezoekadres_stad, bezoekadres_straatnaam, correspondentieadres_huisnummer, correspondentieadres_huisnummertoevoeging, correspondentieadres_postcode, correspondentieadres_stad, correspondentieadres_straatnaam)
 VALUES(300, '0000000000000001','damrak 1 1001XX Amsterdam', '', '', 'nl', '0000000000000001', 'damrak 1 1001XX Amsterdam', '', '', 'nl', 'D', 'Donald', '', 'Duck', '7694c26b-8118-43a0-b0c1-37673f0f46e4', 'klant', '', true, 400, 100, 1, '', '', '','', 1, '', '', '', '');
 
-INSERT INTO public.klantinteracties_digitaaladres (id, uuid, soort_digitaal_adres, adres, omschrijving, betrokkene_id, partij_id, is_standaard_adres, referentie)
-VALUES(500, 'a5f323d8-8c87-43c2-990b-eae03d721adf', 'email', 'test@test.nl', '', 300, 100, false, 'portaal'),
-      (501, '3b006b45-afa9-44ed-a690-32c545924a28', 'telefoonnummer', '0701234567', '', 300, 100, false, ''),
-      (502, 'da80dc1c-bf9b-449f-80e6-2906e66db0a7', 'telefoonnummer', '0701234567', '', 300, 101, false, 'portaal');
+INSERT INTO public.klantinteracties_digitaaladres (id, uuid, soort_digitaal_adres, adres, omschrijving, betrokkene_id, partij_id, is_standaard_adres, referentie, verificatie_datum)
+VALUES(500, 'a5f323d8-8c87-43c2-990b-eae03d721adf', 'email', 'test@test.nl', '', 300, 100, false, 'portaal', '2025-08-06'),
+      (501, '3b006b45-afa9-44ed-a690-32c545924a28', 'telefoonnummer', '0701234567', '', 300, 100, false, '', null),
+      (502, 'da80dc1c-bf9b-449f-80e6-2906e66db0a7', 'telefoonnummer', '0701234567', '', 300, 101, false, 'portaal', null);
+
+SELECT pg_catalog.setval('public.klantinteracties_partij_id_seq', 2, true);
+SELECT pg_catalog.setval('public.klantinteracties_partijidentificator_id_seq', 3, true);
+SELECT pg_catalog.setval('public.klantinteracties_persoon_id_seq', 1, true);
+SELECT pg_catalog.setval('public.klantinteracties_organisatie_id_seq', 1, true);
+SELECT pg_catalog.setval('public.klantinteracties_klantcontact_id_seq', 2, true);
+SELECT pg_catalog.setval('public.klantinteracties_onderwerpobject_id_seq', 1, true);
+SELECT pg_catalog.setval('public.klantinteracties_betrokkene_id_seq', 1, true);
+SELECT pg_catalog.setval('public.klantinteracties_digitaaladres_id_seq', 4, true);
