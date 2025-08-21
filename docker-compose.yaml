@@ -421,6 +421,46 @@ services:
             - zgw
             - openproduct
 
+    omc-notifynl:
+        image: worthnl/notifynl-omc:1.15.8
+        platform: linux/amd64
+        container_name: omc-notifynl
+        ports:
+            - "8003:8080"
+        environment:
+            - OMC_FEATURE_WORKFLOW_VERSION=1
+            - ASPNETCORE_ENVIRONMENT=Development
+            - OMC_AUTH_JWT_ISSUER=worth-omc
+            - OMC_AUTH_JWT_AUDIENCE=worth-omc
+            - OMC_AUTH_JWT_EXPIRESINMIN=525600
+            - OMC_AUTH_JWT_USERID=Test-Omc-Nl-Portal
+            - OMC_AUTH_JWT_USERNAME=Test-Omc-Nl-Portal
+            - ZGW_AUTH_JWT_ISSUER=omc
+            - ZGW_AUTH_JWT_AUDIENCE=" "
+            - ZGW_AUTH_JWT_EXPIRESINMIN=3600
+            - ZGW_AUTH_JWT_USERID=omc
+            - ZGW_AUTH_JWT_USERNAME=omc
+            - ZGW_ENDPOINT_OPENNOTIFICATIES=localhost:8002/api/v1
+            - ZGW_ENDPOINT_OPENZAAK=localhost:8001/api/v1
+            - ZGW_ENDPOINT_OPENKLANT=localhost:8007/api/klantinteracties/v1
+            - ZGW_ENDPOINT_BESLUITEN=localhost:8002/api/v1
+            - ZGW_ENDPOINT_OBJECTEN=localhost:8010/api/v2
+            - ZGW_ENDPOINT_OBJECTTYPEN=localhost:8011/api/v2
+            - ZGW_ENDPOINT_CONTACTMOMENTEN=localhost:8007/contactmomenten/api/v1
+            - ZGW_WHITELIST_ZAAKCREATE_IDS="*"
+            - ZGW_WHITELIST_ZAAKUPDATE_IDS="*"
+            - ZGW_WHITELIST_ZAAKCLOSE_IDS="*"
+            - ZGW_WHITELIST_TASKASSIGNED_IDS="*"
+            - ZGW_WHITELIST_DECISIONMADE_IDS="*"
+            - ZGW_WHITELIST_MESSAGE_ALLOWED=false
+            - ZGW_VARIABLE_OBJECTTYPE_TASKOBJECTTYPE_UUID="b4a617af-6969-45e8-9afd-d51e170716d5"
+            - ZGW_VARIABLE_OBJECTTYPE_MESSAGEOBJECTTYPE_UUID="78731088-430f-49fd-9a4c-80ddd42ded28"
+            - ZGW_VARIABLE_OBJECTTYPE_MESSAGEOBJECTTYPE_VERSION=1
+            - ZGW_VARIABLE_OBJECTTYPE_DECISIONINFOOBJECTTYPE_UUIDS=""
+            - NOTIFY_TEMPLATEID_EMAIL_ZAAKCREATE="7ed7fdae-9715-46e1-b967-295d22685b76"
+            - NOTIFY_TEMPLATEID_EMAIL_ZAAKUPDATE="7ed7fdae-9715-46e1-b967-295d22685b76"
+            - NOTIFY_TEMPLATEID_EMAIL_ZAAKCLOSE="7ed7fdae-9715-46e1-b967-295d22685b76"
+            - NOTIFY_TEMPLATEID_EMAIL_TASKASSIGNED="7ed7fdae-9715-46e1-b967-295d22685b76"
 volumes:
     nl-portal-database-data:
     openzaak-private-media:
