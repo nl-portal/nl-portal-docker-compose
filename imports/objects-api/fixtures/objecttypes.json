@@ -10,15 +10,6 @@
     },
     {
         "model": "core.objecttype",
-        "pk": 2,
-        "fields": {
-            "service": 1,
-            "uuid": "3e852115-277a-4570-873a-9a64be3aeb34",
-            "_name": "Taak"
-        }
-    },
-    {
-        "model": "core.objecttype",
         "pk": 3,
         "fields": {
             "service": 1,
