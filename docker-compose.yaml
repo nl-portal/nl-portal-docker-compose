@@ -43,7 +43,7 @@ services:
 
     #zgw
     openzaak:
-        image: openzaak/open-zaak:1.20.0
+        image: openzaak/open-zaak:1.22.0
         container_name: openzaak
         platform: linux/amd64
         profiles:
@@ -129,7 +129,7 @@ services:
             - ./imports/open-klant:/docker-entrypoint-initdb.d
 
     openklant-2:
-        image: maykinmedia/open-klant:2.10.0
+        image: maykinmedia/open-klant:2.12.1
         build: .
         container_name: openklant-2
         profiles:
