@@ -356,7 +356,7 @@
         "pk": 3,
         "fields": {
             "uuid": "4b5f4fba-0746-11ed-b939-0242ac120023",
-            "object_type": 3
+            "object_type": 2
         }
     },
     {
@@ -399,7 +399,7 @@
         "pk": 4,
         "fields": {
             "uuid": "b4a617af-6969-45e8-9afd-d51e170716d5",
-            "object_type": 3
+            "object_type": 2
         }
     },
     {
@@ -453,7 +453,7 @@
         "pk": 5,
         "fields": {
             "uuid": "9e021130-8cbd-4c6f-846a-677448e21ce8",
-            "object_type": 4
+            "object_type": 3
         }
     },
     {
@@ -492,7 +492,7 @@
         "pk": 6,
         "fields": {
             "uuid": "cc47910b-4f3f-43a6-93d3-4dfd49ef3c62",
-            "object_type": 4
+            "object_type": 3
         }
     },
     {
@@ -531,7 +531,7 @@
         "pk": 7,
         "fields": {
             "uuid": "82f1ccd8-b39e-4c54-915d-225d6a4c9876",
-            "object_type": 3
+            "object_type": 2
         }
     },
     {
