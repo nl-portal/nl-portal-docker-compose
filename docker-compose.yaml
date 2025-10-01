@@ -214,12 +214,17 @@ services:
             - SECRET_KEY=${SECRET_KEY:-fgv=c0hz&tl*8*3m3893@m+1pstrvidc9e^5@fpspmg%cy$$15d}
             - DJANGO_SETTINGS_MODULE=objecttypes.conf.docker
             - DB_HOST=objecttypen-api-database
+            - DB_USER=objecttypes
+            - DB_PASSWORD=objecttypes
+            - CACHE_AXES=objecttypen-api-redis:6379/0
+            - CACHE_DEFAULT=objecttypen-api-redis:6379/0
             - DEBUG=true
             - TWO_FACTOR_FORCE_OTP_ADMIN=False # this is not available yet in this version
             - TWO_FACTOR_PATCH_ADMIN=False
             - DISABLE_2FA=true
         depends_on:
             - objecttypen-api-database
+            - objecttypen-api-redis
 
     objecttypen-api-database:
         image: postgres:15
@@ -230,8 +235,6 @@ services:
         environment:
             - POSTGRES_USER=objecttypes
             - POSTGRES_PASSWORD=objecttypes
-            - POSTGRES_DB=objecttypes
-
 
     objecttypen-api-import:
         image: maykinmedia/objecttypes-api:2.3.0
@@ -247,6 +250,7 @@ services:
             - ./imports/objecttypes-api/init:/app/init
         depends_on:
             - objecttypen-api
+            - objecttypen-api-database
 
     objecttypen-api-redis:
         image: redis:6.2.19
