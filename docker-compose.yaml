@@ -137,15 +137,8 @@ services:
         volumes:
             - ./imports/openklant-2/database:/docker-entrypoint-initdb.d/
 
-    redis:
-        image: redis:6.2.6
-        container_name: redis
-        profiles:
-            - zgw
-            - openklant
-
     objecten-api:
-        image: maykinmedia/objects-api:2.1.1
+        image: maykinmedia/objects-api:3.2.0
         container_name: objecten-api
         platform: linux/amd64
         profiles:
@@ -162,11 +155,18 @@ services:
             - TWO_FACTOR_FORCE_OTP_ADMIN=False # this is not available yet in this version
             - TWO_FACTOR_PATCH_ADMIN=False
             - DISABLE_2FA=true
+            - CACHE_AXES=objecten-api-redis:6379/0
+            - CACHE_DEFAULT=objecten-api-redis:6379/0
+            - CELERY_BROKER_URL redis://objecten-api-redis:6379/1
+            - CELERY_RESULT_EXPIRES 3600
+            - CELERY_RESULT_BACKEND redis://objecten-api-redis:6379/1
+            - CELERY_LOGLEVEL DEBUG
         depends_on:
             - objecten-api-database
+            - objecten-api-redis
 
     objecten-api-database:
-        image: postgis/postgis:13-3.1
+        image: postgis/postgis:15-3.5
         container_name: objecten-api-database
         platform: linux/amd64
         profiles:
@@ -178,23 +178,30 @@ services:
             - POSTGRES_DB=objects
 
     objecten-api-import:
-        image: maykinmedia/objects-api:2.1.1
-        container_name: objects-api-import
+        image: maykinmedia/objects-api:3.2.0
+        container_name: objecten-api-import
         platform: linux/amd64
         profiles:
             - zgw
             - objecten
         environment: *objects-env
-        # in the current version of django it is not possible to create a new user with password without user interaction by using the createsuperuser command
         command: sh init/init.sh
         volumes:
             - ./imports/objects-api/fixtures:/app/src/objects/fixtures
             - ./imports/objects-api/init:/app/init
         depends_on:
             - objecten-api
+            - objecten-api-database
+
+    objecten-api-redis:
+        image: redis:6.2.19
+        container_name: objecten-api-redis
+        profiles:
+            - zgw
+            - objecten
 
     objecttypen-api:
-        image: maykinmedia/objecttypes-api:2.1.0
+        image: maykinmedia/objecttypes-api:2.3.0
         container_name: objecttypen-api
         platform: linux/amd64
         profiles:
@@ -227,7 +234,7 @@ services:
 
 
     objecttypen-api-import:
-        image: maykinmedia/objecttypes-api:2.1.0
+        image: maykinmedia/objecttypes-api:2.3.0
         container_name: objecttypen-api-import
         platform: linux/amd64
         profiles:
@@ -240,6 +247,13 @@ services:
             - ./imports/objecttypes-api/init:/app/init
         depends_on:
             - objecttypen-api
+
+    objecttypen-api-redis:
+        image: redis:6.2.19
+        container_name: objecttypen-api-redis
+        profiles:
+            - zgw
+            - objecten
 
 
     # Open notificaties
@@ -260,18 +274,18 @@ services:
             - DJANGO_SETTINGS_MODULE=nrc.conf.docker
             - SECRET_KEY=${SECRET_KEY:-4wHY2Cp5`4(q%)]cuWxPQJRp5kN?g+`.Xah>%6Fsq6+)R>p_}
             - ALLOWED_HOSTS=*
-            - CACHE_DEFAULT=redis-open-notificaties:6379/0
-            - CACHE_AXES=redis-open-notificaties:6379/1
+            - CACHE_DEFAULT=open-notificaties-redis:6379/0
+            - CACHE_AXES=open-notificaties-redis:6379/0
             - DB_PORT=5432
-            - DB_HOST=database-open-notificaties
+            - DB_HOST=open-notificaties-database
             - DB_NAME=notifications
             - DB_USER=notifications
             - DB_PASSWORD=notifications
             - DEBUG=true
             - RABBITMQ_HOST=open-notificaties-rabbitmq
-            - PUBLISH_BROKER_URL=redis://redis-open-notificaties:6379/0
-            - CELERY_BROKER_URL=redis://redis-open-notificaties:6379/0
-            - CELERY_RESULT_BACKEND=redis://redis-open-notificaties:6379/0
+            - PUBLISH_BROKER_URL=redis://open-notificaties-redis:6379/1
+            - CELERY_BROKER_URL=redis://open-notificaties-redis:6379/1
+            - CELERY_RESULT_BACKEND=redis://open-notificaties-redis:6379/1
             - CELERY_LOGLEVEL=DEBUG
             - CELERY_WORKER_CONCURRENCY=${CELERY_WORKER_CONCURRENCY:-4}
             - DISABLE_2FA=true
@@ -283,9 +297,9 @@ services:
         environment: *notificaties-env
         command: /celery_worker.sh
 
-    database-open-notificaties:
+    open-notificaties-database:
         image: postgres:13.5  # open-notificaties doesn't work with postgres 14.
-        container_name: database-open-notificaties
+        container_name: open-notificaties-database
         ports:
             - "54319:5432"
         environment:
@@ -295,9 +309,9 @@ services:
         volumes:
             - ./imports/open-notificaties:/docker-entrypoint-initdb.d
 
-    redis-open-notificaties:
-        image: redis:6.2.6
-        container_name: redis-open-notificaties
+    open-notificaties-redis:
+        image: redis:6.2.19
+        container_name: open-notificaties-redis
 
     haalcentraal-personen:
         container_name: haalcentraal-personen
@@ -377,8 +391,9 @@ services:
             - POSTGRES_DB=openproduct
         volumes:
             - ./imports/openproduct/database:/docker-entrypoint-initdb.d/
+
     openproduct-redis:
-        image: redis:6.2.6
+        image: redis:6.2.19
         container_name: openproduct-redis
         profiles:
             - zgw
