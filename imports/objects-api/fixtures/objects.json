@@ -373,7 +373,7 @@
                 "verloopdatum": "2025-09-20T18:25:43.524Z",
                 "identificatie": {
                     "type": "bsn",
-                    "value": "569312863"
+                    "value": "999993847"
                 },
                 "koppeling": {
                     "registratie": "zaak",
@@ -398,7 +398,7 @@
         "model": "core.object",
         "pk": 4,
         "fields": {
-            "uuid": "b4a617af-6969-45e8-9afd-d51e170716d5",
+            "uuid": "3d6609af-134c-4892-8fa8-71cfdc00a8e9",
             "object_type": 2
         }
     },
@@ -416,7 +416,7 @@
                 "verloopdatum": "2025-09-20T18:25:43.524Z",
                 "identificatie": {
                     "type": "bsn",
-                    "value": "569312863"
+                    "value": "999993847"
                 },
                 "koppeling": {
                     "registratie": "zaak",
@@ -465,16 +465,14 @@
             "version": 1,
             "data": {
                 "geopend": false,
-                "bijlages": [
-                    "https://example.com/documenten/api/v1/enkelvoudiginformatieobjecten/1"
-                ],
+                "bijlages": [],
                 "onderwerp": "Bericht over uw buurt.",
                 "referentie": "ZAAK-2024-0000000001",
                 "berichtType": "notificatie",
                 "berichtTekst": "Er zijn werkzaamheden komende week in uw buurt. U kunt meer over dit lezen op de volgende website: https://example.com",
                 "identificatie": {
                     "type": "bsn",
-                    "value": "569312863"
+                    "value": "999993847"
                 },
                 "publicatiedatum": "2024-07-18T00:00:00Z",
                 "handelingsperspectief": "informatie ontvangen",
@@ -504,16 +502,14 @@
             "version": 1,
             "data": {
                 "geopend": true,
-                "bijlages": [
-                    "https://example.com/documenten/api/v1/enkelvoudiginformatieobjecten/1"
-                ],
+                "bijlages": [],
                 "onderwerp": "Betalingsherinnering",
                 "referentie": "ZAAK-2024-0000000001",
                 "berichtType": "notificatie",
                 "berichtTekst": "Uit de administratie blijkt dat de betaling van de openstaande factuur nog niet binnen is. Helaas is de betalingstermijn inmiddels verstreken.",
                 "identificatie": {
                     "type": "bsn",
-                    "value": "569312863"
+                    "value": "999993847"
                 },
                 "publicatiedatum": "2024-07-18T00:00:00Z",
                 "handelingsperspectief": "informatie ontvangen",
@@ -548,7 +544,7 @@
                 "verloopdatum": "2025-09-20T18:25:43.524Z",
                 "identificatie": {
                     "type": "bsn",
-                    "value": "569312863"
+                    "value": "999993847"
                 },
                 "koppeling": {
                     "registratie": "zaak",
