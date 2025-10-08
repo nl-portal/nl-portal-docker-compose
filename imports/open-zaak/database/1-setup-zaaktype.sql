@@ -211,15 +211,15 @@ VALUES(1, '660d0bd4-3157-4d48-b9c4-a2dd06a65c68', '2024-08-24T14:15:22Z', 'omsch
 -- Data for Name: zaken_natuurlijkpersoon; Type: TABLE DATA; Schema: public; Owner: openzaak
 --
 
-INSERT INTO public.zaken_natuurlijkpersoon VALUES (1, '569312863', '', '', '', '', '', '', 'm', '', 1, NULL, NULL);
-INSERT INTO public.zaken_natuurlijkpersoon VALUES (2, '569312863', '', '', '', '', '', '', 'm', '', 2, NULL, NULL);
-INSERT INTO public.zaken_natuurlijkpersoon VALUES (3, '569312863', '', '', '', '', '', '', 'm', '', 3, NULL, NULL);
-INSERT INTO public.zaken_natuurlijkpersoon VALUES (4, '569312863', '', '', '', '', '', '', 'm', '', 4, NULL, NULL);
-INSERT INTO public.zaken_natuurlijkpersoon VALUES (5, '569312863', '', '', '', '', '', '', 'm', '', 5, NULL, NULL);
-INSERT INTO public.zaken_natuurlijkpersoon VALUES (6, '569312863', '', '', '', '', '', '', 'm', '', 6, NULL, NULL);
-INSERT INTO public.zaken_natuurlijkpersoon VALUES (7, '569312863', '', '', '', '', '', '', 'm', '', 7, NULL, NULL);
-INSERT INTO public.zaken_natuurlijkpersoon VALUES (8, '569312863', '', '', '', '', '', '', 'm', '', 8, NULL, NULL);
-INSERT INTO public.zaken_natuurlijkpersoon VALUES (9, '569312863', '', '', '', '', '', '', 'm', '', 9, NULL, NULL);
+INSERT INTO public.zaken_natuurlijkpersoon VALUES (1, '999993847', '', '', '', '', '', '', 'm', '', 1, NULL, NULL);
+INSERT INTO public.zaken_natuurlijkpersoon VALUES (2, '999993847', '', '', '', '', '', '', 'm', '', 2, NULL, NULL);
+INSERT INTO public.zaken_natuurlijkpersoon VALUES (3, '999993847', '', '', '', '', '', '', 'm', '', 3, NULL, NULL);
+INSERT INTO public.zaken_natuurlijkpersoon VALUES (4, '999993847', '', '', '', '', '', '', 'm', '', 4, NULL, NULL);
+INSERT INTO public.zaken_natuurlijkpersoon VALUES (5, '999993847', '', '', '', '', '', '', 'm', '', 5, NULL, NULL);
+INSERT INTO public.zaken_natuurlijkpersoon VALUES (6, '999993847', '', '', '', '', '', '', 'm', '', 6, NULL, NULL);
+INSERT INTO public.zaken_natuurlijkpersoon VALUES (7, '999993847', '', '', '', '', '', '', 'm', '', 7, NULL, NULL);
+INSERT INTO public.zaken_natuurlijkpersoon VALUES (8, '999993847', '', '', '', '', '', '', 'm', '', 8, NULL, NULL);
+INSERT INTO public.zaken_natuurlijkpersoon VALUES (9, '999993847', '', '', '', '', '', '', 'm', '', 9, NULL, NULL);
 
 INSERT INTO public.zaken_nietnatuurlijkpersoon(id, inn_nnp_id, ann_identificatie, statutaire_naam, inn_rechtsvorm, bezoekadres, rol_id, zaakobject_id, "zakelijk_rechtHeeft_als_gerechtigde_id", kvk_nummer, vestigings_nummer)
 VALUES (1, '', '14127293', 'Ritense', 'BV', '', 11, NULL, NULL, '', ''),
