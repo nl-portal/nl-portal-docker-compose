@@ -158,13 +158,27 @@ services:
             - CACHE_AXES=zgw-redis:6379/0
             - CACHE_DEFAULT=zgw-redis:6379/0
             - ALLOWED_HOSTS=localhost,host.docker.internal,172.17.0.1
-            - CELERY_BROKER_URL redis://zgw-redis:6379/1
-            - CELERY_RESULT_EXPIRES 3600
-            - CELERY_RESULT_BACKEND redis://zgw-redis:6379/1
-            - CELERY_LOGLEVEL DEBUG
+            - CELERY_BROKER_URL=redis://zgw-redis:6379/1
+            - CELERY_RESULT_EXPIRES=3600
+            - CELERY_RESULT_BACKEND=redis://zgw-redis:6379/1
+            - CELERY_LOGLEVEL=DEBUG
         depends_on:
             - objecten-api-database
             - zgw-redis
+
+    objecten-api-celery:
+        image: maykinmedia/objects-api:3.2.0
+        container_name: objecten-api-celery
+        platform: linux/amd64
+        profiles:
+            - zgw
+            - objecten
+        depends_on:
+            - objecten-api
+            - objecten-api-database
+            - zgw-redis
+        command: /celery_worker.sh
+        environment: *objects-env
 
     objecten-api-database:
         image: postgis/postgis:15-3.5
@@ -247,16 +261,9 @@ services:
             - objecttypen-api
             - objecttypen-api-database
 
-    # Open notificaties
-    open-notificaties-rabbitmq:
-        image: rabbitmq:3.9-management
-        container_name: open-notificaties-rabbitmq
-        expose:
-            - 5672
-            - 15672
-
+    # Open Notificaties
     open-notificaties:
-        image: openzaak/open-notificaties:1.4.3
+        image: openzaak/open-notificaties:1.13.0
         container_name: open-notificaties
         platform: linux/amd64
         profiles:
@@ -264,6 +271,10 @@ services:
             - objecten
         ports:
             - "8002:8000"
+        depends_on:
+            - open-notificaties-database
+            - open-notificaties-rabbitmq
+            - zgw-redis
         environment: &notificaties-env
             - DJANGO_SETTINGS_MODULE=nrc.conf.docker
             - SECRET_KEY=${SECRET_KEY:-4wHY2Cp5`4(q%)]cuWxPQJRp5kN?g+`.Xah>%6Fsq6+)R>p_}
@@ -275,24 +286,49 @@ services:
             - DB_NAME=notifications
             - DB_USER=notifications
             - DB_PASSWORD=notifications
-            - DEBUG=true
             - RABBITMQ_HOST=open-notificaties-rabbitmq
-            - PUBLISH_BROKER_URL=redis://zgw-redis:6379/1
-            - CELERY_BROKER_URL=redis://zgw-redis:6379/1
+            - PUBLISH_BROKER_URL=amqp://guest:guest@open-notificaties-rabbitmq:5672/%2F
+            - CELERY_BROKER_URL=amqp://guest:guest@open-notificaties-rabbitmq:5672//
             - CELERY_RESULT_BACKEND=redis://zgw-redis:6379/1
             - CELERY_LOGLEVEL=DEBUG
             - CELERY_WORKER_CONCURRENCY=${CELERY_WORKER_CONCURRENCY:-4}
+            - OPENNOTIFICATIES_SUPERUSER_USERNAME=admin
+            - OPENNOTIFICATIES_SUPERUSER_EMAIL=admin@localhost
+            - DJANGO_SUPERUSER_PASSWORD=admin
+            - LOG_NOTIFICATIONS_IN_DB=yes
             - DISABLE_2FA=true
 
+    open-notificaties-import:
+        image: openzaak/open-notificaties:1.13.0
+        container_name: open-notificaties-import
+        platform: linux/amd64
+        profiles:
+            - zgw
+            - objecten
+        command: sh init/init.sh
+        volumes:
+            - ./imports/open-notificaties/fixtures:/app/src/nrc/fixtures
+            - ./imports/open-notificaties/init:/app/init
+        depends_on:
+            - open-notificaties
+            - open-notificaties-database
+        environment: *notificaties-env
+
     open-notificaties-celery:
-        image: openzaak/open-notificaties:1.4.3
+        image: openzaak/open-notificaties:1.13.0
         container_name: open-notificaties-celery
         platform: linux/amd64
-        environment: *notificaties-env
         command: /celery_worker.sh
+        healthcheck:
+            test: [ "CMD", "python", "/app/bin/check_celery_worker_liveness.py" ]
+            interval: 30s
+            timeout: 5s
+            retries: 3
+            start_period: 10s
+        environment: *notificaties-env
 
     open-notificaties-database:
-        image: postgres:13.5  # open-notificaties doesn't work with postgres 14.
+        image: postgis/postgis:15-3.5
         container_name: open-notificaties-database
         ports:
             - "54319:5432"
@@ -300,8 +336,13 @@ services:
             - POSTGRES_USER=${DB_USER:-notifications}
             - POSTGRES_PASSWORD=${DB_PASSWORD:-notifications}
             - POSTGRES_DB=notifications
-        volumes:
-            - ./imports/open-notificaties:/docker-entrypoint-initdb.d
+            - POSTGRES_HOST_AUTH_METHOD=trust
+
+    open-notificaties-rabbitmq:
+        image: rabbitmq:3.9-management
+        container_name: open-notificaties-rabbitmq
+
+    # HaalCentraal
 
     haalcentraal-personen:
         container_name: haalcentraal-personen
@@ -383,7 +424,7 @@ services:
             - ./imports/openproduct/database:/docker-entrypoint-initdb.d/
 
     zgw-redis:
-        image: redis:6.2.19
+        image: redis:7
         container_name: zgw-redis
         profiles:
             - zgw
