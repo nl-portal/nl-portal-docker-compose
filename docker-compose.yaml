@@ -385,9 +385,9 @@ services:
             - DB_PASSWORD=openproduct
             - DB_HOST=openproduct-database
             - PORT=5432
-            - CACHE_DEFAULT=redis://zgw-redis:6379/0
-            - CELERY_BROKER_URL=redis://zgw-redis:6379/1
-            - CELERY_RESULT_BACKEND=redis://zgw-redis:6379/1
+            - CACHE_DEFAULT=zgw-redis:6379/0
+            - CELERY_BROKER_URL=zgw-redis:6379/1
+            - CELERY_RESULT_BACKEND=zgw-redis:6379/1
           # Only allow all hosts for development/testing purposes!
             - ALLOWED_HOSTS=*
             - DISABLE_2FA=true
