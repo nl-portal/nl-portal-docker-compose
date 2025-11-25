@@ -161,7 +161,7 @@ INSERT INTO public.zgw_consumers_service(id, label, api_type, api_root, client_i
 VALUES (3, 'Notification API', 'nrc', 'http://localhost:8002/api/v1/', 'valtimo_client', 'e09b8bc5-5831-4618-ab28-41411304309d', 'zgw', '', '', 'http://localhost:8002/api/v1/schema/openapi.yaml', '', '', '', '', null, null, '415042b2-c740-4532-be88-38ac5f8c9060', 10, '', 'httplocalhost8002notificationsapiv1' ),
        (4, 'Catalogi API', 'ztc', 'http://localhost:8001/catalogi/api/v1/', 'valtimo_client', 'e09b8bc5-5831-4618-ab28-41411304309d', 'zgw', '', '', 'http://localhost:8001/catalogi/api/v1/schema/openapi.yaml', '', '', '', '', null, null, '88975148-0971-4219-94f4-e4581f53b018', 10, '', 'httplocalhost8001catalogiapiv1' );
 
-
+UPDATE public.notifications_api_common_notificationsconfig SET notifications_api_service_id = 3 WHERE id = 1;
 
 --
 -- Data for Name: zaken_zaak; Type: TABLE DATA; Schema: public; Owner: openzaak

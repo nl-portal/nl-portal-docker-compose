@@ -51,7 +51,6 @@ services:
             - openzaak
         environment:
             - DB_HOST=openzaak-database
-            - DB_POST=5433
             - SECRET_KEY=veryRestrictedSecretKey
             - DB_USER=openzaak
             - DB_PASSWORD=openzaak
@@ -61,8 +60,8 @@ services:
             - DEBUG=true
             - ALLOWED_HOSTS=localhost,host.docker.internal,172.17.0.1,openzaak
             - OPENZAAK_SUPERUSER_USERNAME=admin
-            - OPENZAAK_SUPERUSER_EMAIL=admin@admin.org
-            - CELERY_BROKER_URL=zgw-redis://zgw-redis:6379/1
+            - OPENZAAK_SUPERUSER_EMAIL=admin@example.org
+            - CELERY_BROKER_URL=redis://zgw-redis:6379/1
             - CELERY_RESULT_BACKEND=redis://zgw-redis:6379/1
             - DJANGO_SUPERUSER_PASSWORD=admin
             - SENDFILE_BACKEND=django_sendfile.backends.simple
