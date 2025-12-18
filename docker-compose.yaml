@@ -151,7 +151,7 @@ services:
             - DJANGO_SETTINGS_MODULE=objects.conf.docker
             - DB_HOST=objecten-api-database
             - DEBUG=true
-            - TWO_FACTOR_FORCE_OTP_ADMIN=False # this is not available yet in this version
+            - TWO_FACTOR_FORCE_OTP_ADMIN=False
             - TWO_FACTOR_PATCH_ADMIN=False
             - DISABLE_2FA=true
             - CACHE_AXES=zgw-redis:6379/0
@@ -329,8 +329,6 @@ services:
     open-notificaties-database:
         image: postgis/postgis:15-3.5
         container_name: open-notificaties-database
-        ports:
-            - "54319:5432"
         environment:
             - POSTGRES_USER=${DB_USER:-notifications}
             - POSTGRES_PASSWORD=${DB_PASSWORD:-notifications}
@@ -421,6 +419,7 @@ services:
             - POSTGRES_DB=openproduct
         volumes:
             - ./imports/openproduct/database:/docker-entrypoint-initdb.d/
+            - ./imports/openproduct/database/sql:/docker-entrypoint-initdb.d/sql
 
     zgw-redis:
         image: redis:7
