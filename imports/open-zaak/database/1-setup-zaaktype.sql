@@ -252,49 +252,49 @@ SELECT pg_catalog.setval('public.catalogi_catalogus_id_seq', 1, true);
 -- Name: catalogi_eigenschap_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
 --
 
-SELECT pg_catalog.setval('public.catalogi_eigenschap_id_seq', 21, false);
+SELECT pg_catalog.setval('public.catalogi_eigenschap_id_seq', 21, true);
 
 
 --
 -- Name: catalogi_eigenschapspecificatie_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
 --
 
-SELECT pg_catalog.setval('public.catalogi_eigenschapspecificatie_id_seq', 1, false);
+SELECT pg_catalog.setval('public.catalogi_eigenschapspecificatie_id_seq', 1, true);
 
 
 --
 -- Name: catalogi_informatieobjecttype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
 --
 
-SELECT pg_catalog.setval('public.catalogi_informatieobjecttype_id_seq', 1, false);
+SELECT pg_catalog.setval('public.catalogi_informatieobjecttype_id_seq', 1, true);
 
 
 --
 -- Name: catalogi_roltype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
 --
 
-SELECT pg_catalog.setval('public.catalogi_roltype_id_seq', 3, false);
+SELECT pg_catalog.setval('public.catalogi_roltype_id_seq', 3, true);
 
 
 --
 -- Name: catalogi_statustype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
 --
 
-SELECT pg_catalog.setval('public.catalogi_statustype_id_seq', 14, false);
+SELECT pg_catalog.setval('public.catalogi_statustype_id_seq', 14, true);
 
 
 --
 -- Name: catalogi_zaaktype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
 --
 
-SELECT pg_catalog.setval('public.catalogi_zaaktype_id_seq', 2, false);
+SELECT pg_catalog.setval('public.catalogi_zaaktype_id_seq', 2, true);
 
 
 --
 -- Name: catalogi_zaaktypeinformatieobjecttype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
 --
 
-SELECT pg_catalog.setval('public.catalogi_zaaktypeinformatieobjecttype_id_seq', 2, false);
+SELECT pg_catalog.setval('public.catalogi_zaaktypeinformatieobjecttype_id_seq', 2, true);
 
 
 --
