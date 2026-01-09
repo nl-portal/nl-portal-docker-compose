@@ -1,0 +1,9 @@
+# Only enforce LF for scripts
+*.sh   text eol=lf
+*.sql  text eol=lf
+*.psql text eol=lf
+
+# Explicitly mark JSON/YAML as binary (no normalization)
+*.json -text
+*.yaml -text
+*.yml  -text
