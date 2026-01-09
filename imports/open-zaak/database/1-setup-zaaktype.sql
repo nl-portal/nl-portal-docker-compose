@@ -227,6 +227,8 @@ VALUES (1, '', '14127293', 'Ritense', 'BV', '', 11, NULL, NULL, '', ''),
 INSERT INTO public.zaken_resultaat(id, uuid, toelichting, _resultaattype_id, zaak_id, _etag, _resultaattype_base_url_id, _resultaattype_relative_url)
 VALUES (1, '00f34059-86ed-4b94-8527-3591e0fb84a0', 'toelichting resultaat', 1, 1, '', null, null);
 
+-- Alle sequences bijwerken naar aanleiding van het aantal nieuwe records
+
 -- accounts_user_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.accounts_user', 'id'),
