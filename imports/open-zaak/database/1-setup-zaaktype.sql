@@ -227,113 +227,133 @@ VALUES (1, '', '14127293', 'Ritense', 'BV', '', 11, NULL, NULL, '', ''),
 
 INSERT INTO public.zaken_resultaat(id, uuid, toelichting, _resultaattype_id, zaak_id, _etag, _resultaattype_base_url_id, _resultaattype_relative_url)
 VALUES (1, '00f34059-86ed-4b94-8527-3591e0fb84a0', 'toelichting resultaat', 1, 1, '', null, null);
---
--- Name: accounts_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
 
-SELECT pg_catalog.setval('public.accounts_user_id_seq', 2, true);
+-- accounts_user_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.accounts_user', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.accounts_user), 0),
+               true
+       );
 
+-- authorizations_applicatie_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.authorizations_applicatie', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.authorizations_applicatie), 0),
+               true
+       );
 
---
--- Name: authorizations_applicatie_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
+-- catalogi_catalogus_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.catalogi_catalogus', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_catalogus), 0),
+               true
+       );
 
-SELECT pg_catalog.setval('public.authorizations_applicatie_id_seq', 3, true);
+-- catalogi_eigenschap_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.catalogi_eigenschap', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_eigenschap), 0),
+               true
+       );
 
+-- catalogi_eigenschapspecificatie_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.catalogi_eigenschapspecificatie', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_eigenschapspecificatie), 0),
+               true
+       );
 
---
--- Name: catalogi_catalogus_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
+-- catalogi_informatieobjecttype_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.catalogi_informatieobjecttype', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_informatieobjecttype), 0),
+               true
+       );
 
-SELECT pg_catalog.setval('public.catalogi_catalogus_id_seq', 1, true);
+-- catalogi_roltype_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.catalogi_roltype', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_roltype), 0),
+               true
+       );
 
+-- catalogi_statustype_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.catalogi_statustype', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_statustype), 0),
+               true
+       );
 
---
--- Name: catalogi_eigenschap_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
+-- catalogi_zaaktype_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.catalogi_zaaktype', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_zaaktype), 0),
+               true
+       );
 
-SELECT pg_catalog.setval('public.catalogi_eigenschap_id_seq', 21, false);
+-- catalogi_zaaktypeinformatieobjecttype_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.catalogi_zaaktypeinformatieobjecttype', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_zaaktypeinformatieobjecttype), 0),
+               true
+       );
 
+-- vng_api_common_jwtsecret_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.vng_api_common_jwtsecret', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.vng_api_common_jwtsecret), 0),
+               true
+       );
 
---
--- Name: catalogi_eigenschapspecificatie_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
+-- zaken_natuurlijkpersoon_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.zaken_natuurlijkpersoon', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.zaken_natuurlijkpersoon), 0),
+               true
+       );
 
-SELECT pg_catalog.setval('public.catalogi_eigenschapspecificatie_id_seq', 1, false);
+-- zaken_rol_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.zaken_rol', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.zaken_rol), 0),
+               true
+       );
 
+-- zaken_zaakidentificatie_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.zaken_zaakidentificatie', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.zaken_zaakidentificatie), 0),
+               true
+       );
 
---
--- Name: catalogi_informatieobjecttype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
+-- zgw_consumers_service_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.zgw_consumers_service', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.zgw_consumers_service), 0),
+               true
+       );
 
-SELECT pg_catalog.setval('public.catalogi_informatieobjecttype_id_seq', 1, false);
+-- catalogi_resultaattype_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.catalogi_resultaattype', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_resultaattype), 0),
+               true
+       );
 
+-- zaken_resultaat_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.zaken_resultaat', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.zaken_resultaat), 0),
+               true
+       );
 
---
--- Name: catalogi_roltype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
+-- zaken_substatus_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.zaken_substatus', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.zaken_substatus), 0),
+               true
+       );
 
-SELECT pg_catalog.setval('public.catalogi_roltype_id_seq', 3, false);
-
-
---
--- Name: catalogi_statustype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
-
-SELECT pg_catalog.setval('public.catalogi_statustype_id_seq', 14, false);
-
-
---
--- Name: catalogi_zaaktype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
-
-SELECT pg_catalog.setval('public.catalogi_zaaktype_id_seq', 2, false);
-
-
---
--- Name: catalogi_zaaktypeinformatieobjecttype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
-
-SELECT pg_catalog.setval('public.catalogi_zaaktypeinformatieobjecttype_id_seq', 2, false);
-
-
---
--- Name: vng_api_common_jwtsecret_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
-
-SELECT pg_catalog.setval('public.vng_api_common_jwtsecret_id_seq', 3, true);
-
-
---
--- Name: zaken_natuurlijkpersoon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
-
-SELECT pg_catalog.setval('public.zaken_natuurlijkpersoon_id_seq', 9, true);
-
-
---
--- Name: zaken_rol_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
-
-SELECT pg_catalog.setval('public.zaken_rol_id_seq', 10, true);
-
-
---
--- Name: zaken_zaakidentificatie_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
-
-SELECT pg_catalog.setval('public.zaken_zaakidentificatie_id_seq', 10, true);
-
-
---
--- Name: zgw_consumers_service_id_seq; Type: SEQUENCE SET; Schema: public; Owner: openzaak
---
-
-SELECT pg_catalog.setval('public.zgw_consumers_service_id_seq', 4, true);
-
-SELECT pg_catalog.setval('public.catalogi_resultaattype_id_seq', 1, true);
-SELECT pg_catalog.setval('public.zaken_resultaat_id_seq', 1, true);
-SELECT pg_catalog.setval('public.zaken_substatus_id_seq', 3, true);
 --
 -- PostgreSQL database dump complete
 --
