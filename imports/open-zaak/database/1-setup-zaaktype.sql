@@ -54,6 +54,8 @@ INSERT INTO public.catalogi_eigenschapspecificatie VALUES (1, 'tekst', 'tekst', 
 INSERT INTO public.catalogi_zaaktype VALUES (1, '2021-01-01', NULL, false, '744ca059-f412-49d4-8963-5800e4afd486', 'bezwaar-behandelen', 'Bezwaar behandelen', 'Bezwaar behandelen', 'zaakvertrouwelijk', 'Een uitspraak doen op een ingekomen bezwaar tegen een eerder genomen besluit.', 'Er is een bezwaarschrift ontvangen tegen een besluit dat genomen is door de gemeente.', 'Conform de Algemene Wet Bestuursrecht (AWB) heeft een natuurlijk of niet-natuurlijk persoon de mogelijkheid om bezwaar te maken tegen een genomen besluit van de gemeente, bijvoorbeeld het niet verlenen van een vergunning.', 'extern', 'Indienen', 'Bezwaar', 'Behandelen', '84 days', NULL, false, true, '42 days', '{bezwaar,bezwaarschrift}', false, '', '{}', '2021-01-01', '{https://github.com/valtimo-platform/valtimo-platform}', 'https://selectielijst.openzaak.nl/api/v1/procestypen/e1b73b12-b2f6-4c4e-8929-94f84dd2a57d', 'Bezwaar behandelen', 'http://www.gemmaonline.nl/index.php/Referentieproces_bezwaar_behandelen', 1, 2017, '_etag', '002564440', '', '', '', '', '', '');
 -- Stadspas Type
 INSERT INTO public.catalogi_zaaktype VALUES (2, '2023-06-26', NULL, false, '0f71d469-782a-4e65-8101-c1e70c272c13', 'aanvraag-stadspas-behandelen-v6', 'aanvraag-stadspas-behandelen-v6', 'StadspasAlgemeen', 'vertrouwelijk', 'Het beoordelen van een aanvraag voor een stadspas', 'Dit werkproces wordt extern getriggerd door een inkomende aanvraag.', 'Dit werkproces betreft het behandelen van een aanvraag voor een stadspas. De gemeente verstrekt de stadspas waarmee bij verschillende organisaties en instellingen korting kan worden gekregen. De gemeente bepaalt zelf de inkomensgrens voor mensen die gebruik kunnen maken van een stadspas. Met de inwerkingtreding van de Participatiewet vormt dit met de mogelijkheid om deel te nemen aan een aanvullende zorgverzekering of een tegemoetkoming in de kosten daarvan (zie werkproces B1261) de enige vormen van categoriale bijzondere bijstand die nog mogelijk zijn.', 'extern', 'Aanvragen', 'Stadspas', 'Behandelen', '84 days', NULL, false, true, '42 days', '{bezwaar,bezwaarschrift}', false, '', '{}', '2021-01-01', '{https://github.com/valtimo-platform/valtimo-platform}', 'https://selectielijst.openzaak.nl/api/v1/procestypen/e1b73b12-b2f6-4c4e-8929-94f84dd2a57d', 'Bezwaar behandelen', 'http://www.gemmaonline.nl/index.php/Referentieproces_bezwaar_behandelen', 1, 2017, '_etag', '002564440', '', '', '', '', '', '');
+-- Generic Type
+INSERT INTO public.catalogi_zaaktype VALUES (3, '2026-01-07', NULL, false, 'b287a6fa-49af-4939-a72f-8307603898b9', 'dh-generic-zaaktype', 'dh-generic-zaaktype', 'DH Generic zaaktype v3', 'vertrouwelijk', 'Voor het testen in het algemeen', '', '', 'extern', 'Testen', 'Algemeen', 'VerderTesten', '99 days', NULL, false, true, '42 days', '{bezwaar,bezwaarschrift}', false, '', '{}', '2021-01-01', '{https://github.com/valtimo-platform/valtimo-platform}', 'https://selectielijst.openzaak.nl/api/v1/procestypen/e1b73b12-b2f6-4c4e-8929-94f84dd2a57d', 'Testen in het algemeen', 'http://www.gemmaonline.nl/index.php/Referentieproces_bezwaar_behandelen', 1, 2026, '_etag', '100000009', '', '', '', '', '', '');
 
 --
 -- Data for Name: catalogi_statustype; Type: TABLE DATA; Schema: public; Owner: openzaak
@@ -74,6 +76,13 @@ INSERT INTO public.catalogi_statustype VALUES (11, '63729232-dab6-4ac5-b3fc-5a11
 INSERT INTO public.catalogi_statustype VALUES (12, '07980d08-e1a5-4879-a3d3-4c68c096eb39', 'Informatieverzoek uitgezet', 'Informatieverzoek uitgezet', 3, true, '', '', 2, '_etag', NULL, NULL, NULL);
 INSERT INTO public.catalogi_statustype VALUES (13, '143eed27-e3ad-43ed-b885-e5f1c06d710a', 'In behandeling genomen', 'In behandeling genomen', 2, true, '', '', 2, '_etag', NULL, NULL, NULL);
 INSERT INTO public.catalogi_statustype VALUES (14, 'f1cd55c6-e080-42a1-bf95-de388e376246', 'Aanvraag ontvangen', 'Aanvraag ontvangen', 1, true, '', '', 2, '_etag', NULL, NULL, NULL);
+
+-- Generic Statussen
+INSERT INTO public.catalogi_statustype VALUES (15, '4fe164fc-b80d-4cd4-8c2a-fd171e235246', 'Aanvraag ingediend', 'Aanvraag ingediend', 1, true, '', '', 3, '_etag', NULL, NULL, NULL);
+INSERT INTO public.catalogi_statustype VALUES (16, '40cb531f-fbde-46af-9693-90e78535ff9f', 'In behandeling', 'In behandeling genomen', 2, true, '', '', 3, '_etag', NULL, NULL, NULL);
+INSERT INTO public.catalogi_statustype VALUES (17, '1a8bc84d-6ead-4a48-af22-43677e74e934', 'Informatieverzoek uitgezet', 'Informatieverzoek uitgezet', 3, true, '', '', 3, '_etag', NULL, NULL, NULL);
+INSERT INTO public.catalogi_statustype VALUES (18, '252c7399-f97a-4296-bf19-daa0a041ab9c', 'Overgedragen', 'Overgedragen', 4, true, '', '', 3, '_etag', NULL, NULL, NULL);
+INSERT INTO public.catalogi_statustype VALUES (29, 'c4c8f9ff-3354-49ed-8651-4309e407e43d', 'Afgehandeld', 'Afgehandeld', 5, true, '', '', 3, '_etag', NULL, NULL, NULL);
 
 
 --
@@ -101,6 +110,7 @@ INSERT INTO public.catalogi_eigenschap VALUES (18, '5eb0f4dd-b755-4793-a67e-dfdb
 INSERT INTO public.catalogi_eigenschap VALUES (19, '7e4112c1-23ed-4905-814c-7895bcca1495', 'aanvraagAanvulInfo', 'aanvraagAanvulInfo', '', 1, 1, '_etag', NULL, NULL, NULL);
 INSERT INTO public.catalogi_eigenschap VALUES (20, '036831ae-49c9-4bdb-b2c6-89579230b15d', 'aanvullendeInfo', 'aanvullendeInfo', '', 1, 1, '_etag', NULL, NULL, NULL);
 INSERT INTO public.catalogi_eigenschap VALUES (21, 'b33b8b4d-1e83-4084-bf9a-c78bd7223931', 'naamBeslisser', 'naamBeslisser', '', 1, 1, '_etag', NULL, NULL, NULL);
+INSERT INTO public.catalogi_eigenschap VALUES (22, '4c5dcce6-449c-4e56-a21b-d5473da93614', 'einddatum', 'einddatum', '', 1, 3, '_etag', NULL, NULL, NULL);
 
 
 --
@@ -109,6 +119,10 @@ INSERT INTO public.catalogi_eigenschap VALUES (21, 'b33b8b4d-1e83-4084-bf9a-c78b
 
 INSERT INTO public.catalogi_informatieobjecttype VALUES (1, '2021-10-04', NULL, false, 'efc332f2-be3b-4bad-9e3c-49a6219c92ad', 'test', 'zaakvertrouwelijk', 1, '_etag', '', '', '', '', '', '{}', 'onbekend');
 INSERT INTO public.catalogi_informatieobjecttype VALUES (2, '2021-10-27', NULL, false, 'a0d1b4d7-e74c-4118-9ed0-13f7ed8fb5fe', 'Bijlage', 'zaakvertrouwelijk', 1, '_etag', '', '', '', '', '', '{}', 'onbekend');
+INSERT INTO public.catalogi_informatieobjecttype VALUES (3, '2012-10-04', NULL, false, '3a0369ac-3f93-4c73-aa48-3d706bfed334', 'Aanvraag', 'openbaar', 3, '_etag', '', '', '', '', '', '{}', 'onbekend');
+INSERT INTO public.catalogi_informatieobjecttype VALUES (4, '2012-10-04', NULL, false, '7c8d1dd0-2ce5-49e2-b58c-174cc39d4c4f', 'B&W Besluit', 'openbaar', 3, '_etag', '', '', '', '', '', '{}', 'onbekend');
+INSERT INTO public.catalogi_informatieobjecttype VALUES (5, '2023-02-22', NULL, false, '5df12b73-7ee3-4bcc-8898-8adf12db9e8b', 'Bankafschrift', 'vertrouwlijk', 3, '_etag', '', '', '', '', '', '{}', 'onbekend');
+
 
 --
 -- Data for Name: catalogi_roltype; Type: TABLE DATA; Schema: public; Owner: openzaak
@@ -123,6 +137,14 @@ INSERT INTO public.catalogi_roltype VALUES (3, '5c450650-9ff0-4183-8478-e391f678
 
 INSERT INTO public.catalogi_zaaktypeinformatieobjecttype VALUES (1, '405da8a9-7296-439c-a2eb-a470b84f17ee', 1, 'inkomend', 1, NULL, 1, '_etag');
 INSERT INTO public.catalogi_zaaktypeinformatieobjecttype VALUES (2, '2022b33a-53af-4643-ac89-b0bd7d99113e', 2, 'intern', 2, NULL, 2, '_etag');
+
+-- | id | uuid | volgnummer | richting | id informatieobjecttype | id zaaktype | _etag |
+INSERT INTO public.catalogi_zaaktypeinformatieobjecttype VALUES (3, '196fd1cb-8a66-4e0f-80a5-b6d618422b9f', 1, 'inkomend', 3, NULL, 3, '_etag');
+INSERT INTO public.catalogi_zaaktypeinformatieobjecttype VALUES (4, 'd688ebbc-597e-491b-b21a-5e1d74c6367b', 2, 'uitgaand', 3, NULL, 2, '_etag');
+INSERT INTO public.catalogi_zaaktypeinformatieobjecttype VALUES (5, '698b56bf-66f6-49d8-983f-18d4d4a0b7a0', 3, 'uitgaand', 3, NULL, 4, '_etag');
+INSERT INTO public.catalogi_zaaktypeinformatieobjecttype VALUES (6, 'a10fb239-4e0f-4061-88a0-d6d21c8fa963', 4, 'uitgaand', 3, NULL, 2, '_etag');
+INSERT INTO public.catalogi_zaaktypeinformatieobjecttype VALUES (7, '24930ba3-5a23-4c4d-a357-e2c24038fc0', 9, 'inkomend', 3, NULL, 5, '_etag');
+
 
 INSERT INTO public.catalogi_resultaattype(id, uuid, omschrijving, resultaattypeomschrijving, omschrijving_generiek, selectielijstklasse, archiefnominatie, archiefactietermijn, brondatum_archiefprocedure_afleidingswijze, brondatum_archiefprocedure_datumkenmerk, brondatum_archiefprocedure_einddatum_bekend, brondatum_archiefprocedure_objecttype, brondatum_archiefprocedure_registratie, brondatum_archiefprocedure_procestermijn, toelichting, zaaktype_id, _etag, indicatie_specifiek, procesobjectaard, procestermijn, datum_begin_geldigheid, datum_einde_geldigheid)
 VALUES (1, '67ddeaee-d921-48a9-9fd8-50ea9571aba2', 'resultaattype omschrijving', 'https://selectielijst.openzaak.nl/api/v1/resultaattypeomschrijvingen/7cb315fb-4f7b-4a43-aca1-e4522e4c73b3', 'Afgehandeld', 'https://selectielijst.openzaak.nl/api/v1/resultaten/cc5ae4e3-a9e6-4386-bcee-46be4986a829', 'vernietigen', '10 years 0 mons 0 days 0 hours 0 mins 0.0 secs', 'afgehandeld', '', false, 'overige', '', null, 'toelichting', 1, 'bbf55f05dff95d17f06c093a482129c2', false, '', null, '2019-08-24', '2119-08-24');
