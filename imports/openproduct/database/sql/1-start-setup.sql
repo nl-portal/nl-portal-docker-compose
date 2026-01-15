@@ -48,11 +48,11 @@ SELECT pg_catalog.setval(
        );
 
 -- Set sequence for producttypen_externeverwijzingconfig
-SELECT pg_catalog.setval(
-               'public.producttypen_externeverwijzingconfig_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_externeverwijzingconfig), 0),
-               true
-       );
+-- SELECT pg_catalog.setval(
+--                'public.producttypen_externeverwijzingconfig_id_seq',
+--                COALESCE((SELECT MAX(id) FROM public.producttypen_externeverwijzingconfig), 0),
+--                true
+--        );
 
 -- Set sequence for producttypen_dmnconfig
 SELECT pg_catalog.setval(
