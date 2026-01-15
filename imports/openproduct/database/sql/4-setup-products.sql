@@ -48,11 +48,11 @@ VALUES (1, '104dd54c-4464-45f2-9781-9df2c59a35ed', '999993847', '', '', '', 1),
 
 /* add zaken */
 INSERT INTO public.producten_zaak(id, product_id, url, urn)
-VALUES (1, 1, '703af290-abe0-418c-b9c3-10a65e662788', '');
+VALUES (1, 1, 'http://localhost:8070/producten/api/v1/producten/703af290-abe0-418c-b9c3-10a65e662788', '');
 
 /* add taken */
 INSERT INTO public.producten_taak(id, product_id, url, urn)
-VALUES (1,  1, '4b5f4fba-0746-11ed-b939-0242ac120023', '');
+VALUES (1,  1, 'http://localhost:8070/producten/api/v1/producten/4b5f4fba-0746-11ed-b939-0242ac120023', '');
 
 /*set sequences */
 /* producten_product */

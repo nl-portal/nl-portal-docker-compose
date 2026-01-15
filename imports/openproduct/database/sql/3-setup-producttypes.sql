@@ -147,8 +147,8 @@ VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', now(), now(), 'PARKEREN', '{g
 
 /* add zaaktype */
 INSERT INTO public.producttypen_zaaktype(id, producttype_id, url, urn)
-VALUES (1, 1, '744ca059-f412-49d4-8963-5800e4afd486', null),
-       (2, 2, '0f71d469-782a-4e65-8101-c1e70c272c13', null);
+VALUES (1, 1, 'http://localhost:8001/catalogi/api/v1/zaaktypen/744ca059-f412-49d4-8963-5800e4afd486', null),
+       (2, 2, 'http://localhost:8001/catalogi/api/v1/zaaktypen/0f71d469-782a-4e65-8101-c1e70c272c13', null);
 
 /* add externe code */
 INSERT INTO public.producttypen_externecode(id, uuid, naam, code, producttype_id)
