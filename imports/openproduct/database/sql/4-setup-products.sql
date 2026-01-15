@@ -47,18 +47,38 @@ VALUES (1, '104dd54c-4464-45f2-9781-9df2c59a35ed', '999993847', '', '', '', 1),
        (5, 'e64b095d-d06f-490a-83b5-3fa0d8442e63', '999993847', '', '', '', 5);
 
 /* add zaken */
-INSERT INTO public.producten_zaak(id, uuid, product_id)
-VALUES (1, '703af290-abe0-418c-b9c3-10a65e662788', 1);
+INSERT INTO public.producten_zaak(id, product_id, url, urn)
+VALUES (1, 1, '703af290-abe0-418c-b9c3-10a65e662788', '');
 
 /* add taken */
-INSERT INTO public.producten_taak(id, uuid, product_id)
-VALUES (1, '4b5f4fba-0746-11ed-b939-0242ac120023', 1);
+INSERT INTO public.producten_taak(id, product_id, url, urn)
+VALUES (1,  1, '4b5f4fba-0746-11ed-b939-0242ac120023', '');
 
 /*set sequences */
-SELECT pg_catalog.setval('public.producten_product_id_seq', 4, true);
+/* producten_product */
+SELECT pg_catalog.setval(
+               'public.producten_product_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producten_product), 0),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producten_eigenaar_id_seq', 5, true);
+/* producten_eigenaar */
+SELECT pg_catalog.setval(
+               'public.producten_eigenaar_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producten_eigenaar), 0),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producten_zaak_id_seq', 1, true);
+/* producten_zaak */
+SELECT pg_catalog.setval(
+               'public.producten_zaak_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producten_zaak), 0),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producten_taak_id_seq', 1, true);
+/* producten_taak */
+SELECT pg_catalog.setval(
+               'public.producten_taak_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producten_taak), 0),
+               true
+       );
