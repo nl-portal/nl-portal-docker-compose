@@ -1,7 +1,7 @@
 [
     {
         "model": "core.objecttype",
-        "pk": 95,
+        "pk": 94,
         "fields": {
             "uuid": "10b88cbd-5b9e-4e25-8635-eda8fe5ad227",
             "name": "PDCProductType",
@@ -18,14 +18,14 @@
             "documentation_url": "",
             "labels": {},
             "created_at": "2026-01-07",
-            "modified_at": "2020-01-07"
+            "modified_at": "2026-01-07"
         }
     },
     {
         "model": "core.objectversion",
-        "pk": 96,
+        "pk": 95,
         "fields": {
-            "object_type": 95,
+            "object_type": 94,
             "version": 1,
             "created_at": "2026-01-07",
             "modified_at": "2026-01-07",
@@ -45,7 +45,105 @@
                     }
                 }
             },
-            "status": "published"
+            "status": "draft"
+        }
+    },
+    {
+        "model": "core.objecttype",
+        "pk": 96,
+        "fields": {
+            "uuid": "d5ae0ab0-fd6d-40a2-87ae-54d11a85d3d8",
+            "name": "PDCProductInstantie",
+            "name_plural": "PDCProductInstanties",
+            "description": "",
+            "data_classification": "open",
+            "maintainer_organization": "DenHaag Testautomation",
+            "maintainer_department": "",
+            "contact_person": "Testautomation",
+            "contact_email": "",
+            "source": "",
+            "update_frequency": "unknown",
+            "provider_organization": "",
+            "documentation_url": "",
+            "labels": {},
+            "created_at": "2026-01-07",
+            "modified_at": "2026-01-07"
+        }
+    },
+    {
+        "model": "core.objectversion",
+        "pk": 97,
+        "fields": {
+            "object_type": 96,
+            "version": 1,
+            "created_at": "2026-01-07",
+            "modified_at": "2026-01-07",
+            "published_at": "2026-01-07",
+            "json_schema": {
+                "type": "object",
+                "title": "PDCProductInstantie",
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "required": [
+                    "id_nummer"
+                ],
+                "properties": {
+                    "id_nummer": {
+                        "type": "integer",
+                        "title": "ID-nummer",
+                        "description": "Identificatienummer"
+                    }
+                }
+            },
+            "status": "draft"
+        }
+    },
+    {
+        "model": "core.objecttype",
+        "pk": 98,
+        "fields": {
+            "uuid": "41778685-f876-4f74-ab54-b04ff23524b8",
+            "name": "PDCVerbruiksObject",
+            "name_plural": "PDCVerbruiksObjects",
+            "description": "",
+            "data_classification": "open",
+            "maintainer_organization": "DenHaag Testautomation",
+            "maintainer_department": "",
+            "contact_person": "Testautomation",
+            "contact_email": "",
+            "source": "",
+            "update_frequency": "unknown",
+            "provider_organization": "",
+            "documentation_url": "",
+            "labels": {},
+            "created_at": "2026-01-07",
+            "modified_at": "2026-01-07"
+        }
+    },
+    {
+        "model": "core.objectversion",
+        "pk": 99,
+        "fields": {
+            "object_type": 98,
+            "version": 1,
+            "created_at": "2026-01-07",
+            "modified_at": "2026-01-07",
+            "published_at": "2026-01-07",
+            "json_schema": {
+                "type": "object",
+                "title": "PDCVerbruiksObject",
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "required": [
+                    "id_nummer"
+                ],
+                "properties": {
+                    "id_nummer": {
+                        "type": "integer",
+                        "title": "ID-nummer",
+                        "description": "Identificatienummer"
+                    }
+                }
+            },
+            "status": "draft"
         }
     },
 
