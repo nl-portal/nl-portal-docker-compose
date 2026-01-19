@@ -372,6 +372,13 @@ SELECT setval(
                true
        );
 
+-- zaken_status_id_seq
+SELECT setval(
+               pg_get_serial_sequence('public.zaken_status', 'id'),
+               COALESCE((SELECT MAX(id) FROM public.zaken_status), 0),
+               true
+       );
+
 -- zaken_substatus_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.zaken_substatus', 'id'),
