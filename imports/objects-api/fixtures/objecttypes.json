@@ -52,5 +52,23 @@
             "object_type_id": 3,
             "mode": "read_and_write"
         }
+    },
+    {
+        "model": "core.objecttype",
+        "pk": 4,
+        "fields": {
+            "service": 1,
+            "uuid": "10b88cbd-5b9e-4e25-8635-eda8fe5ad227",
+            "_name": "PDCProductType"
+        }
+    },
+    {
+        "model": "token.permission",
+        "pk": 4,
+        "fields": {
+            "token_auth_id": 1,
+            "object_type_id": 4,
+            "mode": "read_and_write"
+        }
     }
 ]

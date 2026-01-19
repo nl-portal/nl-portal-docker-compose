@@ -1,6 +1,58 @@
 [
     {
         "model": "core.objecttype",
+        "pk": 95,
+        "fields": {
+            "uuid": "10b88cbd-5b9e-4e25-8635-eda8fe5ad227",
+            "name": "PDCProductType",
+            "name_plural": "PDCProductTypes",
+            "description": "",
+            "data_classification": "open",
+            "maintainer_organization": "DenHaag Testautomation",
+            "maintainer_department": "",
+            "contact_person": "Testautomation",
+            "contact_email": "",
+            "source": "",
+            "update_frequency": "unknown",
+            "provider_organization": "",
+            "documentation_url": "",
+            "labels": {},
+            "created_at": "2026-01-07",
+            "modified_at": "2020-01-07"
+        }
+    },
+    {
+        "model": "core.objectversion",
+        "pk": 96,
+        "fields": {
+            "object_type": 95,
+            "version": 1,
+            "created_at": "2026-01-07",
+            "modified_at": "2026-01-07",
+            "published_at": "2026-01-07",
+            "json_schema": {
+                "type": "object",
+                "title": "PDCProductType",
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "required": [
+                    "id_nummer"
+                ],
+                "properties": {
+                    "id_nummer": {
+                        "type": "integer",
+                        "title": "ID-nummer",
+                        "description": "Identificatienummer"
+                    }
+                }
+            },
+            "status": "published"
+        }
+    },
+
+
+
+    {
+        "model": "core.objecttype",
         "pk": 1,
         "fields": {
             "uuid": "feeaa795-d212-4fa2-bb38-2c34996e5702",
