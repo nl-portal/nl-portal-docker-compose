@@ -562,5 +562,311 @@
             "correct": null,
             "geometry": null
         }
+    },
+    {
+        "model": "core.object",
+        "pk": 8,
+        "fields": {
+            "uuid": "f3828056-9bea-4708-8d4b-ddfd7d86444b",
+            "object_type": 4
+        }
+    },
+    {
+        "model": "core.objectrecord",
+        "pk": 8,
+        "fields": {
+            "index": 1,
+            "object": 8,
+            "version": 1,
+            "data": {
+                "naam": "parkeren",
+                "statussen": {
+                    "actief": "Actief",
+                    "inaanvraag": "In aanvraag"
+                },
+                "zaaktypen": [],
+                "parameters": {
+                    "paymentcategorie": "parkeren",
+                    "emandatecategorie": "parkeren"
+                },
+                "omschrijving": "Zaken die te maken hebben met parkeren",
+                "eigenschappen": {
+                    "contractnummer": "Contract nummer"
+                },
+                "beslistabelmapping": {
+                    "watkanikregelen": {
+                        "key": "alg-parkeren",
+                        "variabelen": {
+                            "static": [
+                                {
+                                    "name": "formulieren",
+                                    "value": "https://openformulieren-zgw.test.denhaag.nl",
+                                    "classType": "String"
+                                }
+                            ],
+                            "vergunning": [
+                                {
+                                    "name": "vergunningNummer",
+                                    "regex": "$.vergunningNummer",
+                                    "classType": "String"
+                                },
+                                {
+                                    "name": "geldigheideinddatum",
+                                    "regex": "$.einddatumPeriode",
+                                    "classType": "String"
+                                },
+                                {
+                                    "name": "soort",
+                                    "regex": "$.soortVergunning",
+                                    "classType": "String"
+                                },
+                                {
+                                    "name": "pasnummer",
+                                    "regex": "$.pasnummer",
+                                    "classType": "Integer"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "start_at": "2026-01-07",
+            "registration_at": "2026-01-07"
+        }
+    },
+    {
+        "model": "core.object",
+        "pk": 9,
+        "fields": {
+            "uuid": "06d744cf-0dd8-4f61-a0be-e8ce9ed64203",
+            "object_type": 4
+        }
+    },
+    {
+        "model": "core.objectrecord",
+        "pk": 9,
+        "fields": {
+            "index": 1,
+            "object": 9,
+            "version": 1,
+            "data": {
+
+                "naam": "milieuzoneOldtimerBrommerSnorfiets",
+                "subtypes": {
+                    "3wiel": "Ontheffing 3-wielige brom- en snorfietsen",
+                    "4takt": "Ontheffing 4-takt brom- en snorfietsen",
+                    "medisch": "Ontheffing brom- en snorfietsen op basis van medische indicatie",
+                    "oldtimer": "Ontheffing Oldtimer brom- en snorfietsen"
+                },
+                "statussen": {
+                    "actief": "Actief",
+                    "verlopen": "Verlopen"
+                },
+                "zaaktypen": [
+                    "0d9615fd-537f-4d1f-aa68-71de9fd800a5"
+                ],
+                "omschrijving": "Ontheffing om in een periode met een soort brommer en snorfiets door de milieuzone te rijden.",
+                "eigenschappen": {
+                    "bron": "Bron",
+                    "zaakId": "Zaak identificatie",
+                    "kenteken": "Kenteken",
+                    "datumTijd": "Aanmaakdatum",
+                    "toegestaneDagdelen": "Toegestane dagdelen"
+                },
+                "prefillmapping": {
+                    "nieuw-voertuig-doorgeven": {
+                        "variabelen": {
+                            "product": {
+                                "productId": "$.id"
+                            },
+                            "productverbruiksobject": {
+                                "verbruiksobjectId": "$.id"
+                            }
+                        },
+                        "formulierUrl": "https://openformulieren-zgw.test.denhaag.nl/nieuw-voertuig-doorgeven/startpagina"
+                    }
+                },
+                "beslistabelmapping": {
+                    "watkanikregelen": {
+                        "key": "fd-milieuzone",
+                        "variabelen": {
+                            "static": [
+                                {
+                                    "name": "formulieren",
+                                    "value": "https://openformulieren-zgw.test.denhaag.nl",
+                                    "classType": "String"
+                                }
+                            ],
+                            "product": [
+                                {
+                                    "name": "pid",
+                                    "regex": "$.id",
+                                    "classType": "String"
+                                },
+                                {
+                                    "name": "geldigheideinddatum",
+                                    "regex": "$.geldigTot",
+                                    "classType": "String"
+                                }
+                            ],
+                            "productverbruiksobject": [
+                                {
+                                    "name": "tegoed",
+                                    "regex": "$.data.beschikbareDagdelen",
+                                    "classType": "String"
+                                }
+                            ]
+                        }
+                    }
+                }
+
+
+            },
+            "start_at": "2026-01-07",
+            "registration_at": "2026-01-07"
+        }
+    },
+    {
+        "model": "core.object",
+        "pk": 10,
+        "fields": {
+            "uuid": "fffc2fab-bb6f-4d37-8c68-149d5078d111",
+            "object_type": 4
+        }
+    },
+    {
+        "model": "core.objectrecord",
+        "pk": 10,
+        "fields": {
+            "index": 1,
+            "object": 10,
+            "version": 1,
+            "data": {
+
+                "naam": "belastingzaken",
+                "statussen": {
+                    "actief": "Actief",
+                    "inaanvraag": "In aanvraag"
+                },
+                "zaaktypen": [],
+                "parameters": {
+                    "paymentcategorie": "belastingzaken",
+                    "emandatecategorie": "belastingzaken"
+                },
+                "omschrijving": "Zaken die te maken hebben met belastingzaken",
+                "eigenschappen": {
+                    "contractnummer": "Contract nummer"
+                },
+                "prefillmapping": {
+                    "start-bezwaar-formulier": {
+                        "variabelen": {
+                            "belastingzaken-aanslag": {
+                                "aanslagnummer": "$.aanslagBiljet.aanslagNummer"
+                            }
+                        },
+                        "formulierUrl": "https://openformulieren-zgw.test.denhaag.nl/bezwaar-verzoekschrift-woz-gemeentelijke-belastingen/startpagina"
+                    }
+                },
+                "beslistabelmapping": {
+                    "watkanikregelen": {
+                        "key": "alg-belastingen",
+                        "variabelen": {
+                            "static": [
+                                {
+                                    "name": "formulieren",
+                                    "value": "https://openformulieren-zgw.test.denhaag.nl",
+                                    "classType": "String"
+                                }
+                            ],
+                            "belastingzaken-aanslag": [
+                                {
+                                    "name": "AanslagBiljetOmschrijving",
+                                    "regex": "$.aanslagBiljet.aanslagBiljetOmschrijving",
+                                    "classType": "String"
+                                },
+                                {
+                                    "name": "openstaandSaldo",
+                                    "regex": "$.invorderingsDetails.openstaandSaldo",
+                                    "classType": "Double"
+                                }
+                            ]
+                        }
+                    }
+                }
+
+
+            },
+            "start_at": "2026-01-07",
+            "registration_at": "2026-01-07"
+        }
+    },
+    {
+        "model": "core.object",
+        "pk": 11,
+        "fields": {
+            "uuid": "171a5748-5daa-4815-983c-99afbd808c02",
+            "object_type": 4
+        }
+    },
+    {
+        "model": "core.objectrecord",
+        "pk": 11,
+        "fields": {
+            "index": 1,
+            "object": 11,
+            "version": 1,
+            "data": {
+
+                "naam": "WetToeristischeVerhuur",
+                "statussen": {
+                    "actief": "Actief",
+                    "verlopen": "Verlopen"
+                },
+                "zaaktypen": [
+                    "ff3aa26d-8530-4ea3-8eac-3c29e1a61d7e"
+                ],
+                "omschrijving": "Jaarlijks afgegeven vergunning voor het verhuren van woningen binnen de wet toeristische verhuur.",
+                "eigenschappen": {
+                    "toegestaneDagdelen": "Toegestane dagdelen"
+                },
+                "beslistabelmapping": {
+                    "watkanikregelen": {
+                        "key": "fd-toeristischeverhuur",
+                        "variabelen": {
+                            "static": [
+                                {
+                                    "name": "formulieren",
+                                    "value": "https://openformulieren-zgw.test.denhaag.nl",
+                                    "classType": "String"
+                                }
+                            ],
+                            "product": [
+                                {
+                                    "name": "pid",
+                                    "regex": "$.id",
+                                    "classType": "String"
+                                },
+                                {
+                                    "name": "geldigheideinddatum",
+                                    "regex": "$.geldigTot",
+                                    "classType": "String"
+                                }
+                            ],
+                            "productverbruiksobject": [
+                                {
+                                    "name": "aantalnachten",
+                                    "regex": "$.data.beschikbareDagdelen",
+                                    "classType": "String"
+                                }
+                            ]
+                        }
+                    }
+                }
+
+
+            },
+            "start_at": "2026-01-07",
+            "registration_at": "2026-01-07"
+        }
     }
 ]
