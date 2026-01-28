@@ -21,7 +21,9 @@ VALUES (1, '1a25f58c-8e7b-425f-b466-7e6f8ca1268b', true, now(), now(), 'Hoofdthe
        (2, 'c00a7724-3e8f-4155-9ae1-2edbc6eaeefe', true, now(), now(), 'Subthema', 'Subthema thema', 1),
        (3, 'b95cfbf6-8578-410b-b108-a42fd20af843', true, now(), now(), 'Parkeren', 'Parkeren thema', 2),
        (4, '41f71c2e-9e0c-4a1b-8d39-709669b256c2', true, now(), now(), 'Belastingzaken', 'Belastingzaken thema', null),
-       (5, '17d21ea4-7fa7-4532-88cd-081c089000f3', true, now(), now(), 'Inkomensondersteuning', 'Sociaal domein', null);
+       (5, '17d21ea4-7fa7-4532-88cd-081c089000f3', true, now(), now(), 'Inkomensondersteuning', 'Sociaal domein', null),
+        (6, 'c79c9cd6-a5dd-459b-a15e-6506149ab9c3', true, now(), now(), 'Intern', 'Alleen voor T \\& A \\(Test\\) gebruik\\. Niet voor klanten', null),
+        (7, '16ed55a4-f105-47ba-9a65-2c4442806134', true, now(), now(), 'Wonen en bouwen', '', null);
 
 /* add schema */
 INSERT INTO public.producttypen_jsonschema(id, naam, schema)
@@ -142,7 +144,9 @@ VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', now(), now(), 'PARKEREN', '{g
        (2, '43633c6c-2d9a-46c8-9051-112418102254',  now(), now(), 'STADSPAS', '{gereed}', '{ooievaarspas, gzac}',
         'Stadspas Den Haag', 3, 941, null, null, null, ''),
        (3, 'cf89c88d-8310-41d4-9776-786ae13235c8',  now(), now(), 'BELASTINGZAKEN', '{gereed}',
-        '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5, null,null, '');
+        '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5, null,null, ''),
+       (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  now(), now(), 'GeneriekProduct', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
+        '{intern, testen}', 'intern', 4, null, 5, null,null, 'burgers');
 
 
 /* add zaaktype */
