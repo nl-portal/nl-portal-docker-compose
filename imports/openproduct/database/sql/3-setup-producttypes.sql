@@ -146,7 +146,7 @@ VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', now(), now(), 'PARKEREN', '{g
        (3, 'cf89c88d-8310-41d4-9776-786ae13235c8',  now(), now(), 'BELASTINGZAKEN', '{gereed}',
         '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5, null,null, ''),
        (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  now(), now(), 'GENERIEKPRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
-        '{intern, testen}', 'intern', 4, null, 5, null,null, 'burgers');
+        '{intern, testen}', 'intern', 4, null, 5, null,null, 'interne_organisatie');
 
 
 /* add zaaktype */
@@ -166,7 +166,8 @@ VALUES (1, 'nl', 'Parkeren', 'samenvatting translatie', 1),
        (3, 'nl', 'Stadspas', 'samenvatting translatie', 2),
        (4, 'en', 'CityPass', 'samenvatting translatie', 2),
        (5, 'nl', 'Belastingzaken', 'samenvatting translatie', 3),
-       (6, 'en', 'Taxes', 'samenvatting translatie', 3);
+       (6, 'en', 'Taxes', 'samenvatting translatie', 3),
+       (7, 'nl', 'Generiek Product', 'samenvatting translatie', 4);
 
 /* add actie*/
 INSERT INTO public.producttypen_actie(id, uuid, naam, dmn_tabel_id, dmn_config_id, producttype_id, mapping)
