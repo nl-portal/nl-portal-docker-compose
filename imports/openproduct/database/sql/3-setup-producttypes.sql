@@ -133,7 +133,45 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
  },
  "description": "Product verbruik details van een instantie uit het PDC. Bevat product data die vaak aangepast moet worden. Bijvoorbeeld een log van gebruikte tijdsvakken",
  "additionalProperties": false
+}'),
+       (6, 'woonwagenstandplaatsdata', '{
+  "type": "object",
+  "title": "woonwagenstandplaatsdata",
+  "examples": [
+    {
+      "status": "ingeschreven",
+      "inschrijfdatum": "2025-10-23T00:00:00+02:00",
+      "uitschrijfdatum": "2025-10-23T00:00:00+02:00"
+    }
+  ],
+  "required": [
+    "status",
+    "inschrijfdatum"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "ingeschreven",
+        "uitgeschreven"
+      ],
+      "type": "string",
+      "description": "Status van de inschrijving."
+    },
+    "inschrijfdatum": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Inschrijfdatum voor de wachtlijst"
+    },
+    "uitschrijfdatum": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Uitschrijfdatum voor de wachtlijst"
+    }
+  },
+  "description": "Schema voor het opslaan van woonwagen data",
+  "additionalProperties": false
 }');
+
 
 /* add producttype*/
 INSERT INTO public.producttypen_producttype(id, uuid, aanmaak_datum, update_datum, code,
@@ -146,7 +184,7 @@ VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', now(), now(), 'PARKEREN', '{g
        (3, 'cf89c88d-8310-41d4-9776-786ae13235c8',  now(), now(), 'BELASTINGZAKEN', '{gereed}',
         '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5, null,null, ''),
        (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  now(), now(), 'GENERIEKPRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
-        '{intern, testen}', 'intern', 4, null, 5, null,null, 'interne_organisatie');
+        '{intern, testen}', 'intern', 6, null, 5, null,null, 'interne_organisatie');
 
 
 /* add zaaktype */
