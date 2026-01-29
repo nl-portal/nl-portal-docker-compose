@@ -57,27 +57,27 @@ VALUES (1, '4b5f4fba-0746-11ed-b939-0242ac120023', 1);
 -- producten_product_id_seq
 SELECT pg_catalog.setval(
                'public.producten_product_id_seq',
-               GREATEST(pg_catalog.nextval('public.producten_product_id_seq'), 1),
+               COALESCE((SELECT MAX(id) FROM public.producten_product), 1),
                true
        );
 
 -- producten_eigenaar_id_seq
 SELECT pg_catalog.setval(
                'public.producten_eigenaar_id_seq',
-               GREATEST(pg_catalog.nextval('public.producten_eigenaar_id_seq'), 1),
+               COALESCE((SELECT MAX(id) FROM public.producten_eigenaar), 1),
                true
        );
 
 -- producten_zaak_id_seq
 SELECT pg_catalog.setval(
                'public.producten_zaak_id_seq',
-               GREATEST(pg_catalog.nextval('public.producten_zaak_id_seq'), 1),
+               COALESCE((SELECT MAX(id) FROM public.producten_zaak), 1),
                true
        );
 
 -- producten_taak_id_seq
 SELECT pg_catalog.setval(
                'public.producten_taak_id_seq',
-               GREATEST(pg_catalog.nextval('public.producten_taak_id_seq'), 1),
+               COALESCE((SELECT MAX(id) FROM public.producten_taak), 1),
                true
        );

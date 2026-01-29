@@ -35,24 +35,36 @@ VALUES ( 1, '3bc964a5-108d-430c-b7fb-6797bb17b6fd', 'watkanikregelen-parkeren', 
 
 SELECT pg_catalog.setval(
                'public.zgw_consumers_service_id_seq',
-               GREATEST(pg_catalog.nextval('public.zgw_consumers_service_id_seq'), 1),
+               COALESCE(
+                       (SELECT MAX(id) FROM public.zgw_consumers_service),
+                       1
+               ),
                true
        );
 
 SELECT pg_catalog.setval(
                'public.notifications_api_common_notificationsconfig_id_seq',
-               GREATEST(pg_catalog.nextval('public.notifications_api_common_notificationsconfig_id_seq'), 1),
+               COALESCE(
+                       (SELECT MAX(id) FROM public.notifications_api_common_notificationsconfig),
+                       1
+               ),
                true
        );
 
 SELECT pg_catalog.setval(
                'public.producttypen_externeverwijzingconfig_id_seq',
-               GREATEST(pg_catalog.nextval('public.producttypen_externeverwijzingconfig_id_seq'), 1),
+               COALESCE(
+                       (SELECT MAX(id) FROM public.producttypen_externeverwijzingconfig),
+                       1
+               ),
                true
        );
 
 SELECT pg_catalog.setval(
                'public.producttypen_dmnconfig_id_seq',
-               GREATEST(pg_catalog.nextval('public.producttypen_dmnconfig_id_seq'), 1),
+               COALESCE(
+                       (SELECT MAX(id) FROM public.producttypen_dmnconfig),
+                       1
+               ),
                true
        );
