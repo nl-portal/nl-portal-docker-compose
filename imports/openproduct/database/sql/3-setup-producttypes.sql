@@ -298,49 +298,163 @@ VALUES (1, 1);
 INSERT INTO public.producttypen_producttype_locaties(producttype_id, locatie_id)
 VALUES (1, 1);
 
-/*set sequences */
-SELECT pg_catalog.setval('public.producttypen_thema_id_seq', 5, true);
+-- producttypen_thema_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_thema_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_thema_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_jsonschema_id_seq', 5, true);
+-- producttypen_jsonschema_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_jsonschema_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_jsonschema_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_producttype_id_seq', 3, true);
+-- producttypen_producttype_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_producttype_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_producttype_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_zaaktype_id_seq', 2, true);
+-- producttypen_zaaktype_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_zaaktype_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_zaaktype_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_externecode_id_seq', 2, true);
+-- producttypen_externecode_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_externecode_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_externecode_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_producttypetranslation_id_seq', 6, true);
+-- producttypen_producttypetranslation_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_producttypetranslation_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_producttypetranslation_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_actie_id_seq', 2, true);
+-- producttypen_actie_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_actie_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_actie_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_parameter_id_seq', 1, true);
+-- producttypen_parameter_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_parameter_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_parameter_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_contentelement_id_seq', 1, true);
+-- producttypen_contentelement_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_contentelement_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_contentelement_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_contentlabel_id_seq', 1, true);
+-- producttypen_contentlabel_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_contentlabel_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_contentlabel_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_contentelementtranslation_id_seq', 2, true);
+-- producttypen_contentelementtranslation_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_contentelementtranslation_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_contentelementtranslation_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_contentelement_labels_id_seq', 1, true);
+-- producttypen_contentelement_labels_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_contentelement_labels_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_contentelement_labels_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_link_id_seq', 2, true);
+-- producttypen_link_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_link_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_link_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_prijs_id_seq', 1, true);
+-- producttypen_prijs_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_prijs_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_prijs_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_prijsoptie_id_seq', 1, true);
+-- producttypen_prijsoptie_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_prijsoptie_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_prijsoptie_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_prijsregel_id_seq', 2, true);
+-- producttypen_prijsregel_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_prijsregel_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_prijsregel_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_producttype_themas_id_seq', 2, true);
+-- producttypen_producttype_themas_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_producttype_themas_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_producttype_themas_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_producttype_organisaties_id_seq', 1, true);
+-- producttypen_producttype_organisaties_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_producttype_organisaties_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_producttype_organisaties_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_producttype_locaties_id_seq', 1, true);
+-- producttypen_producttype_locaties_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_producttype_locaties_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_producttype_locaties_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_producttype_contacten_id_seq', 1, true);
+-- producttypen_producttype_contacten_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_producttype_contacten_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_producttype_contacten_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.locaties_locatie_id_seq', 1, true);
+-- locaties_locatie_id_seq
+SELECT pg_catalog.setval(
+               'public.locaties_locatie_id_seq',
+               GREATEST(pg_catalog.nextval('public.locaties_locatie_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.locaties_organisatie_id_seq', 1, true);
+-- locaties_organisatie_id_seq
+SELECT pg_catalog.setval(
+               'public.locaties_organisatie_id_seq',
+               GREATEST(pg_catalog.nextval('public.locaties_organisatie_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.locaties_contact_id_seq', 1, true);
+-- locaties_contact_id_seq
+SELECT pg_catalog.setval(
+               'public.locaties_contact_id_seq',
+               GREATEST(pg_catalog.nextval('public.locaties_contact_id_seq'), 1),
+               true
+       );

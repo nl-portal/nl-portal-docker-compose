@@ -54,11 +54,30 @@ VALUES (1, '703af290-abe0-418c-b9c3-10a65e662788', 1);
 INSERT INTO public.producten_taak(id, uuid, product_id)
 VALUES (1, '4b5f4fba-0746-11ed-b939-0242ac120023', 1);
 
-/*set sequences */
-SELECT pg_catalog.setval('public.producten_product_id_seq', 4, true);
+-- producten_product_id_seq
+SELECT pg_catalog.setval(
+               'public.producten_product_id_seq',
+               GREATEST(pg_catalog.nextval('public.producten_product_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producten_eigenaar_id_seq', 5, true);
+-- producten_eigenaar_id_seq
+SELECT pg_catalog.setval(
+               'public.producten_eigenaar_id_seq',
+               GREATEST(pg_catalog.nextval('public.producten_eigenaar_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producten_zaak_id_seq', 1, true);
+-- producten_zaak_id_seq
+SELECT pg_catalog.setval(
+               'public.producten_zaak_id_seq',
+               GREATEST(pg_catalog.nextval('public.producten_zaak_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producten_taak_id_seq', 1, true);
+-- producten_taak_id_seq
+SELECT pg_catalog.setval(
+               'public.producten_taak_id_seq',
+               GREATEST(pg_catalog.nextval('public.producten_taak_id_seq'), 1),
+               true
+       );

@@ -33,10 +33,26 @@ VALUES (1, 'http://localhost:8001/catalogi/api/v1/zaaktypen', 'http://localhost:
 INSERT INTO public.producttypen_dmnconfig(id, uuid, naam, tabel_endpoint)
 VALUES ( 1, '3bc964a5-108d-430c-b7fb-6797bb17b6fd', 'watkanikregelen-parkeren', 'http://localhost:9000/engine-rest/decision-definition/key');
 
-SELECT pg_catalog.setval('public.zgw_consumers_service_id_seq', 1, true);
+SELECT pg_catalog.setval(
+               'public.zgw_consumers_service_id_seq',
+               GREATEST(pg_catalog.nextval('public.zgw_consumers_service_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.notifications_api_common_notificationsconfig_id_seq', 2, true);
+SELECT pg_catalog.setval(
+               'public.notifications_api_common_notificationsconfig_id_seq',
+               GREATEST(pg_catalog.nextval('public.notifications_api_common_notificationsconfig_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_externeverwijzingconfig_id_seq', 1, true);
+SELECT pg_catalog.setval(
+               'public.producttypen_externeverwijzingconfig_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_externeverwijzingconfig_id_seq'), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_dmnconfig_id_seq', 1, true);
+SELECT pg_catalog.setval(
+               'public.producttypen_dmnconfig_id_seq',
+               GREATEST(pg_catalog.nextval('public.producttypen_dmnconfig_id_seq'), 1),
+               true
+       );
