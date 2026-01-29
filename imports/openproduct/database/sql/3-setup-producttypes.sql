@@ -176,7 +176,7 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
 /* add producttype*/
 INSERT INTO public.producttypen_producttype(id, uuid, aanmaak_datum, update_datum, code,
                                             toegestane_statussen, keywords, interne_opmerkingen, dataobject_schema_id,
-                                            uniforme_product_naam_id, verbruiksobject_schema_id, publicatie_eind_datum, publicatie_start_datum, doelgroep)
+                                            uniforme_product_naam_id, verbruiksobject_schema_id, "publicatie_eind_datum", "publicatie_start_datum", doelgroep)
 VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2,
         793, 1, null, null, ''),
        (2, '43633c6c-2d9a-46c8-9051-112418102254',  now(), now(), 'STADSPAS', '{gereed}', '{ooievaarspas, gzac}',
@@ -184,11 +184,11 @@ VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', now(), now(), 'PARKEREN', '{g
        (3, 'cf89c88d-8310-41d4-9776-786ae13235c8',  now(), now(), 'BELASTINGZAKEN', '{gereed}',
         '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5, null,null, ''),
        (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  now(), now(), 'GENERIEKPRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
-        '{intern, testen}', 'intern', 6, null, 5, null,null, 'interne_organisatie');
+        '{intern,testen}', 'intern', 6, null, 5, null,null, 'interne_organisatie');
 
 
 /* add zaaktype */
-INSERT INTO public.producttypen_zaaktype(id, producttype_id, url, urn)
+INSERT INTO public.producttypen_zaaktype(id, producttype_id, "url", urn)
 VALUES (1, 1, 'http://localhost:8001/catalogi/api/v1/zaaktypen/744ca059-f412-49d4-8963-5800e4afd486', null),
        (2, 2, 'http://localhost:8001/catalogi/api/v1/zaaktypen/0f71d469-782a-4e65-8101-c1e70c272c13', null);
 
@@ -345,138 +345,138 @@ VALUES (1, 1);
 /*set sequences */
 SELECT setval(
                'public.producttypen_thema_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_thema), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_thema), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_jsonschema_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_jsonschema), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_jsonschema), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_producttype_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_zaaktype_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_zaaktype), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_zaaktype), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_externecode_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_externecode), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_externecode), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_producttypetranslation_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_producttypetranslation), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_producttypetranslation), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_actie_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_actie), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_actie), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_parameter_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_parameter), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_parameter), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_contentelement_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_contentelement), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_contentelement), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_contentlabel_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_contentlabel), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_contentlabel), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_contentelementtranslation_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_contentelementtranslation), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_contentelementtranslation), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_contentelement_labels_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_contentelement_labels), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_contentelement_labels), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_link_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_link), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_link), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_prijs_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_prijs), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_prijs), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_prijsoptie_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_prijsoptie), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_prijsoptie), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_prijsregel_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_prijsregel), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_prijsregel), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_producttype_themas_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype_themas), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype_themas), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_producttype_organisaties_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype_organisaties), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype_organisaties), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_producttype_locaties_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype_locaties), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype_locaties), 1),
                true
        );
 
 SELECT setval(
                'public.producttypen_producttype_contacten_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype_contacten), 0),
+               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype_contacten), 1),
                true
        );
 
 SELECT setval(
                'public.locaties_locatie_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.locaties_locatie), 0),
+               COALESCE((SELECT MAX(id) FROM public.locaties_locatie), 1),
                true
        );
 
 SELECT setval(
                'public.locaties_organisatie_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.locaties_organisatie), 0),
+               COALESCE((SELECT MAX(id) FROM public.locaties_organisatie), 1),
                true
        );
 
 SELECT setval(
                'public.locaties_contact_id_seq',
-               COALESCE((SELECT MAX(id) FROM public.locaties_contact), 0),
+               COALESCE((SELECT MAX(id) FROM public.locaties_contact), 1),
                true
        );
