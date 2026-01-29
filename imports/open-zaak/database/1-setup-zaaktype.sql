@@ -256,126 +256,126 @@ VALUES (1, '00f34059-86ed-4b94-8527-3591e0fb84a0', 'toelichting resultaat', 1, 1
 -- accounts_user_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.accounts_user', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.accounts_user), 0),
+               COALESCE((SELECT MAX(id) FROM public.accounts_user), 1),
                true
        );
 
 -- authorizations_applicatie_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.authorizations_applicatie', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.authorizations_applicatie), 0),
+               COALESCE((SELECT MAX(id) FROM public.authorizations_applicatie), 1),
                true
        );
 
 -- catalogi_catalogus_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.catalogi_catalogus', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.catalogi_catalogus), 0),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_catalogus), 1),
                true
        );
 
 -- catalogi_eigenschap_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.catalogi_eigenschap', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.catalogi_eigenschap), 0),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_eigenschap), 1),
                true
        );
 
 -- catalogi_eigenschapspecificatie_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.catalogi_eigenschapspecificatie', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.catalogi_eigenschapspecificatie), 0),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_eigenschapspecificatie), 1),
                true
        );
 
 -- catalogi_informatieobjecttype_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.catalogi_informatieobjecttype', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.catalogi_informatieobjecttype), 0),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_informatieobjecttype), 1),
                true
        );
 
 -- catalogi_roltype_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.catalogi_roltype', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.catalogi_roltype), 0),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_roltype), 1),
                true
        );
 
 -- catalogi_statustype_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.catalogi_statustype', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.catalogi_statustype), 0),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_statustype), 1),
                true
        );
 
 -- catalogi_zaaktype_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.catalogi_zaaktype', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.catalogi_zaaktype), 0),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_zaaktype), 1),
                true
        );
 
 -- catalogi_zaaktypeinformatieobjecttype_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.catalogi_zaaktypeinformatieobjecttype', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.catalogi_zaaktypeinformatieobjecttype), 0),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_zaaktypeinformatieobjecttype), 1),
                true
        );
 
 -- vng_api_common_jwtsecret_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.vng_api_common_jwtsecret', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.vng_api_common_jwtsecret), 0),
+               COALESCE((SELECT MAX(id) FROM public.vng_api_common_jwtsecret), 1),
                true
        );
 
 -- zaken_natuurlijkpersoon_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.zaken_natuurlijkpersoon', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.zaken_natuurlijkpersoon), 0),
+               COALESCE((SELECT MAX(id) FROM public.zaken_natuurlijkpersoon), 1),
                true
        );
 
 -- zaken_rol_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.zaken_rol', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.zaken_rol), 0),
+               COALESCE((SELECT MAX(id) FROM public.zaken_rol), 1),
                true
        );
 
 -- zaken_zaakidentificatie_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.zaken_zaakidentificatie', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.zaken_zaakidentificatie), 0),
+               COALESCE((SELECT MAX(id) FROM public.zaken_zaakidentificatie), 1),
                true
        );
 
 -- zgw_consumers_service_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.zgw_consumers_service', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.zgw_consumers_service), 0),
+               COALESCE((SELECT MAX(id) FROM public.zgw_consumers_service), 1),
                true
        );
 
 -- catalogi_resultaattype_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.catalogi_resultaattype', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.catalogi_resultaattype), 0),
+               COALESCE((SELECT MAX(id) FROM public.catalogi_resultaattype), 1),
                true
        );
 
 -- zaken_resultaat_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.zaken_resultaat', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.zaken_resultaat), 0),
+               COALESCE((SELECT MAX(id) FROM public.zaken_resultaat), 1),
                true
        );
 
 -- zaken_status_id_seq
 SELECT setval(
                pg_get_serial_sequence('public.zaken_status', 'id'),
-               COALESCE((SELECT MAX(id) FROM public.zaken_status), 0),
+               COALESCE((SELECT MAX(id) FROM public.zaken_status), 1),
                true
        );
 
