@@ -68,7 +68,7 @@
                             },
                             "defaultValue": [],
                             "multipleFiles": true,
-                            "informatieobjecttype": "http://localhost:8001/catalogi/api/v1/informatieobjecttypen/efc332f2-be3b-4bad-9e3c-49a6219c92ad"
+                            "informatieobjecttype": "http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/efc332f2-be3b-4bad-9e3c-49a6219c92ad"
                         },
                         {
                             "key": "bestanden.bankafschriftenAfgelopenMaand",
@@ -83,7 +83,7 @@
                             },
                             "defaultValue": [],
                             "multipleFiles": true,
-                            "informatieobjecttype": "http://localhost:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
+                            "informatieobjecttype": "http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
                         },
                         {
                             "key": "informatieverzoek.specifiekeBankrekeningNummers",
@@ -112,7 +112,7 @@
                                 "when": "informatieverzoek.opTeVragenBenodigdeInformatie.specifiekeBankafschriftenAfgelopenMaand"
                             },
                             "multipleFiles": true,
-                            "informatieobjecttype": "http://localhost:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
+                            "informatieobjecttype": "http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
                         },
                         {
                             "key": "informatieverzoek.bankrekeningNummersSpecifiekePeriode",
@@ -142,7 +142,7 @@
                             },
                             "defaultValue": [],
                             "multipleFiles": true,
-                            "informatieobjecttype": "http://localhost:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
+                            "informatieobjecttype": "http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
                         },
                         {
                             "key": "bestanden.bankafschriftenZakelijkeRekeningen",
@@ -157,7 +157,7 @@
                             },
                             "defaultValue": [],
                             "multipleFiles": true,
-                            "informatieobjecttype": "http://localhost:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
+                            "informatieobjecttype": "http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
                         },
                         {
                             "key": "bestanden.bankafschriftenZakelijkeRekeningenPartner",
@@ -172,7 +172,7 @@
                             },
                             "defaultValue": [],
                             "multipleFiles": true,
-                            "informatieobjecttype": "http://localhost:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
+                            "informatieobjecttype": "http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
                         },
                         {
                             "key": "bestanden.laatsteInkomstenSpecificatie",
@@ -187,7 +187,7 @@
                             },
                             "defaultValue": [],
                             "multipleFiles": true,
-                            "informatieobjecttype": "http://localhost:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
+                            "informatieobjecttype": "http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
                         },
                         {
                             "key": "bestanden.laatsteInkomstenSpecificatiePartner",
@@ -202,7 +202,7 @@
                             },
                             "defaultValue": [],
                             "multipleFiles": true,
-                            "informatieobjecttype": "http://localhost:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
+                            "informatieobjecttype": "http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
                         },
                         {
                             "key": "bestanden.specificatiePensioen",
@@ -217,7 +217,7 @@
                             },
                             "defaultValue": [],
                             "multipleFiles": true,
-                            "informatieobjecttype": "http://localhost:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
+                            "informatieobjecttype": "http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
                         },
                         {
                             "key": "bestanden.belastingaangifte",
@@ -232,7 +232,7 @@
                             },
                             "defaultValue": [],
                             "multipleFiles": true,
-                            "informatieobjecttype": "http://localhost:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
+                            "informatieobjecttype": "http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
                         },
                         {
                             "key": "bestanden.belastingaanslag",
@@ -247,7 +247,7 @@
                             },
                             "defaultValue": [],
                             "multipleFiles": true,
-                            "informatieobjecttype": "http://localhost:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
+                            "informatieobjecttype": "http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
                         },
                         {
                             "key": "bestanden.jaarrekening",
@@ -262,7 +262,7 @@
                             },
                             "defaultValue": [],
                             "multipleFiles": true,
-                            "informatieobjecttype": "http://localhost:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
+                            "informatieobjecttype": "http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
                         },
                         {
                             "key": "bestanden.balansrekening",
@@ -277,7 +277,7 @@
                             },
                             "defaultValue": [],
                             "multipleFiles": true,
-                            "informatieobjecttype": "http://localhost:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
+                            "informatieobjecttype": "http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
                         },
                         {
                             "key": "informatieverzoek.opleidingVolgendePersonen",
@@ -307,7 +307,7 @@
                             },
                             "defaultValue": [],
                             "multipleFiles": true,
-                            "informatieobjecttype": "http://localhost:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
+                            "informatieobjecttype": "http://host.docker.internal:8001/catalogi/api/v1/informatieobjecttypen/5df12b73-7ee3-4bcc-8898-8adf12db9e8b"
                         },
                         {
                             "key": "documenten",
@@ -428,7 +428,7 @@
                 "portaalformulier": {
                     "formulier": {
                         "soort": "url",
-                        "value": "http://localhost:8010/api/v2/objects/c0021527-7af0-48be-b38d-d8ba9ce8e2b6"
+                        "value": "http://host.docker.internal:8010/api/v2/objects/c0021527-7af0-48be-b38d-d8ba9ce8e2b6"
                     },
                     "data": {
                         "voornaam": "Jan",
