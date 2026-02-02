@@ -52,5 +52,59 @@
             "object_type_id": 3,
             "mode": "read_and_write"
         }
+    },
+    {
+        "model": "core.objecttype",
+        "pk": 4,
+        "fields": {
+            "service": 1,
+            "uuid": "10b88cbd-5b9e-4e25-8635-eda8fe5ad227",
+            "_name": "PDCProductType"
+        }
+    },
+    {
+        "model": "token.permission",
+        "pk": 4,
+        "fields": {
+            "token_auth_id": 1,
+            "object_type_id": 4,
+            "mode": "read_and_write"
+        }
+    },
+    {
+        "model": "core.objecttype",
+        "pk": 5,
+        "fields": {
+            "service": 1,
+            "uuid": "d5ae0ab0-fd6d-40a2-87ae-54d11a85d3d8",
+            "_name": "PDCProductInstantie"
+        }
+    },
+    {
+        "model": "token.permission",
+        "pk": 5,
+        "fields": {
+            "token_auth_id": 1,
+            "object_type_id": 5,
+            "mode": "read_and_write"
+        }
+    },
+    {
+        "model": "core.objecttype",
+        "pk": 6,
+        "fields": {
+            "service": 1,
+            "uuid": "41778685-f876-4f74-ab54-b04ff23524b8",
+            "_name": "PDCVerbruiksObject"
+        }
+    },
+    {
+        "model": "token.permission",
+        "pk": 6,
+        "fields": {
+            "token_auth_id": 1,
+            "object_type_id": 6,
+            "mode": "read_and_write"
+        }
     }
 ]
