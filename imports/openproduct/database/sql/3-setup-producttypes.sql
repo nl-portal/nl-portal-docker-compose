@@ -182,7 +182,7 @@ VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', true, now(), now(), 'PARKEREN
         'Stadspas Den Haag', 3, 941, null),
        (3, 'cf89c88d-8310-41d4-9776-786ae13235c8', true, now(), now(), 'BELASTINGZAKEN', '{gereed}',
         '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5),
-        (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  true,now(), now(), 'GENERIEKPRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
+        (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  true,now(), now(), 'GENERIEK-PRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
         '{intern,testen}', 'intern', 6, 1, null);
 
 
@@ -204,7 +204,7 @@ VALUES (1, 'nl', 'Parkeren', 'samenvatting translatie', 1),
        (4, 'en', 'CityPass', 'samenvatting translatie', 2),
        (5, 'nl', 'Belastingzaken', 'samenvatting translatie', 3),
        (6, 'en', 'Taxes', 'samenvatting translatie', 3),
-       (7, 'nl', 'Generiek Product', 'samenvatting translatie', 4);
+       (7, 'nl', 'GeneriekProduct', 'samenvatting translatie', 4);
 
 /* add actie*/
 INSERT INTO public.producttypen_actie(id, uuid, naam, dmn_tabel_id, dmn_config_id, producttype_id, mapping)

@@ -38,7 +38,7 @@ VALUES (1, '694242af-d906-470b-b7e1-eb3527886854', 'Parkeren', true, now(), now(
        (3, '55515634-bf7d-4f2e-8b30-6bbcc0f8bfdc', 'Parkeren 3', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '20.20', 'eenmalig', null, null, 1),
        (4, 'b4addadd-71df-45a9-8559-fca53fc79339', 'Belastingzaken', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '0.20', 'eenmalig', null, null, 3),
        (5, '0f30ac0d-8f53-4326-b384-e1021d262c6c', 'Ooievaarpas', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '0.20', 'eenmalig', null, null, 2),
-        (6, '8e820244-f1eb-45d2-b1bd-0a194e93bb33', 'Product voor testautomatisering', false, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '666.99', 'jaarlijks', null, null, 4),;
+        (6, '8e820244-f1eb-45d2-b1bd-0a194e93bb33', 'Product voor testautomatisering', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '666.99', 'jaarlijks', null, null, 4);
 /* add eigenaar */
 INSERT INTO public.producten_eigenaar(id, uuid, bsn, kvk_nummer, vestigingsnummer, klantnummer, product_id)
 VALUES (1, '104dd54c-4464-45f2-9781-9df2c59a35ed', '999993847', '', '', '', 1),
