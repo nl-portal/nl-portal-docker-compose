@@ -66,7 +66,7 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
   "description": "Product verbruik details van een instantie uit het PDC. Bevat product data die vaak aangepast moet worden. Bijvoorbeeld een log van gebruikte tijdsvakken",
   "additionalProperties": false
 }'),
-       (2, 'parkeervergunning-dataobject', '{
+(2, 'parkeervergunning-dataobject', '{
  "type": "object",
  "properties": {
    "uren": {
@@ -77,14 +77,14 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
    "uren"
  ]
 }'),
-       (3, 'ooievaarspas-dataobject', '{
+(3, 'ooievaarspas-dataobject', '{
  "type": "object",
  "properties": {
  },
  "required": [
  ]
 }'),
-       (4, 'belastingzaken-dataobject', '{
+(4, 'belastingzaken-dataobject', '{
  "type": "object",
  "properties": {
    "uren": {
@@ -95,7 +95,7 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
    "uren"
  ]
 }'),
-       (5, 'parkeervergunning-verbruiksobjectobject', '{
+(5, 'parkeervergunning-verbruiksobjectobject', '{
  "type": "object",
  "title": "PDCverbruiksObject",
  "$schema": "http://json-schema.org/draft-07/schema",
