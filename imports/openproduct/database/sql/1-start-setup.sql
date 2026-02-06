@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 INSERT INTO public.accounts_user(id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined)
 VALUES(1, 'pbkdf2_sha256$600000$8R5PtLVB2cWBCB3lBoTrd2$zJ4IalwmR5kNrX9yDl4W+M2F94Z1D8KtZRH/lNrXeHY=', null, true, 'admin', '', '', 'admin@example.com', true, true, now());
 
 INSERT INTO public.authtoken_token (key, created, user_id)
 VALUES ('ac045222c9e7cde8120b48735560f9b920bb58cd', now(), 1);
 
-INSERT INTO public.zgw_consumers_service(id,label, api_type, api_root, client_id, secret, auth_type, header_key, header_value, oas, nlx, user_id, user_representation, oas_file, client_certificate_id, server_certificate_id, uuid, timeout, api_connection_check_path, slug, jwt_valid_for)
-VALUES (1, 'Notification API', 'nrc', 'http://host.docker.internal:8002/api/v1/', 'valtimo_client', 'e09b8bc5-5831-4618-ab28-41411304309d', 'zgw', '', '', 'http://host.docker.internal:8002/api/v1/schema/openapi.yaml', '', '', '', '', null, null, '415042b2-c740-4532-be88-38ac5f8c9060', 10, '', 'httplocalhost8001catalogiapiv1', 43200 );
+-- INSERT INTO public.zgw_consumers_service(id,label, api_type, api_root, client_id, secret, auth_type, header_key, header_value, nlx, user_id, user_representation, client_certificate_id, server_certificate_id, uuid, timeout, api_connection_check_path, slug, jwt_valid_for)
+-- VALUES (1, 'Notification API', 'nrc', 'http://host.docker.internal:8002/api/v1/', 'valtimo_client', 'e09b8bc5-5831-4618-ab28-41411304309d', 'zgw', '', '',  '', '',  '', null, null, '415042b2-c740-4532-be88-38ac5f8c9060', 10, '', 'httplocalhost8001catalogiapiv1', 43200 );
 
 INSERT INTO public.notifications_api_common_notificationsconfig(id, notifications_api_service_id, notification_delivery_max_retries, notification_delivery_retry_backoff, notification_delivery_retry_backoff_max)
 VALUES (2, 1, 5,3, 48);
@@ -36,7 +36,7 @@ VALUES ( 1, '3bc964a5-108d-430c-b7fb-6797bb17b6fd', 'watkanikregelen-parkeren', 
 SELECT pg_catalog.setval('public.zgw_consumers_service_id_seq', 1, true);
 
 SELECT pg_catalog.setval('public.notifications_api_common_notificationsconfig_id_seq', 2, true);
-
-SELECT pg_catalog.setval('public.producttypen_externeverwijzingconfig_id_seq', 1, true);
+--
+-- SELECT pg_catalog.setval('public.producttypen_externeverwijzingconfig_id_seq', 1, true);
 
 SELECT pg_catalog.setval('public.producttypen_dmnconfig_id_seq', 1, true);
