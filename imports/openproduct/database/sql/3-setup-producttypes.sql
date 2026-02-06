@@ -134,21 +134,21 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
 }');
 
 /* add producttype*/
-INSERT INTO public.producttypen_producttype(id, uuid, gepubliceerd, aanmaak_datum, update_datum, code,
+INSERT INTO public.producttypen_producttype(id, uuid, aanmaak_datum, update_datum, code,
                                             toegestane_statussen, keywords, interne_opmerkingen, dataobject_schema_id,
-                                            uniforme_product_naam_id, verbruiksobject_schema_id)
-VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', true, now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2,
-        793, 1),
-       (2, '43633c6c-2d9a-46c8-9051-112418102254', true, now(), now(), 'STADSPAS', '{gereed}', '{ooievaarspas, gzac}',
-        'Stadspas Den Haag', 3, 941, null),
-       (3, 'cf89c88d-8310-41d4-9776-786ae13235c8', true, now(), now(), 'BELASTINGZAKEN', '{gereed}',
-        '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5);
+                                            uniforme_product_naam_id, verbruiksobject_schema_id, publicatie_eind_datum, publicatie_start_datum, doelgroep)
+VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2,
+        793, 1, null, now(), 'Parkeerders'),
+       (2, '43633c6c-2d9a-46c8-9051-112418102254',  now(), now(), 'STADSPAS', '{gereed}', '{ooievaarspas, gzac}',
+        'Stadspas Den Haag', 3, 941, null, null, now(), 'Stadspashouders'),
+       (3, 'cf89c88d-8310-41d4-9776-786ae13235c8',  now(), now(), 'BELASTINGZAKEN', '{gereed}',
+        '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5, null, now(), 'Belastingbetaler');
 
 
 /* add zaaktype */
-INSERT INTO public.producttypen_zaaktype(id, uuid, producttype_id)
-VALUES (1, '744ca059-f412-49d4-8963-5800e4afd486', 1),
-       (2, '0f71d469-782a-4e65-8101-c1e70c272c13', 2);
+INSERT INTO public.producttypen_zaaktype(id,  producttype_id, url, urn)
+VALUES (1,  1, null, null),
+       (2,  2, null, null);
 
 /* add externe code */
 INSERT INTO public.producttypen_externecode(id, uuid, naam, code, producttype_id)
@@ -232,9 +232,9 @@ INSERT INTO public.producttypen_contentlabel(id, uuid, naam)
 VALUES (1, '6d9cab7b-311e-44b7-828e-eabbdf139724', 'naam');
 
 /* add contentelementtranslation */
-INSERT INTO public.producttypen_contentelementtranslation(id, language_code, content, master_id)
-VALUES (1, 'nl', 'test data', 1),
-       (2, 'en', 'test data English', 1);
+INSERT INTO public.producttypen_contentelementtranslation(id, language_code, content, master_id, aanvullende_informatie)
+VALUES (1, 'nl', 'test data', 1, 'Aanvullende test informatie'),
+       (2, 'en', 'test data English', 1, 'Extra test information');
 
 /* add contentelement_labels */
 INSERT INTO public.producttypen_contentelement_labels(contentelement_id, contentlabel_id)
