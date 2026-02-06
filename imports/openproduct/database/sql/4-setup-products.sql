@@ -47,12 +47,13 @@ VALUES (1, '104dd54c-4464-45f2-9781-9df2c59a35ed', '999993847', '', '', '', 1),
        (5, 'e64b095d-d06f-490a-83b5-3fa0d8442e63', '999993847', '', '', '', 5);
 
 /* add zaken */
-INSERT INTO public.producten_zaak(id, uuid, product_id)
-VALUES (1, '703af290-abe0-418c-b9c3-10a65e662788', 1);
+INSERT INTO public.producten_zaak(id, product_id, url, urn)
+
+VALUES (1,  1, null, null);
 
 /* add taken */
-INSERT INTO public.producten_taak(id, uuid, product_id)
-VALUES (1, '4b5f4fba-0746-11ed-b939-0242ac120023', 1);
+INSERT INTO public.producten_taak(id, product_id, url, urn)
+VALUES (1,  1, null, null);
 
 /*set sequences */
 SELECT pg_catalog.setval('public.producten_product_id_seq', 4, true);
