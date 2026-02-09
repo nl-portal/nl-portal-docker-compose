@@ -177,26 +177,19 @@ INSERT INTO public.producttypen_producttype(id, uuid, aanmaak_datum, update_datu
                                             toegestane_statussen, keywords, interne_opmerkingen, dataobject_schema_id,
                                             uniforme_product_naam_id, verbruiksobject_schema_id, publicatie_eind_datum, publicatie_start_datum, doelgroep)
 VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2,
-        793, 1, null, now(), 'Parkeerders'),
+        793, 1, null, now() - INTERVAL '1 DAYS', 'Parkeerders'),
        (2, '43633c6c-2d9a-46c8-9051-112418102254',  now(), now(), 'STADSPAS', '{gereed}', '{ooievaarspas, gzac}',
-        'Stadspas Den Haag', 3, 941, null, null, now(), 'Stadspashouders'),
+        'Stadspas Den Haag', 3, 941, null, null, now() - INTERVAL '1 DAYS', 'Stadspashouders'),
        (3, 'cf89c88d-8310-41d4-9776-786ae13235c8',  now(), now(), 'BELASTINGZAKEN', '{gereed}',
-        '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5, null, now(), 'Belastingbetaler');
-                                            uniforme_product_naam_id, verbruiksobject_schema_id)
-VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', true, now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2,
-        793, 1),
-       (2, '43633c6c-2d9a-46c8-9051-112418102254', true, now(), now(), 'STADSPAS', '{gereed}', '{ooievaarspas, gzac}',
-        'Stadspas Den Haag', 3, 941, null),
-       (3, 'cf89c88d-8310-41d4-9776-786ae13235c8', true, now(), now(), 'BELASTINGZAKEN', '{gereed}',
-        '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5),
-        (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  true,now(), now(), 'GENERIEK-PRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
-        '{intern,testen}', 'intern', 6, 1, null);
-
+        '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5, null, now() - INTERVAL '1 DAYS', 'Belastingbetaler'),
+       (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  now(), now(), 'GENERIEK-PRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
+        '{intern,testen}', 'intern', 6, 1, null, null, now() - INTERVAL '1 DAYS', 'Testers');
 
 /* add zaaktype */
-INSERT INTO public.producttypen_zaaktype(id,  producttype_id, url, urn)
-VALUES (1,  1, null, null),
-       (2,  2, null, null);
+INSERT INTO public.producttypen_zaaktype(producttype_id, url, urn)
+VALUES (  1, 'http://host.docker.internal:8001/catalogi/api/v1/zaaktypen/b287a6fa-49af-4939-a72f-8307603898b9', 'b287a6fa49af4939a72f-8307603898b9'),
+       (  2, 'http://host.docker.internal:8001/catalogi/api/v1/zaaktypen/b287a6fa-49af-4939-a72f-8307603898b9', 'b287a6fa-49af-4939-a72f-8307603898b0'),
+       (  4, 'http://host.docker.internal:8001/catalogi/api/v1/zaaktypen/b287a6fa-49af-4939-a72f-8307603898b9', 'b287a6fa-49af-4939-a72f-8307603898b0');
 
 /* add externe code */
 INSERT INTO public.producttypen_externecode(id, uuid, naam, code, producttype_id)
