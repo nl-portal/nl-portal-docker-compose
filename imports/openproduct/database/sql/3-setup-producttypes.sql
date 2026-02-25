@@ -23,7 +23,8 @@ VALUES (1, '1a25f58c-8e7b-425f-b466-7e6f8ca1268b', true, now(), now(), 'Hoofdthe
        (4, '41f71c2e-9e0c-4a1b-8d39-709669b256c2', true, now(), now(), 'Belastingzaken', 'Belastingzaken thema', null),
        (5, '17d21ea4-7fa7-4532-88cd-081c089000f3', true, now(), now(), 'Inkomensondersteuning', 'Sociaal domein', null),
         (6, 'c79c9cd6-a5dd-459b-a15e-6506149ab9c3', true, now(), now(), 'Intern', 'Alleen voor T \\& A \\(Test\\) gebruik\\. Niet voor klanten', null),
-        (7, '16ed55a4-f105-47ba-9a65-2c4442806134', true, now(), now(), 'Wonen en bouwen', '', null);
+        (7, '16ed55a4-f105-47ba-9a65-2c4442806134', true, now(), now(), 'Wonen en bouwen', '', null),
+        (8, '86f35f43-75c8-4bd2-969d-457874f84f60', true, now(), now(), 'Erfpacht', '', null);
 
 /* add schema */
 INSERT INTO public.producttypen_jsonschema(id, naam, schema)
@@ -170,7 +171,45 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
   },
   "description": "Schema voor het opslaan van woonwagen data",
   "additionalProperties": false
-}');
+}'),
+        (7, 'erfpachtdata', '{
+  "type": "object",
+  "title": "erfpachtdata",
+  "examples": [
+    {
+      "status": "ingeschreven",
+      "inschrijfdatum": "2026-02-25T00:00:00+02:00",
+      "uitschrijfdatum": "2026-02-24T00:00:00+02:00"
+    }
+  ],
+  "required": [
+    "status",
+    "inschrijfdatum"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "ingeschreven",
+        "uitgeschreven"
+      ],
+      "type": "string",
+      "description": "Status van de inschrijving."
+    },
+    "inschrijfdatum": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Inschrijfdatum voor de wachtlijst"
+    },
+    "uitschrijfdatum": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Uitschrijfdatum voor de wachtlijst"
+    }
+  },
+  "description": "Schema voor het opslaan van erfpacht data",
+  "additionalProperties": false
+}'
+       );
 
 /* add producttype*/
 INSERT INTO public.producttypen_producttype(id, uuid, gepubliceerd, aanmaak_datum, update_datum, code,
@@ -183,7 +222,9 @@ VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', true, now(), now(), 'PARKEREN
        (3, 'cf89c88d-8310-41d4-9776-786ae13235c8', true, now(), now(), 'BELASTINGZAKEN', '{gereed}',
         '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5),
         (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  true,now(), now(), 'GENERIEK-PRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
-        '{intern,testen}', 'intern', 6, 1, null);
+        '{intern,testen}', 'intern', 6, 1, null),
+       (5, '6492ab26-38ab-42d5-91f5-7a76db178d52',  true,now(), now(), 'ERFPACHT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
+        '{intern,testen}', 'intern', 7, 1, null);
 
 
 /* add zaaktype */
