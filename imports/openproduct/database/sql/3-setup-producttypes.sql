@@ -245,7 +245,8 @@ VALUES (1, 'nl', 'Parkeren', 'samenvatting translatie', 1),
        (4, 'en', 'CityPass', 'samenvatting translatie', 2),
        (5, 'nl', 'Belastingzaken', 'samenvatting translatie', 3),
        (6, 'en', 'Taxes', 'samenvatting translatie', 3),
-       (7, 'nl', 'GeneriekProduct', 'samenvatting translatie', 4);
+       (7, 'nl', 'GeneriekProduct', 'samenvatting translatie', 4),
+       (8, 'nl', 'Erfpacht', 'samenvatting translatie', 5);
 
 /* add actie*/
 INSERT INTO public.producttypen_actie(id, uuid, naam, dmn_tabel_id, dmn_config_id, producttype_id, mapping)
@@ -368,7 +369,8 @@ VALUES (1, '0a9ff804-d151-477b-81aa-09e16f3064d9', 'https://gemeente.open-produc
 INSERT INTO public.producttypen_producttype_themas(producttype_id, thema_id)
 VALUES (1, 3),
        (2, 5),
-       (4, 6);
+       (4, 6),
+        (5, 7);
 
 /* add producttype_organisaties */
 INSERT INTO public.producttypen_producttype_organisaties(producttype_id, organisatie_id)
