@@ -21,7 +21,10 @@ VALUES (1, '1a25f58c-8e7b-425f-b466-7e6f8ca1268b', true, now(), now(), 'Hoofdthe
        (2, 'c00a7724-3e8f-4155-9ae1-2edbc6eaeefe', true, now(), now(), 'Subthema', 'Subthema thema', 1),
        (3, 'b95cfbf6-8578-410b-b108-a42fd20af843', true, now(), now(), 'Parkeren', 'Parkeren thema', 2),
        (4, '41f71c2e-9e0c-4a1b-8d39-709669b256c2', true, now(), now(), 'Belastingzaken', 'Belastingzaken thema', null),
-       (5, '17d21ea4-7fa7-4532-88cd-081c089000f3', true, now(), now(), 'Inkomensondersteuning', 'Sociaal domein', null);
+       (5, '17d21ea4-7fa7-4532-88cd-081c089000f3', true, now(), now(), 'Inkomensondersteuning', 'Sociaal domein', null),
+        (6, 'c79c9cd6-a5dd-459b-a15e-6506149ab9c3', true, now(), now(), 'Intern', 'Alleen voor T \\& A \\(Test\\) gebruik\\. Niet voor klanten', null),
+        (7, '16ed55a4-f105-47ba-9a65-2c4442806134', true, now(), now(), 'Wonen en bouwen', '', null),
+        (8, '86f35f43-75c8-4bd2-969d-457874f84f60', true, now(), now(), 'Erfpacht', '', null);
 
 /* add schema */
 INSERT INTO public.producttypen_jsonschema(id, naam, schema)
@@ -131,7 +134,82 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
  },
  "description": "Product verbruik details van een instantie uit het PDC. Bevat product data die vaak aangepast moet worden. Bijvoorbeeld een log van gebruikte tijdsvakken",
  "additionalProperties": false
-}');
+}'),
+       (6, 'woonwagenstandplaatsdata', '{
+  "type": "object",
+  "title": "woonwagenstandplaatsdata",
+  "examples": [
+    {
+      "status": "ingeschreven",
+      "inschrijfdatum": "2025-10-23T00:00:00+02:00",
+      "uitschrijfdatum": "2025-10-23T00:00:00+02:00"
+    }
+  ],
+  "required": [
+    "status",
+    "inschrijfdatum"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "ingeschreven",
+        "uitgeschreven"
+      ],
+      "type": "string",
+      "description": "Status van de inschrijving."
+    },
+    "inschrijfdatum": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Inschrijfdatum voor de wachtlijst"
+    },
+    "uitschrijfdatum": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Uitschrijfdatum voor de wachtlijst"
+    }
+  },
+  "description": "Schema voor het opslaan van woonwagen data",
+  "additionalProperties": false
+}'),
+        (7, 'erfpachtdata', '{
+  "type": "object",
+  "title": "erfpachtdata",
+  "examples": [
+    {
+      "status": "ingeschreven",
+      "inschrijfdatum": "2026-02-25T00:00:00+02:00",
+      "uitschrijfdatum": "2026-02-24T00:00:00+02:00"
+    }
+  ],
+  "required": [
+    "status",
+    "inschrijfdatum"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "ingeschreven",
+        "uitgeschreven"
+      ],
+      "type": "string",
+      "description": "Status van de inschrijving."
+    },
+    "inschrijfdatum": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Inschrijfdatum voor de wachtlijst"
+    },
+    "uitschrijfdatum": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Uitschrijfdatum voor de wachtlijst"
+    }
+  },
+  "description": "Schema voor het opslaan van erfpacht data",
+  "additionalProperties": false
+}'
+       );
 
 /* add producttype*/
 INSERT INTO public.producttypen_producttype(id, uuid, gepubliceerd, aanmaak_datum, update_datum, code,
@@ -142,7 +220,11 @@ VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', true, now(), now(), 'PARKEREN
        (2, '43633c6c-2d9a-46c8-9051-112418102254', true, now(), now(), 'STADSPAS', '{gereed}', '{ooievaarspas, gzac}',
         'Stadspas Den Haag', 3, 941, null),
        (3, 'cf89c88d-8310-41d4-9776-786ae13235c8', true, now(), now(), 'BELASTINGZAKEN', '{gereed}',
-        '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5);
+        '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5),
+        (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  true,now(), now(), 'GENERIEK-PRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
+        '{intern,testen}', 'intern', 6, 1, null),
+       (5, '6492ab26-38ab-42d5-91f5-7a76db178d52',  true,now(), now(), 'ERFPACHT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
+        '{intern,testen}', 'intern', 7, 1, null);
 
 
 /* add zaaktype */
@@ -162,7 +244,9 @@ VALUES (1, 'nl', 'Parkeren', 'samenvatting translatie', 1),
        (3, 'nl', 'Stadspas', 'samenvatting translatie', 2),
        (4, 'en', 'CityPass', 'samenvatting translatie', 2),
        (5, 'nl', 'Belastingzaken', 'samenvatting translatie', 3),
-       (6, 'en', 'Taxes', 'samenvatting translatie', 3);
+       (6, 'en', 'Taxes', 'samenvatting translatie', 3),
+       (7, 'nl', 'GeneriekProduct', 'samenvatting translatie', 4),
+       (8, 'nl', 'Erfpacht', 'samenvatting translatie', 5);
 
 /* add actie*/
 INSERT INTO public.producttypen_actie(id, uuid, naam, dmn_tabel_id, dmn_config_id, producttype_id, mapping)
@@ -284,7 +368,9 @@ VALUES (1, '0a9ff804-d151-477b-81aa-09e16f3064d9', 'https://gemeente.open-produc
 /* add producttype_thema */
 INSERT INTO public.producttypen_producttype_themas(producttype_id, thema_id)
 VALUES (1, 3),
-       (2, 5);
+       (2, 5),
+       (4, 6),
+        (5, 7);
 
 /* add producttype_organisaties */
 INSERT INTO public.producttypen_producttype_organisaties(producttype_id, organisatie_id)
@@ -298,49 +384,163 @@ VALUES (1, 1);
 INSERT INTO public.producttypen_producttype_locaties(producttype_id, locatie_id)
 VALUES (1, 1);
 
-/*set sequences */
-SELECT pg_catalog.setval('public.producttypen_thema_id_seq', 5, true);
+-- producttypen_thema_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_thema_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_thema), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_jsonschema_id_seq', 5, true);
+-- producttypen_jsonschema_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_jsonschema_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_jsonschema), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_producttype_id_seq', 3, true);
+-- producttypen_producttype_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_producttype_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_zaaktype_id_seq', 2, true);
+-- producttypen_zaaktype_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_zaaktype_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_zaaktype), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_externecode_id_seq', 2, true);
+-- producttypen_externecode_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_externecode_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_externecode), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_producttypetranslation_id_seq', 6, true);
+-- producttypen_producttypetranslation_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_producttypetranslation_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_producttypetranslation), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_actie_id_seq', 2, true);
+-- producttypen_actie_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_actie_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_actie), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_parameter_id_seq', 1, true);
+-- producttypen_parameter_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_parameter_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_parameter), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_contentelement_id_seq', 1, true);
+-- producttypen_contentelement_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_contentelement_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_contentelement), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_contentlabel_id_seq', 1, true);
+-- producttypen_contentlabel_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_contentlabel_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_contentlabel), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_contentelementtranslation_id_seq', 2, true);
+-- producttypen_contentelementtranslation_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_contentelementtranslation_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_contentelementtranslation), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_contentelement_labels_id_seq', 1, true);
+-- producttypen_contentelement_labels_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_contentelement_labels_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_contentelement_labels), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_link_id_seq', 2, true);
+-- producttypen_link_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_link_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_link), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_prijs_id_seq', 1, true);
+-- producttypen_prijs_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_prijs_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_prijs), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_prijsoptie_id_seq', 1, true);
+-- producttypen_prijsoptie_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_prijsoptie_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_prijsoptie), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_prijsregel_id_seq', 2, true);
+-- producttypen_prijsregel_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_prijsregel_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_prijsregel), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_producttype_themas_id_seq', 2, true);
+-- producttypen_producttype_themas_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_producttype_themas_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype_themas), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_producttype_organisaties_id_seq', 1, true);
+-- producttypen_producttype_organisaties_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_producttype_organisaties_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype_organisaties), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_producttype_locaties_id_seq', 1, true);
+-- producttypen_producttype_locaties_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_producttype_locaties_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype_locaties), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.producttypen_producttype_contacten_id_seq', 1, true);
+-- producttypen_producttype_contacten_id_seq
+SELECT pg_catalog.setval(
+               'public.producttypen_producttype_contacten_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.producttypen_producttype_contacten), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.locaties_locatie_id_seq', 1, true);
+-- locaties_locatie_id_seq
+SELECT pg_catalog.setval(
+               'public.locaties_locatie_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.locaties_locatie), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.locaties_organisatie_id_seq', 1, true);
+-- locaties_organisatie_id_seq
+SELECT pg_catalog.setval(
+               'public.locaties_organisatie_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.locaties_organisatie), 1),
+               true
+       );
 
-SELECT pg_catalog.setval('public.locaties_contact_id_seq', 1, true);
+-- locaties_contact_id_seq
+SELECT pg_catalog.setval(
+               'public.locaties_contact_id_seq',
+               COALESCE((SELECT MAX(id) FROM public.locaties_contact), 1),
+               true
+       );

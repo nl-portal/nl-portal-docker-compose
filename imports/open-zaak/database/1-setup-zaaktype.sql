@@ -20,7 +20,7 @@ SET row_security = off;
 -- Data for Name: accounts_user; Type: TABLE DATA; Schema: public; Owner: openzaak
 --
 
-INSERT INTO public.accounts_user VALUES (1, 'pbkdf2_sha256$260000$PINGrXbEuTXfDccVDSVGua$QFUBURai3eTcknSmBvaQZpzHHJfwI7rYd++N5xId4j8=', NULL, true, 'admin', '', '', 'admin@admin.org', true, true, '2024-11-04 15:05:01.029862+00');
+--INSERT INTO public.accounts_user VALUES (1, 'pbkdf2_sha256$260000$PINGrXbEuTXfDccVDSVGua$QFUBURai3eTcknSmBvaQZpzHHJfwI7rYd++N5xId4j8=', NULL, true, 'admin', '', '', 'admin@admin.org', true, true, '2024-11-04 15:05:01.029862+00');
 INSERT INTO public.accounts_user VALUES (2, 'pbkdf2_sha256$150000$5dnJUqLDsmX0$EEbO4AGZqyp88ZCTu+7W2uGRLkdidlL4HkXWc8ZfZV8=', NULL, true, 'demo', 'Valtimo', 'Demo', 'demo@valtimo.nl', true, true, '2024-11-04 14:45:51.796139+00');
 
 
