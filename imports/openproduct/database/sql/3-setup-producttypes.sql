@@ -3,7 +3,7 @@
  *
  * Licensed under EUPL, Version 1.2 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License atwonen
+ * You may obtain a copy of the License at
  *
  * https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
  *
