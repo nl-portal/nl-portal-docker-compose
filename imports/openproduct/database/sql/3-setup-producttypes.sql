@@ -221,10 +221,12 @@ VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', true, now(), now(), 'PARKEREN
         'Stadspas Den Haag', 3, 941, null),
        (3, 'cf89c88d-8310-41d4-9776-786ae13235c8', true, now(), now(), 'BELASTINGZAKEN', '{gereed}',
         '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5),
-        (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  true,now(), now(), 'GENERIEK-PRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
+       (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  true,now(), now(), 'GENERIEK-PRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
         '{intern,testen}', 'intern', 6, 1, null),
        (5, '6492ab26-38ab-42d5-91f5-7a76db178d52',  true,now(), now(), 'ERFPACHT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
-        '{intern,testen}', 'intern', 7, 1, null);
+        '{intern,testen}', 'intern', 7, 308, null),
+       (6, '2e412f7f-feb3-4a04-bcbd-2cdab45a8ef9',  true,now(), now(), 'WOONWAGENSTANDPLAATS', '{gereed,actief,ingetrokken,geweigerd, verlopen}',
+        '{woonwagenstandplaats,testen}', 'woonwagenstandplaats', 6, 1178, null);
 
 
 /* add zaaktype */
@@ -246,7 +248,8 @@ VALUES (1, 'nl', 'Parkeren', 'samenvatting translatie', 1),
        (5, 'nl', 'Belastingzaken', 'samenvatting translatie', 3),
        (6, 'en', 'Taxes', 'samenvatting translatie', 3),
        (7, 'nl', 'GeneriekProduct', 'samenvatting translatie', 4),
-       (8, 'nl', 'Erfpacht', 'samenvatting translatie', 5);
+       (8, 'nl', 'Erfpacht', 'samenvatting translatie', 5),
+       (9, 'nl', 'Woonwagenstandplaats', 'samenvatting translatie', 6);
 
 /* add actie*/
 INSERT INTO public.producttypen_actie(id, uuid, naam, dmn_tabel_id, dmn_config_id, producttype_id, mapping)
@@ -370,7 +373,8 @@ INSERT INTO public.producttypen_producttype_themas(producttype_id, thema_id)
 VALUES (1, 3),
        (2, 5),
        (4, 6),
-        (5, 7);
+       (5, 8),
+        (6, 7);
 
 /* add producttype_organisaties */
 INSERT INTO public.producttypen_producttype_organisaties(producttype_id, organisatie_id)

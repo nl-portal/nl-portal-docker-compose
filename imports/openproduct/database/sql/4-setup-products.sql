@@ -39,7 +39,8 @@ VALUES (1, '694242af-d906-470b-b7e1-eb3527886854', 'Parkeren', true, now(), now(
         (4, 'b4addadd-71df-45a9-8559-fca53fc79339', 'Belastingzaken', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '0.20', 'eenmalig', null, null, 3),
         (5, '0f30ac0d-8f53-4326-b384-e1021d262c6c', 'Ooievaarpas', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '0.20', 'eenmalig', null, null, 2),
         (6, '8e820244-f1eb-45d2-b1bd-0a194e93bb33', 'Product voor testautomatisering', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '666.99', 'jaarlijks', null, null, 4),
-        (7, '94670b32-354b-48ec-8f7e-8ce0c6c936ec', 'Eerst product voor Erfpacht', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '1599.00', 'jaarlijks', null, null, 5);
+        (7, '94670b32-354b-48ec-8f7e-8ce0c6c936ec', 'Eerst product voor Erfpacht', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '1599.00', 'jaarlijks', null, null, 5),
+        (8, '8c22ad39-7907-4b1a-b0e0-b96ea8aeef61', 'Wachtlijst woonwagen', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '1599.00', 'jaarlijks', null, null, 6);
 
 /* add eigenaar */
 INSERT INTO public.producten_eigenaar(id, uuid, bsn, kvk_nummer, vestigingsnummer, klantnummer, product_id)
@@ -49,7 +50,8 @@ VALUES (1, '104dd54c-4464-45f2-9781-9df2c59a35ed', '999993847', '', '', '', 1),
         (4, '2bb3b0d7-817c-4755-844b-f48e52f86007', '999993847', '', '', '', 4),
         (5, 'e64b095d-d06f-490a-83b5-3fa0d8442e63', '999993847', '', '', '', 5),
         (6, 'ddf8f209-3495-45aa-846a-a82f7ae1015e', '999993847', '', '', '', 6),
-        (7, '5ab358c7-a6da-4298-86bc-dc80716e2acc', '999993847', '', '', '', 7);
+        (7, '5ab358c7-a6da-4298-86bc-dc80716e2acc', '999993847', '', '', '', 7),
+       (8, 'ad00a6d2-9754-48a6-b2d3-a6313c4821c0', '999993847', '', '', '', 8);
 
 /* add zaken */
 INSERT INTO public.producten_zaak(id, uuid, product_id)
