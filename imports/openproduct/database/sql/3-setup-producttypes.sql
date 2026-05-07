@@ -207,8 +207,8 @@ VALUES (1, 'nl', 'Parkeren', 'samenvatting translatie', 1),
        (7, 'nl', 'GeneriekProduct', 'samenvatting translatie', 4);
 
 /* add actie*/
-INSERT INTO public.producttypen_actie(id, uuid, naam, dmn_tabel_id, dmn_config_id, producttype_id, mapping)
-VALUES (1, '082d143f-6a53-4e08-bc3c-0488b3b490e4', 'watkanikregelen-parkeren', 'alg-parkeren', 1, 1, '{
+INSERT INTO public.producttypen_actie(id, uuid, naam, dmn_tabel_id, dmn_config_id, producttype_id, direct_url, mapping)
+VALUES (1, '082d143f-6a53-4e08-bc3c-0488b3b490e4', 'watkanikregelen-parkeren', 'alg-parkeren', 1, 1, '', '{
   "product": [
     {
       "name": "pid",
@@ -234,7 +234,7 @@ VALUES (1, '082d143f-6a53-4e08-bc3c-0488b3b490e4', 'watkanikregelen-parkeren', '
     }
   ]
 }'),
-       (2, '2435b986-7742-4cef-91f2-e1162c2f19c9', 'watkanikregelen-belastingen', 'alg-belastingen', 1, 1, '{
+       (2, '2435b986-7742-4cef-91f2-e1162c2f19c9', 'watkanikregelen-belastingen', 'alg-belastingen', 1, 1, '', '{
          "product": [
            {
              "name": "pid",
