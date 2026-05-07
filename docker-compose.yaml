@@ -395,16 +395,6 @@ services:
             - ./imports/openproduct/init:/app/init
         command: sh /app/init/init.sh
 
-    openproduct-celery:
-        image: maykinmedia/open-product:1.3.0
-        container_name: openproduct-celery
-        profiles:
-            - zgw
-            - openproduct
-        platform: linux/amd64
-        environment: *open-product-env
-        command: /celery_worker.sh
-
     openproduct-database:
         image: postgres:17
         container_name: openproduct-database
