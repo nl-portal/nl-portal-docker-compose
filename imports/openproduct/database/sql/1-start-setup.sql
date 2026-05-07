@@ -20,8 +20,8 @@ VALUES(1, 'pbkdf2_sha256$600000$8R5PtLVB2cWBCB3lBoTrd2$zJ4IalwmR5kNrX9yDl4W+M2F9
 INSERT INTO public.authtoken_token (key, created, user_id)
 VALUES ('ac045222c9e7cde8120b48735560f9b920bb58cd', now(), 1);
 
-INSERT INTO public.zgw_consumers_service(id,label, api_type, api_root, client_id, secret, auth_type, header_key, header_value, nlx, user_id, user_representation, client_certificate_id, server_certificate_id, uuid, timeout, api_connection_check_path, slug, jwt_valid_for)
-VALUES (1, 'Notification API', 'nrc', 'http://host.docker.internal:8002/api/v1/', 'valtimo_client', 'e09b8bc5-5831-4618-ab28-41411304309d', 'zgw', '', '',  '', '',  '', null, null, '415042b2-c740-4532-be88-38ac5f8c9060', 10, '', 'httplocalhost8001catalogiapiv1', 43200 );
+INSERT INTO public.zgw_consumers_service(id,label, api_type, api_root, client_id, secret, auth_type, header_key, header_value, nlx, user_id, user_representation, client_certificate_id, server_certificate_id, uuid, timeout, api_connection_check_path, slug, jwt_valid_for, oauth2_scope, oauth2_token_url)
+VALUES (1, 'Notification API', 'nrc', 'http://host.docker.internal:8002/api/v1/', 'valtimo_client', 'e09b8bc5-5831-4618-ab28-41411304309d', 'zgw', '', '',  '', '',  '', null, null, '415042b2-c740-4532-be88-38ac5f8c9060', 10, '', 'httplocalhost8001catalogiapiv1', 43200, 'profile email', 'http://localhost:8082/realms/master/protocol/openid-connect/token' );
 
 INSERT INTO public.notifications_api_common_notificationsconfig(id, notifications_api_service_id, notification_delivery_max_retries, notification_delivery_retry_backoff, notification_delivery_retry_backoff_max)
 VALUES (2, 1, 5,3, 48);
