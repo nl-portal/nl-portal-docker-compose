@@ -51,12 +51,12 @@ VALUES (1, '104dd54c-4464-45f2-9781-9df2c59a35ed', '999993847', '', '', '', 1),
 
 /* add zaken */
 INSERT INTO public.producten_zaak(id, product_id, url, urn)
-VALUES  (1, 1, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', '64eaf9ef37b44898acc9ae47bee577a2'),
-        (2, 2, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', '64eaf9ef37b44898acc9ae47bee577a2'),
-        (3, 3, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', '64eaf9ef37b44898acc9ae47bee577a2'),
-        (4, 4, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', '64eaf9ef37b44898acc9ae47bee577a2'),
-        (5, 5, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', '64eaf9ef37b44898acc9ae47bee577a2'),
-         (6, 6, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', '64eaf9ef37b44898acc9ae47bee577a2');
+VALUES  (1, 1, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', 'urn:nld:dh:zrc:zaken:zaak:uuid:64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+        (2, 2, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', 'urn:nld:dh:zrc:zaken:zaak:uuid:64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+        (3, 3, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', 'urn:nld:dh:zrc:zaken:zaak:uuid:64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+        (4, 4, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', 'urn:nld:dh:zrc:zaken:zaak:uuid:64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+        (5, 5, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', 'urn:nld:dh:zrc:zaken:zaak:uuid:64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+         (6, 6, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', 'urn:nld:dh:zrc:zaken:zaak:uuid:64eaf9ef-37b4-4898-acc9-ae47bee577a2');
 
 /* add taken */
 INSERT INTO public.producten_taak(id, product_id, url, urn)
