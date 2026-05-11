@@ -22,8 +22,9 @@ VALUES (1, '1a25f58c-8e7b-425f-b466-7e6f8ca1268b', true, now(), now(), 'Hoofdthe
        (3, 'b95cfbf6-8578-410b-b108-a42fd20af843', true, now(), now(), 'Parkeren', 'Parkeren thema', 2),
        (4, '41f71c2e-9e0c-4a1b-8d39-709669b256c2', true, now(), now(), 'Belastingzaken', 'Belastingzaken thema', null),
        (5, '17d21ea4-7fa7-4532-88cd-081c089000f3', true, now(), now(), 'Inkomensondersteuning', 'Sociaal domein', null),
-        (6, 'c79c9cd6-a5dd-459b-a15e-6506149ab9c3', true, now(), now(), 'Intern', 'Alleen voor T \\& A \\(Test\\) gebruik\\. Niet voor klanten', null),
-        (7, '16ed55a4-f105-47ba-9a65-2c4442806134', true, now(), now(), 'Wonen en bouwen', '', null);
+       (6, 'c79c9cd6-a5dd-459b-a15e-6506149ab9c3', true, now(), now(), 'Intern', 'Alleen voor T \\& A \\(Test\\) gebruik\\. Niet voor klanten', null),
+       (7, '16ed55a4-f105-47ba-9a65-2c4442806134', true, now(), now(), 'Wonen en bouwen', '', null),
+       (8, '86f35f43-75c8-4bd2-969d-457874f84f60', true, now(), now(), 'Erfpacht', '', null);
 
 /* add schema */
 INSERT INTO public.producttypen_jsonschema(id, naam, schema)
@@ -170,7 +171,46 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
   },
   "description": "Schema voor het opslaan van woonwagen data",
   "additionalProperties": false
-}');
+}'),
+        (7, 'erfpachtdata', '{
+  "type": "object",
+  "title": "erfpachtdata",
+  "examples": [
+    {
+      "status": "ingeschreven",
+      "inschrijfdatum": "2026-02-25T00:00:00+02:00",
+      "uitschrijfdatum": "2026-02-24T00:00:00+02:00"
+    }
+  ],
+  "required": [
+    "status",
+    "inschrijfdatum"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "ingeschreven",
+        "uitgeschreven"
+      ],
+      "type": "string",
+      "description": "Status van de inschrijving."
+    },
+    "inschrijfdatum": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Inschrijfdatum voor de wachtlijst"
+    },
+    "uitschrijfdatum": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Uitschrijfdatum voor de wachtlijst"
+    }
+  },
+  "description": "Schema voor het opslaan van erfpacht data",
+  "additionalProperties": false
+}'
+       );
+
 
 /* add producttype*/
 INSERT INTO public.producttypen_producttype(id, uuid, aanmaak_datum, update_datum, code,
@@ -183,7 +223,12 @@ VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', now(), now(), 'PARKEREN', '{g
        (3, 'cf89c88d-8310-41d4-9776-786ae13235c8',  now(), now(), 'BELASTINGZAKEN', '{gereed}',
         '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5, null, now() - INTERVAL '1 DAYS', 'Belastingbetaler'),
        (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  now(), now(), 'GENERIEK-PRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
-        '{intern,testen}', 'intern', 6, 1, null, null, now() - INTERVAL '1 DAYS', 'Testers');
+        '{intern,testen}', 'intern', 6, 1, null, null, now() - INTERVAL '1 DAYS', 'Testers'),
+        (5, '6492ab26-38ab-42d5-91f5-7a76db178d52',  now(), now(), 'ERFPACHT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
+            '{intern,testen}', 'intern', 7, 308, null, null, now() - INTERVAL '1 DAYS', 'Testers'),
+        (6, '2e412f7f-feb3-4a04-bcbd-2cdab45a8ef9',  now(), now(), 'WOONWAGENSTANDPLAATS', '{gereed,actief,ingetrokken,geweigerd, verlopen}',
+            '{woonwagenstandplaats,testen}', 'woonwagenstandplaats', 6, 1178, null, null, now() - INTERVAL '1 DAYS', 'Testers');
+
 
 /* add zaaktype */
 INSERT INTO public.producttypen_zaaktype(producttype_id, url, urn)
@@ -204,7 +249,9 @@ VALUES (1, 'nl', 'Parkeren', 'samenvatting translatie', 1),
        (4, 'en', 'CityPass', 'samenvatting translatie', 2),
        (5, 'nl', 'Belastingzaken', 'samenvatting translatie', 3),
        (6, 'en', 'Taxes', 'samenvatting translatie', 3),
-       (7, 'nl', 'GeneriekProduct', 'samenvatting translatie', 4);
+       (7, 'nl', 'GeneriekProduct', 'samenvatting translatie', 4),
+       (8, 'nl', 'Erfpacht', 'samenvatting translatie', 5),
+       (9, 'nl', 'Woonwagenstandplaats', 'samenvatting translatie', 6);
 
 /* add actie*/
 INSERT INTO public.producttypen_actie(id, uuid, naam, dmn_tabel_id, dmn_config_id, producttype_id, direct_url, mapping)
@@ -327,7 +374,9 @@ VALUES (1, '0a9ff804-d151-477b-81aa-09e16f3064d9', 'https://gemeente.open-produc
 INSERT INTO public.producttypen_producttype_themas(producttype_id, thema_id)
 VALUES (1, 3),
        (2, 5),
-       (4, 6);
+       (4, 6),
+       (5, 8),
+        (6, 7);
 
 /* add producttype_organisaties */
 INSERT INTO public.producttypen_producttype_organisaties(producttype_id, organisatie_id)
