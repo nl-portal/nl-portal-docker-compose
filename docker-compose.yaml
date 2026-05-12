@@ -126,8 +126,8 @@ services:
     openklant-2-db:
         image: postgres:15
         container_name: openklant-2-db
-        ports:
-            - "54329:5432"
+        #ports:
+        #    - "54329:5432"
         profiles:
             - zgw
             - openklant
