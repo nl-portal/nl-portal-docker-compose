@@ -91,7 +91,7 @@ services:
           - ./imports/open-zaak:/docker-entrypoint-initdb.d
 
     openklant-2:
-        image: maykinmedia/open-klant:2.12.1
+        image: maykinmedia/open-klant:2.16.0
         build: .
         container_name: openklant-2
         profiles:
@@ -126,6 +126,8 @@ services:
     openklant-2-db:
         image: postgres:15
         container_name: openklant-2-db
+        ports:
+            - "54329:5432"
         profiles:
             - zgw
             - openklant
