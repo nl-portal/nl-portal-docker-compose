@@ -22,9 +22,9 @@ VALUES (1, '1a25f58c-8e7b-425f-b466-7e6f8ca1268b', true, now(), now(), 'Hoofdthe
        (3, 'b95cfbf6-8578-410b-b108-a42fd20af843', true, now(), now(), 'Parkeren', 'Parkeren thema', 2),
        (4, '41f71c2e-9e0c-4a1b-8d39-709669b256c2', true, now(), now(), 'Belastingzaken', 'Belastingzaken thema', null),
        (5, '17d21ea4-7fa7-4532-88cd-081c089000f3', true, now(), now(), 'Inkomensondersteuning', 'Sociaal domein', null),
-        (6, 'c79c9cd6-a5dd-459b-a15e-6506149ab9c3', true, now(), now(), 'Intern', 'Alleen voor T \\& A \\(Test\\) gebruik\\. Niet voor klanten', null),
-        (7, '16ed55a4-f105-47ba-9a65-2c4442806134', true, now(), now(), 'Wonen en bouwen', '', null),
-        (8, '86f35f43-75c8-4bd2-969d-457874f84f60', true, now(), now(), 'Erfpacht', '', null);
+       (6, 'c79c9cd6-a5dd-459b-a15e-6506149ab9c3', true, now(), now(), 'Intern', 'Alleen voor T \\& A \\(Test\\) gebruik\\. Niet voor klanten', null),
+       (7, '16ed55a4-f105-47ba-9a65-2c4442806134', true, now(), now(), 'Wonen en bouwen', '', null),
+       (8, '86f35f43-75c8-4bd2-969d-457874f84f60', true, now(), now(), 'Erfpacht', '', null);
 
 /* add schema */
 INSERT INTO public.producttypen_jsonschema(id, naam, schema)
@@ -211,28 +211,30 @@ VALUES (1, 'parkeervergunning-verbruiksobject', '{
 }'
        );
 
+
 /* add producttype*/
-INSERT INTO public.producttypen_producttype(id, uuid, gepubliceerd, aanmaak_datum, update_datum, code,
+INSERT INTO public.producttypen_producttype(id, uuid, aanmaak_datum, update_datum, code,
                                             toegestane_statussen, keywords, interne_opmerkingen, dataobject_schema_id,
-                                            uniforme_product_naam_id, verbruiksobject_schema_id)
-VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', true, now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2,
-        793, 1),
-       (2, '43633c6c-2d9a-46c8-9051-112418102254', true, now(), now(), 'STADSPAS', '{gereed}', '{ooievaarspas, gzac}',
-        'Stadspas Den Haag', 3, 941, null),
-       (3, 'cf89c88d-8310-41d4-9776-786ae13235c8', true, now(), now(), 'BELASTINGZAKEN', '{gereed}',
-        '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5),
-       (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  true,now(), now(), 'GENERIEK-PRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
-        '{intern,testen}', 'intern', 6, 1, null),
-       (5, '6492ab26-38ab-42d5-91f5-7a76db178d52',  true,now(), now(), 'ERFPACHT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
-        '{intern,testen}', 'intern', 7, 308, null),
-       (6, '2e412f7f-feb3-4a04-bcbd-2cdab45a8ef9',  true,now(), now(), 'WOONWAGENSTANDPLAATS', '{gereed,actief,ingetrokken,geweigerd, verlopen}',
-        '{woonwagenstandplaats,testen}', 'woonwagenstandplaats', 6, 1178, null);
+                                            uniforme_product_naam_id, verbruiksobject_schema_id, publicatie_eind_datum, publicatie_start_datum, doelgroep)
+VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2,
+        793, 1, null, now() - INTERVAL '1 DAYS', 'Parkeerders'),
+       (2, '43633c6c-2d9a-46c8-9051-112418102254',  now(), now(), 'STADSPAS', '{gereed}', '{ooievaarspas, gzac}',
+        'Stadspas Den Haag', 3, 941, null, null, now() - INTERVAL '1 DAYS', 'Stadspashouders'),
+       (3, 'cf89c88d-8310-41d4-9776-786ae13235c8',  now(), now(), 'BELASTINGZAKEN', '{gereed}',
+        '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5, null, now() - INTERVAL '1 DAYS', 'Belastingbetaler'),
+       (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  now(), now(), 'GENERIEK-PRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
+        '{intern,testen}', 'intern', 6, 1, null, null, now() - INTERVAL '1 DAYS', 'Testers'),
+        (5, '6492ab26-38ab-42d5-91f5-7a76db178d52',  now(), now(), 'ERFPACHT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
+            '{intern,testen}', 'intern', 7, 308, null, null, now() - INTERVAL '1 DAYS', 'Testers'),
+        (6, '2e412f7f-feb3-4a04-bcbd-2cdab45a8ef9',  now(), now(), 'WOONWAGENSTANDPLAATS', '{gereed,actief,ingetrokken,geweigerd, verlopen}',
+            '{woonwagenstandplaats,testen}', 'woonwagenstandplaats', 6, 1178, null, null, now() - INTERVAL '1 DAYS', 'Testers');
 
 
 /* add zaaktype */
-INSERT INTO public.producttypen_zaaktype(id, uuid, producttype_id)
-VALUES (1, '744ca059-f412-49d4-8963-5800e4afd486', 1),
-       (2, '0f71d469-782a-4e65-8101-c1e70c272c13', 2);
+INSERT INTO public.producttypen_zaaktype(producttype_id, url, urn)
+VALUES (  1, 'http://host.docker.internal:8001/catalogi/api/v1/zaaktypen/b287a6fa-49af-4939-a72f-8307603898b9', 'b287a6fa49af4939a72f-8307603898b9'),
+       (  2, 'http://host.docker.internal:8001/catalogi/api/v1/zaaktypen/b287a6fa-49af-4939-a72f-8307603898b9', 'b287a6fa-49af-4939-a72f-8307603898b0'),
+       (  4, 'http://host.docker.internal:8001/catalogi/api/v1/zaaktypen/b287a6fa-49af-4939-a72f-8307603898b9', 'b287a6fa-49af-4939-a72f-8307603898b0');
 
 /* add externe code */
 INSERT INTO public.producttypen_externecode(id, uuid, naam, code, producttype_id)
@@ -252,8 +254,8 @@ VALUES (1, 'nl', 'Parkeren', 'samenvatting translatie', 1),
        (9, 'nl', 'Woonwagenstandplaats', 'samenvatting translatie', 6);
 
 /* add actie*/
-INSERT INTO public.producttypen_actie(id, uuid, naam, dmn_tabel_id, dmn_config_id, producttype_id, mapping)
-VALUES (1, '082d143f-6a53-4e08-bc3c-0488b3b490e4', 'watkanikregelen-parkeren', 'alg-parkeren', 1, 1, '{
+INSERT INTO public.producttypen_actie(id, uuid, naam, dmn_tabel_id, dmn_config_id, producttype_id, direct_url, mapping)
+VALUES (1, '082d143f-6a53-4e08-bc3c-0488b3b490e4', 'watkanikregelen-parkeren', 'alg-parkeren', 1, 1, '', '{
   "product": [
     {
       "name": "pid",
@@ -279,7 +281,7 @@ VALUES (1, '082d143f-6a53-4e08-bc3c-0488b3b490e4', 'watkanikregelen-parkeren', '
     }
   ]
 }'),
-       (2, '2435b986-7742-4cef-91f2-e1162c2f19c9', 'watkanikregelen-belastingen', 'alg-belastingen', 1, 1, '{
+       (2, '2435b986-7742-4cef-91f2-e1162c2f19c9', 'watkanikregelen-belastingen', 'alg-belastingen', 1, 1, '', '{
          "product": [
            {
              "name": "pid",
@@ -319,9 +321,9 @@ INSERT INTO public.producttypen_contentlabel(id, uuid, naam)
 VALUES (1, '6d9cab7b-311e-44b7-828e-eabbdf139724', 'naam');
 
 /* add contentelementtranslation */
-INSERT INTO public.producttypen_contentelementtranslation(id, language_code, content, master_id)
-VALUES (1, 'nl', 'test data', 1),
-       (2, 'en', 'test data English', 1);
+INSERT INTO public.producttypen_contentelementtranslation(id, language_code, content, master_id, aanvullende_informatie)
+VALUES (1, 'nl', 'test data', 1, 'Aanvullende test informatie'),
+       (2, 'en', 'test data English', 1, 'Extra test information');
 
 /* add contentelement_labels */
 INSERT INTO public.producttypen_contentelement_labels(contentelement_id, contentlabel_id)

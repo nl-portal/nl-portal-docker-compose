@@ -75,20 +75,20 @@ services:
             - openzaak-private-media:/app/private-media # persist data even if container shuts down
 
     openzaak-database:
-      image: postgis/postgis:15-3.5
-      container_name: openzaak-database
-      platform: linux/amd64
-      ports:
-          - "8091:5432"
-      profiles:
-          - zgw
-          - openzaak
-      environment:
-          - POSTGRES_USER=openzaak
-          - POSTGRES_PASSWORD=openzaak
-          - POSTGRES_DB=openzaak
-      volumes:
-          - ./imports/open-zaak:/docker-entrypoint-initdb.d
+        image: postgis/postgis:15-3.5
+        container_name: openzaak-database
+        platform: linux/amd64
+        ports:
+            - "8091:5432"
+        profiles:
+            - zgw
+            - openzaak
+        environment:
+            - POSTGRES_USER=openzaak
+            - POSTGRES_PASSWORD=openzaak
+            - POSTGRES_DB=openzaak
+        volumes:
+            - ./imports/open-zaak:/docker-entrypoint-initdb.d
 
     openklant-2:
         image: maykinmedia/open-klant:2.16.0
@@ -369,7 +369,7 @@ services:
             - "5011:5010"
 
     openproduct:
-        image: maykinmedia/open-product:1.3.0
+        image: maykinmedia/open-product:1.7.1
         container_name: openproduct
         profiles:
             - zgw
@@ -388,7 +388,7 @@ services:
             - CACHE_DEFAULT=zgw-redis:6379/0
             - CELERY_BROKER_URL=zgw-redis:6379/1
             - CELERY_RESULT_BACKEND=zgw-redis:6379/1
-          # Only allow all hosts for development/testing purposes!
+            # Only allow all hosts for development/testing purposes!
             - ALLOWED_HOSTS=*
             - DISABLE_2FA=true
         depends_on:
@@ -397,16 +397,6 @@ services:
         volumes:
             - ./imports/openproduct/init:/app/init
         command: sh /app/init/init.sh
-
-    openproduct-celery:
-        image: maykinmedia/open-product:1.3.0
-        container_name: openproduct-celery
-        profiles:
-            - zgw
-            - openproduct
-        platform: linux/amd64
-        environment: *open-product-env
-        command: /celery_worker.sh
 
     openproduct-database:
         image: postgres:17
