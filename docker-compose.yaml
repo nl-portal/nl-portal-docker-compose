@@ -91,7 +91,7 @@ services:
             - ./imports/open-zaak:/docker-entrypoint-initdb.d
 
     openklant-2:
-        image: maykinmedia/open-klant:2.12.1
+        image: maykinmedia/open-klant:2.16.0
         build: .
         container_name: openklant-2
         profiles:
@@ -118,14 +118,17 @@ services:
             - CELERY_RESULT_BACKEND=redis://zgw-redis:6379/1
             - DISABLE_2FA=true
             - RUN_SETUP_CONFIG=true
+            - OTEL_SDK_DISABLED=true
         volumes:
             - ./imports/openklant-2/init/data.yaml:/app/data.yaml
             - ./imports/openklant-2/init:/app/init
         command: sh /app/init/init.sh
 
     openklant-2-db:
-        image: postgres:15
+        image: postgres:18
         container_name: openklant-2-db
+        #ports:
+        #    - "54329:5432"
         profiles:
             - zgw
             - openklant
