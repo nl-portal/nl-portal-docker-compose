@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /* add product */
-INSERT INTO public.producten_product(id, uuid, naam, gepubliceerd, aanmaak_datum, update_datum, start_datum, eind_datum, status, prijs, frequentie, verbruiksobject, dataobject, producttype_id)
+INSERT INTO public.producten_product(id, uuid, naam, gepubliceerd, aanmaak_datum, update_datum, start_datum, eind_datum, status, prijs, frequentie, verbruiksobject, dataobject, producttype_id, aanvraag_zaak_url)
 VALUES (1, '694242af-d906-470b-b7e1-eb3527886854', 'Parkeren', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '20.20', 'eenmalig', '{
   "data":{
     "periodes":[
@@ -33,14 +33,15 @@ VALUES (1, '694242af-d906-470b-b7e1-eb3527886854', 'Parkeren', true, now(), now(
   },
   "soort":"milieuzoneOldtimerPeriodes",
   "productInstantie":"62aa1bbb-4055-4df9-91e6-1c6171348044"
-}', null, 1),
-        (2, '55633677-fef4-4ed2-99a4-13efc3360448', 'Parkeren 2', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '20.20', 'eenmalig', null, null, 1),
-        (3, '55515634-bf7d-4f2e-8b30-6bbcc0f8bfdc', 'Parkeren 3', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '20.20', 'eenmalig', null, null, 1),
-        (4, 'b4addadd-71df-45a9-8559-fca53fc79339', 'Belastingzaken', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '0.20', 'eenmalig', null, null, 3),
-        (5, '0f30ac0d-8f53-4326-b384-e1021d262c6c', 'Ooievaarpas', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '0.20', 'eenmalig', null, null, 2),
-        (6, '8e820244-f1eb-45d2-b1bd-0a194e93bb33', 'Product voor testautomatisering', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '666.99', 'jaarlijks', null, null, 4),
-        (7, '94670b32-354b-48ec-8f7e-8ce0c6c936ec', 'Eerst product voor Erfpacht', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '1599.00', 'jaarlijks', null, null, 5),
-        (8, '8c22ad39-7907-4b1a-b0e0-b96ea8aeef61', 'Wachtlijst woonwagen', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '1599.00', 'jaarlijks', null, null, 6);
+}', null, 1, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+       (2, '55633677-fef4-4ed2-99a4-13efc3360448', 'Parkeren 2', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '20.20', 'eenmalig', null, null, 1, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+       (3, '55515634-bf7d-4f2e-8b30-6bbcc0f8bfdc', 'Parkeren 3', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '20.20', 'eenmalig', null, null, 1, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+       (4, 'b4addadd-71df-45a9-8559-fca53fc79339', 'Belastingzaken', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '0.20', 'eenmalig', null, null, 3, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+       (5, '0f30ac0d-8f53-4326-b384-e1021d262c6c', 'Ooievaarpas', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '0.20', 'eenmalig', null, null, 2, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+        (6, '8e820244-f1eb-45d2-b1bd-0a194e93bb33', 'Product voor testautomatisering', true, now(), now()- INTERVAL '1 DAYS', now(),  now()+ INTERVAL '365 DAYS', 'actief', '666.99', 'jaarlijks', null, null, 4, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+        (7, '94670b32-354b-48ec-8f7e-8ce0c6c936ec', 'Eerst product voor Erfpacht', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '1599.00', 'jaarlijks', null, null, 5, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+        (8, '8c22ad39-7907-4b1a-b0e0-b96ea8aeef61', 'Wachtlijst woonwagen', true, now(), now(), now(),  now()+ INTERVAL '365 DAYS', 'actief', '1599.00', 'jaarlijks', null, null, 6, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2');
+
 
 /* add eigenaar */
 INSERT INTO public.producten_eigenaar(id, uuid, bsn, kvk_nummer, vestigingsnummer, klantnummer, product_id)
@@ -54,12 +55,17 @@ VALUES (1, '104dd54c-4464-45f2-9781-9df2c59a35ed', '999993847', '', '', '', 1),
        (8, 'ad00a6d2-9754-48a6-b2d3-a6313c4821c0', '999993847', '', '', '', 8);
 
 /* add zaken */
-INSERT INTO public.producten_zaak(id, uuid, product_id)
-VALUES (1, '703af290-abe0-418c-b9c3-10a65e662788', 1);
+INSERT INTO public.producten_zaak(id, product_id, url, urn)
+VALUES  (1, 1, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', 'urn:nld:dh:zrc:zaken:zaak:uuid:64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+        (2, 2, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', 'urn:nld:dh:zrc:zaken:zaak:uuid:64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+        (3, 3, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', 'urn:nld:dh:zrc:zaken:zaak:uuid:64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+        (4, 4, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', 'urn:nld:dh:zrc:zaken:zaak:uuid:64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+        (5, 5, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', 'urn:nld:dh:zrc:zaken:zaak:uuid:64eaf9ef-37b4-4898-acc9-ae47bee577a2'),
+         (6, 6, 'http://host.docker.internal:8001/zaken/api/v1/zaken/64eaf9ef-37b4-4898-acc9-ae47bee577a2', 'urn:nld:dh:zrc:zaken:zaak:uuid:64eaf9ef-37b4-4898-acc9-ae47bee577a2');
 
 /* add taken */
-INSERT INTO public.producten_taak(id, uuid, product_id)
-VALUES (1, '4b5f4fba-0746-11ed-b939-0242ac120023', 1);
+INSERT INTO public.producten_taak(id, product_id, url, urn)
+VALUES (1,  1, null, null);
 
 -- producten_product_id_seq
 SELECT pg_catalog.setval(
