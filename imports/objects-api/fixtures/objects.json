@@ -428,7 +428,7 @@
                 "portaalformulier": {
                     "formulier": {
                         "soort": "url",
-                        "value": "http://host.docker.internal:8010/api/v2/objects/c0021527-7af0-48be-b38d-d8ba9ce8e2b6"
+                        "value": "http://localhost:8010/api/v2/objects/c0021527-7af0-48be-b38d-d8ba9ce8e2b6"
                     },
                     "data": {
                         "voornaam": "Jan",
