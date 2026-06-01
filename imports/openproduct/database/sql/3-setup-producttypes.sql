@@ -217,24 +217,24 @@ INSERT INTO public.producttypen_producttype(id, uuid, aanmaak_datum, update_datu
                                             toegestane_statussen, keywords, interne_opmerkingen, dataobject_schema_id,
                                             uniforme_product_naam_id, verbruiksobject_schema_id, publicatie_eind_datum, publicatie_start_datum, doelgroep)
 VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2,
-        793, 1, null, now() - INTERVAL '1 DAYS', 'Parkeerders'),
-       (2, '43633c6c-2d9a-46c8-9051-112418102254',  now(), now(), 'STADSPAS', '{gereed}', '{ooievaarspas, gzac}',
-        'Stadspas Den Haag', 3, 941, null, null, now() - INTERVAL '1 DAYS', 'Stadspashouders'),
+        793, 1, null, now() - INTERVAL '1 DAYS', 'burgers'),
+       (2, '43633c6c-2d9a-46c8-9051-112418102254',  now(), now(), 'INKOMENSONDERSTEUNING', '{gereed,actief,geweigerd}', '{ooievaarspas, gzac}',
+        'Stadspas Den Haag', 3, 941, null, null, now() - INTERVAL '1 DAYS', 'burgers'),
        (3, 'cf89c88d-8310-41d4-9776-786ae13235c8',  now(), now(), 'BELASTINGZAKEN', '{gereed}',
-        '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5, null, now() - INTERVAL '1 DAYS', 'Belastingbetaler'),
-       (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  now(), now(), 'GENERIEK-PRODUCT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
-        '{intern,testen}', 'intern', 6, 1, null, null, now() - INTERVAL '1 DAYS', 'Testers'),
+        '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5, null, now() - INTERVAL '1 DAYS', 'burgers'),
+       (4, '894c9dd1-5917-4955-b56c-04b576fb7f17',  now(), now(), 'STADSPAS', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
+        '{intern,testen}', 'intern', 6, 1, null, null, now() - INTERVAL '1 DAYS', 'burgers'),
         (5, '6492ab26-38ab-42d5-91f5-7a76db178d52',  now(), now(), 'ERFPACHT', '{gereed,actief,ingetrokken,geweigerd,verlopen}',
-            '{intern,testen}', 'intern', 7, 308, null, null, now() - INTERVAL '1 DAYS', 'Testers'),
+            '{intern,testen}', 'intern', 7, 308, null, null, now() - INTERVAL '1 DAYS', 'burgers'),
         (6, '2e412f7f-feb3-4a04-bcbd-2cdab45a8ef9',  now(), now(), 'WOONWAGENSTANDPLAATS', '{gereed,actief,ingetrokken,geweigerd, verlopen}',
-            '{woonwagenstandplaats,testen}', 'woonwagenstandplaats', 6, 1178, null, null, now() - INTERVAL '1 DAYS', 'Testers');
+            '{woonwagenstandplaats,testen}', 'woonwagenstandplaats', 6, 1178, null, null, now() - INTERVAL '1 DAYS', 'burgers');
 
 
 /* add zaaktype */
 INSERT INTO public.producttypen_zaaktype(producttype_id, url, urn)
-VALUES (  1, 'http://host.docker.internal:8001/catalogi/api/v1/zaaktypen/b287a6fa-49af-4939-a72f-8307603898b9', 'b287a6fa49af4939a72f-8307603898b9'),
-       (  2, 'http://host.docker.internal:8001/catalogi/api/v1/zaaktypen/b287a6fa-49af-4939-a72f-8307603898b9', 'b287a6fa-49af-4939-a72f-8307603898b0'),
-       (  4, 'http://host.docker.internal:8001/catalogi/api/v1/zaaktypen/b287a6fa-49af-4939-a72f-8307603898b9', 'b287a6fa-49af-4939-a72f-8307603898b0');
+VALUES (  1, 'http://host.docker.internal:8001/catalogi/api/v1/zaaktypen/b287a6fa-49af-4939-a72f-8307603898b9', 'urn:nld:dh:zrc:zaken:zaak:uuid:b287a6fa49af4939a72f-8307603898b9'),
+       (  2, 'http://host.docker.internal:8001/catalogi/api/v1/zaaktypen/b287a6fa-49af-4939-a72f-8307603898b9', 'urn:nld:dh:zrc:zaken:zaak:uuid:b287a6fa-49af-4939-a72f-8307603898b0'),
+       (  4, 'http://host.docker.internal:8001/catalogi/api/v1/zaaktypen/b287a6fa-49af-4939-a72f-8307603898b9', 'urn:nld:dh:zrc:zaken:zaak:uuid:b287a6fa-49af-4939-a72f-8307603898b0');
 
 /* add externe code */
 INSERT INTO public.producttypen_externecode(id, uuid, naam, code, producttype_id)
@@ -376,7 +376,7 @@ VALUES (1, 3),
        (2, 5),
        (4, 6),
        (5, 8),
-        (6, 7);
+       (6, 7);
 
 /* add producttype_organisaties */
 INSERT INTO public.producttypen_producttype_organisaties(producttype_id, organisatie_id)
