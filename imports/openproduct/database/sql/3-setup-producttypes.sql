@@ -374,7 +374,7 @@ VALUES (1, '0a9ff804-d151-477b-81aa-09e16f3064d9', 'https://gemeente.open-produc
 INSERT INTO public.producttypen_producttype_themas(producttype_id, thema_id)
 VALUES (1, 3),
        (2, 5),
-       (4, 6),
+       (4, 5),
        (5, 8),
        (6, 7);
 
