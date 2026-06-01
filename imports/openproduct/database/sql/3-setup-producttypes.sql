@@ -218,7 +218,7 @@ INSERT INTO public.producttypen_producttype(id, uuid, aanmaak_datum, update_datu
                                             uniforme_product_naam_id, verbruiksobject_schema_id, publicatie_eind_datum, publicatie_start_datum, doelgroep)
 VALUES (1, 'dee273e9-2aa8-40ae-84b7-cb7da3c075ba', now(), now(), 'PARKEREN', '{gereed}', '{parkeren, ibs}', '', 2,
         793, 1, null, now() - INTERVAL '1 DAYS', 'burgers'),
-       (2, '43633c6c-2d9a-46c8-9051-112418102254',  now(), now(), 'INKOMENSONDERSTEUNING', '{gereed,actief,geweigerd}', '{ooievaarspas, gzac}',
+       (2, '43633c6c-2d9a-46c8-9051-112418102254',  now(), now(), 'INKOMENSONDERSTEUNING', '{gereed,actief,ingetrokken,geweigerd,verlopen}', '{ooievaarspas, gzac}',
         'Stadspas Den Haag', 3, 941, null, null, now() - INTERVAL '1 DAYS', 'burgers'),
        (3, 'cf89c88d-8310-41d4-9776-786ae13235c8',  now(), now(), 'BELASTINGZAKEN', '{gereed}',
         '{belastingzaken, ibs}', 'Belastingzaken', 4, 433, 5, null, now() - INTERVAL '1 DAYS', 'burgers'),
